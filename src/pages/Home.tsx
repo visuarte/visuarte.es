@@ -7,6 +7,26 @@ import { useState, useEffect } from 'react';
 import { CyberPlayer } from '../components/ui/CyberPlayer';
 import { MinorityIcons } from '../components/ui/MinorityIcons';
 import { ServicePanel } from '../components/ui/ServicePanel';
+import { SEO } from '../components/ui/SEO';
+import { SocialShare } from '../components/ui/SocialShare';
+
+const JSON_LD = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VISUARTE",
+    "image": "https://visuarte.es/og-image.jpg",
+    "url": "https://visuarte.es",
+    "telephone": "+34616996306",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Valencia",
+        "addressCountry": "ES"
+    },
+    "description": "Productora Audiovisual & Digital especializada en WebGL y experiencias interactivas.",
+    "sameAs": [
+        "https://www.instagram.com/visuarte_printshop/"
+    ]
+};
 
 export default function Home() {
     const [showPlayer, setShowPlayer] = useState(false);
@@ -26,6 +46,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center min-h-[70vh] px-[var(--spacing-phi-2)]"
         >
+            <SEO jsonLd={JSON_LD} />
+            <SocialShare />
             <div className="mb-[var(--spacing-phi-1)] text-primary font-mono text-xs sm:text-sm tracking-widest">
                 <Typewriter text="SYSTEM INITIALIZED..." speed={50} />
             </div>

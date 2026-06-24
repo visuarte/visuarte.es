@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { PROJECTS } from '../constants';
 import { Typewriter } from '../components/ui/Typewriter';
 import { useEffect, useState } from 'react';
+import { SEO } from '../components/ui/SEO';
+import { SocialShare } from '../components/ui/SocialShare';
 
 export default function ProjectDetail() {
     const { id } = useParams();
@@ -29,6 +31,13 @@ export default function ProjectDetail() {
 
     return (
         <div className="min-h-screen pt-24 px-4 md:px-[var(--spacing-phi-2)] font-mono text-primary">
+            <SEO
+                title={project.title}
+                description={project.description?.substring(0, 160)}
+                ogImage={project.image}
+                ogType="article"
+            />
+            <SocialShare title={`Chequea este proyecto: ${project.title}`} />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

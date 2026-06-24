@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { NeonBorder } from '../components/ui/NeonBorder';
+import { SEO } from '../components/ui/SEO';
 
 export default function Work() {
     return (
@@ -12,6 +13,7 @@ export default function Work() {
             transition={{ duration: 0.5 }}
             className="pt-[var(--spacing-phi-3)] px-[var(--spacing-phi-2)]"
         >
+            <SEO title="Selected Works" description="Explora nuestros proyectos destacados en producción audiovisual y desarrollo interactivo." />
             <h2 className="text-[length:var(--text-phi-2xl)] font-display font-bold mb-[var(--spacing-phi-3)] text-primary">SELECTED WORKS</h2>
             <div className="grid grid-cols-1 md:golden-grid gap-[var(--spacing-phi-2)]">
                 {PROJECTS.map((project, index) => (

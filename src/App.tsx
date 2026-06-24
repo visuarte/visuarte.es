@@ -23,12 +23,16 @@ function AnimatedRoutes() {
   );
 }
 
+import { CosmosProvider } from './context/CosmosContext';
+
 function App() {
   return (
     <Router>
-      <Layout>
-        <AnimatedRoutes />
-      </Layout>
+      <CosmosProvider>
+        <Layout>
+          <AnimatedRoutes />
+        </Layout>
+      </CosmosProvider>
     </Router>
   );
 }

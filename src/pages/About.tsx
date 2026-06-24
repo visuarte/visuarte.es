@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { SolarSystemTravel } from '../components/effects/SolarSystemTravel';
 import { ServiceNexus } from '../components/ui/ServiceNexus';
 import { AboutHeader, AboutSideInfo } from '../components/ui/AboutComponents';
+import { SEO } from '../components/ui/SEO';
 
 export default function About() {
     return (
@@ -12,6 +13,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative min-h-[90vh] flex flex-col justify-center px-[var(--spacing-phi-3)] py-20 overflow-hidden"
         >
+            <SEO title="About Us" description="Conoce a VISUARTE, la productora digital que redefine la frontera entre arte y tecnología." />
             <SolarSystemTravel />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 items-end">

@@ -16,48 +16,39 @@ function Grid() {
         gridRef.current.position.z = (state.clock.elapsedTime * 2) % 10;
     });
 
-    const gridLines = useMemo(() => {
-        const lines: THREE.Vector3[][] = [];
+    const { positions, color } = useMemo(() => {
+        const points = [];
         const gridSize = 50;
-        const divisions = settings.gridDivisions; // Adaptive grid density
+        const divisions = settings.gridDivisions;
         const step = gridSize / divisions;
 
-        // Create horizontal lines
         for (let i = -divisions; i <= divisions; i++) {
-            const points: THREE.Vector3[] = [];
-            points.push(new THREE.Vector3(-gridSize, 0, i * step));
-            points.push(new THREE.Vector3(gridSize, 0, i * step));
-            lines.push(points);
+            points.push(-gridSize, 0, i * step, gridSize, 0, i * step);
+            points.push(i * step, 0, -gridSize, i * step, 0, gridSize);
         }
 
-        // Create vertical lines
-        for (let i = -divisions; i <= divisions; i++) {
-            const points: THREE.Vector3[] = [];
-            points.push(new THREE.Vector3(i * step, 0, -gridSize));
-            points.push(new THREE.Vector3(i * step, 0, gridSize));
-            lines.push(points);
-        }
-        return lines;
+        return {
+            positions: new Float32Array(points),
+            color: new THREE.Color(TRON_COLORS.cyan)
+        };
     }, []);
 
     return (
         <group ref={gridRef} rotation={[-Math.PI / 2.5, 0, 0]} position={[0, -5, -10]}>
-            {gridLines.map((points, i) => (
-                <line key={i}>
-                    <bufferGeometry>
-                        <bufferAttribute
-                            attach="attributes-position"
-                            args={[new Float32Array(points.flatMap(p => [p.x, p.y, p.z])), 3]}
-                        />
-                    </bufferGeometry>
-                    <lineBasicMaterial
-                        color={TRON_COLORS.cyan}
-                        transparent
-                        opacity={0.3}
-                        blending={THREE.AdditiveBlending}
+            <lineSegments>
+                <bufferGeometry>
+                    <bufferAttribute
+                        attach="attributes-position"
+                        args={[positions, 3]}
                     />
-                </line>
-            ))}
+                </bufferGeometry>
+                <lineBasicMaterial
+                    color={color}
+                    transparent
+                    opacity={0.3}
+                    blending={THREE.AdditiveBlending}
+                />
+            </lineSegments>
         </group>
     );
 }
@@ -73,23 +64,25 @@ function LightCycles() {
         });
     });
 
-    const lightCycleCount = settings.enableAdvancedEffects ? 3 : 1; // Fewer light cycles on mobile
+    const lightCycleCount = settings.enableAdvancedEffects ? 2 : 1; // Simplified count
 
     return (
         <group ref={cyclesRef}>
             {Array.from({ length: lightCycleCount }).map((_, i) => (
                 <mesh key={i} position={[0, -3, 0]}>
-                    <boxGeometry args={[0.1, 0.1, 2]} />
+                    <boxGeometry args={[0.08, 0.08, 1.5]} />
                     <meshBasicMaterial
                         color={i === 1 ? TRON_COLORS.orange : TRON_COLORS.cyan}
                         transparent
-                        opacity={0.8}
+                        opacity={0.6}
                     />
-                    <pointLight
-                        color={i === 1 ? TRON_COLORS.orange : TRON_COLORS.cyan}
-                        intensity={2}
-                        distance={5}
-                    />
+                    {!settings.enableAdvancedEffects && settings.starCount > 1000 ? (
+                        <pointLight
+                            color={i === 1 ? TRON_COLORS.orange : TRON_COLORS.cyan}
+                            intensity={1.5}
+                            distance={4}
+                        />
+                    ) : null}
                 </mesh>
             ))}
         </group>
@@ -97,13 +90,34 @@ function LightCycles() {
 }
 
 export function TronGrid() {
+    if (settings.disableWebGL) {
+        return (
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" style={{ background: TRON_COLORS.darkBlue }}>
+                <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                        backgroundImage: `linear-gradient(${TRON_COLORS.cyan} 1px, transparent 1px), linear-gradient(90deg, ${TRON_COLORS.cyan} 1px, transparent 1px)`,
+                        backgroundSize: '40px 40px',
+                    }}
+                />
+            </div>
+        );
+    }
+
     return (
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" style={{ background: TRON_COLORS.darkBlue }}>
             <Canvas camera={{ position: [0, 5, 10], fov: 60 }} dpr={settings.dpr}>
                 <fog attach="fog" args={[TRON_COLORS.darkBlue, 10, 50]} />
-                <Grid />
-                <LightCycles />
-                <ambientLight intensity={0.1} />
+                {!settings.isBarebones ? (
+                    <>
+                        <Grid />
+                        <LightCycles />
+                        <ambientLight intensity={0.1} />
+                    </>
+                ) : (
+                    // On barebones, we show a static simplified version or nothing
+                    <ambientLight intensity={0.05} />
+                )}
             </Canvas>
 
             {/* Scanlines overlay */}
