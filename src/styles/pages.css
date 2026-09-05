@@ -425,8 +425,102 @@
   opacity: 0.06;
 }
 
+/* ── Audiovisual (cine) ──────────────────────────────────────── */
+.marcas-fila {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: 0;
+}
+
+.marcas-fila li {
+  font-family: var(--font-poster);
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: var(--space-xs) var(--space-md);
+  opacity: 0.92;
+}
+
+.tabla-cv {
+  border-top: 1px solid var(--line);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  color: var(--ink);
+  transition: background 0.15s ease;
+}
+
+a.fila:hover {
+  background: color-mix(in srgb, var(--surface-2) 50%, transparent);
+}
+
+.f-marca {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.f-rol {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.f-anio {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.lista-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-simple li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.lista-simple a {
+  color: var(--ink);
+  font-weight: 600;
+}
+.lista-simple a:hover {
+  color: var(--accent);
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 720px) {
+  .fila {
+    grid-template-columns: 1fr auto;
+  }
+  .f-rol {
+    grid-column: 1;
+  }
+  .f-anio {
+    grid-row: 1;
+    grid-column: 2;
+  }
   .obra-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);

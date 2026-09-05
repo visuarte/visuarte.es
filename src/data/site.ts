@@ -166,20 +166,84 @@ export const servicios = [
   },
 ];
 
-// ── Contacto (CONFIRMAR con Diego antes de publicar beta) ──────
+// ── Contacto (confirmado: tel/email salen del CV público de gaffer) ──
 export const contacto = {
   marca: 'VISUARTE',
   eslogan: 'Diseño, imprenta y producción.',
-  // TODO Diego: confirmar datos reales (tel / email / base / redes)
-  telefono: '',
-  email: '',
+  // TODO Diego: confirmar (datos tomados del CV público de gaffer, 2026)
+  telefono: '616 996 306',
+  email: 'visuarte.creativos@gmail.com',
   base: '',
   instagram: '@visuarte_printshop',
   instagramUrl: 'https://www.instagram.com/visuarte_printshop/',
 };
 
+// ── Audiovisual: trayectoria real de Diego (CV gaffer, portfolio/cv) ──
+export const cine = {
+  nombre: 'Diego Gómez García',
+  rol: 'Gaffer · Iluminación para producto, moda y narrativa',
+  imdb: 'https://www.imdb.com/name/nm13809776/',
+  perfil:
+    'Gaffer con 3 años de experiencia en spots publicitarios y 5 en audiovisual (spots, cine y videoclips). Especializado en iluminación para producto, moda y narrativa visual. Trabajo habitual con LED, fresnel, DMX y control inalámbrico. Acostumbrado a rodajes de alto ritmo publicitario con equipos reducidos y deadlines ajustados.',
+  marcas: [
+    'OPEL',
+    'ELPOZO',
+    "JACK DANIEL'S",
+    'TENA',
+    'PC COMPONENTES',
+    'CARLOS ALCARAZ',
+    'HELP FLASH',
+    'MR MONTALBÁN',
+  ],
+  spots: [
+    { marca: 'OPEL', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/shorts/l5VvmxEHTjE' },
+    { marca: 'HELP FLASH', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=NEFUlfmMiM0' },
+    { marca: 'ELPOZO — Selección Española', anio: '2026', rol: '2ª Unidad', url: 'https://www.youtube.com/watch?v=NzsnG_pinXI' },
+    { marca: 'ELPOZO x Viva Suecia', anio: '2026', rol: 'Cámara + Ayte. Iluminación', url: 'https://www.youtube.com/watch?v=r4V2MTyIfj8' },
+    { marca: 'PC Componentes — 20 aniversario', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ZSfy8xhuWaA' },
+    { marca: 'Carlos Alcaraz — Turismo Murcia', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=-0rwMZ5uEPk' },
+    { marca: "Jack Daniel's — Proximity", anio: '2024', rol: 'Best Boy', url: 'https://www.youtube.com/watch?v=xgkFQKmcPVc' },
+    { marca: 'Mr Montalbán', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=CLHNhlggnzI' },
+    { marca: 'Tena Discreet', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=TtSYEAkYjVE' },
+    { marca: 'Yasss Orenes', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=1bXkHgNySXQ' },
+    { marca: 'Limonar de Santomera', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ylUlwpu53fg' },
+    { marca: 'Ravetllat Aromatics', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=Scf5yMDOJYg' },
+    { marca: 'Apupabet', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=HeiAX9rph8s' },
+  ],
+  cineFiccion: [
+    { titulo: 'SECUESTRO', anio: '2026', rol: 'Refuerzo de eléctricos', tipo: 'Película · LASTOR MEDIA' },
+    { titulo: 'MAKING OF', anio: '2025', rol: 'Gaffer', tipo: 'Serie · Estudio Áurea · 27 jornadas' },
+    { titulo: 'FUGA', anio: '2025', rol: 'Gaffer', tipo: 'Película · A Poco a Poco' },
+    { titulo: 'BESOS ROBADOS', anio: '2024-25', rol: 'Gaffer', tipo: 'Película · A Poco a Poco + Ordet · 16 jornadas' },
+    { titulo: 'COMPAÑERXS', anio: '2025', rol: 'Dirección de fotografía', tipo: 'Corto · Casablanca Films' },
+    { titulo: 'SIN HUELLAS', anio: '2023', rol: 'Eléctrico', tipo: 'Serie · Prime Video' },
+    { titulo: 'TODOS', anio: '2023', rol: 'Gaffer', tipo: 'Largometraje' },
+    { titulo: 'FLECHAZO', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
+    { titulo: 'CONFINAMIENTO (HIPOXIA)', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
+    { titulo: 'LA MALDITA PRIMAVERA', anio: '2022', rol: 'Gaffer', tipo: 'Cortometraje' },
+    { titulo: 'FAST YOUTH', anio: '2023', rol: 'Gaffer', tipo: 'Short film · Creamurcia' },
+    { titulo: 'COTTON CANDY', anio: '2025', rol: 'Gaffer', tipo: 'Rodaje · 5 días' },
+  ],
+  videoclips: [
+    { titulo: 'Viva Suecia — Mala Prensa', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=SJZe9WkKcVc' },
+    { titulo: 'Arde Bogotá — Los Perros', rol: 'Best Boy', url: 'https://www.youtube.com/watch?v=iy-X7U6Znm0' },
+  ],
+  equipo: [
+    'Equipo completo de iluminación: LED, fresnel y DMX',
+    'Control DMX inalámbrico para setups rápidos',
+    'BlackMagic 6K Pro + Canon R8',
+    'Vehículo propio para transporte de equipo',
+  ],
+  formacion: [
+    'Técnico Superior en Realización de Audiovisuales y Espectáculos (2008-2010)',
+    'Técnico Superior en Gráfica Publicitaria (2005-2008)',
+    'Meritorio de arte en «La Mitad de Óscar» — Manuel Martín Cuenca (2010)',
+  ],
+};
+
 export const nav = [
   { nombre: 'Trabajo', path: '/trabajo' },
+  { nombre: 'Cine', path: '/cine' },
   { nombre: 'Estudio', path: '/estudio' },
   { nombre: 'Contacto', path: '/contacto' },
 ];

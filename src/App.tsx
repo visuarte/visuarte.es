@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Estudio from './pages/Estudio';
 import Trabajo from './pages/Trabajo';
 import Proyecto from './pages/Proyecto';
+import Cine from './pages/Cine';
 import Contacto from './pages/Contacto';
 
 const MOOD_POR_RUTA: Record<string, 'brasa' | 'llama'> = {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="estudio" element={<Estudio />} />
           <Route path="trabajo" element={<Trabajo />} />
           <Route path="trabajo/:id" element={<Proyecto />} />
+          <Route path="cine" element={<Cine />} />
           <Route path="contacto" element={<Contacto />} />
         </Route>
       </Routes>

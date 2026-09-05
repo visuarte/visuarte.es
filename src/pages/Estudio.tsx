@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { servicios } from '../data/site';
 
 const metodo = [
@@ -74,6 +75,28 @@ export default function Estudio() {
               <p>{s.texto}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="wrap section-tight">
+        <div className="sec-head">
+          <h2 className="display" style={{ fontSize: '1.5rem' }}>
+            Detrás: Diego, gaffer
+          </h2>
+          <span className="sec-num">04 — AUDIOVISUAL</span>
+        </div>
+        <p className="prose" style={{ maxWidth: 'none' }}>
+          Detrás del estudio está un gaffer con rodajes de spots, cine y
+          videoclips a sus espaldas: iluminación para OPEL, ELPOZO, Jack Daniel's,
+          TENA, PC Componentes o Carlos Alcaraz, y películas y series en Prime
+          Video. El audiovisual no se terceriza: se hace aquí.
+        </p>
+        <div className="tabla-cv" style={{ marginTop: 'var(--space-lg)' }}>
+          <Link className="fila" to="/cine">
+            <span className="f-marca">Ver la trayectoria completa de cine ↗</span>
+            <span className="f-rol">spots · cine · videoclips</span>
+            <span className="f-anio">/cine</span>
+          </Link>
         </div>
       </section>
     </>
