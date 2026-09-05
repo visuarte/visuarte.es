@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { servicios, proyectos, contacto } from '../data/site';
+import { servicios, proyectos, contacto, capaTitulo } from '../data/site';
 
 export default function Home() {
   const destacados = proyectos.slice(0, 3);
@@ -64,9 +64,9 @@ export default function Home() {
                 {p.numero} · {p.categoria}
               </span>
               <h3 className="titulo">{p.nombre}</h3>
-              <p className="mono" style={{ color: 'var(--muted)', margin: 0 }}>
-                {p.ambito} — {p.capa}
-              </p>
+              <span className={p.capa === 'cliente' ? 'chip chip-cliente' : 'chip chip-estudio'}>
+                {capaTitulo[p.capa]}
+              </span>
             </Link>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { proyectos } from '../data/site';
+import { proyectos, capaTitulo } from '../data/site';
 import { Link } from 'react-router-dom';
 
 export default function Trabajo() {
@@ -12,7 +12,8 @@ export default function Trabajo() {
       <p className="lede">
         Piezas propias y de clientes. Cada una con su marca; todas con el mismo
         método detrás: la pieza se piensa, se diseña, se imprime y se revisa antes
-        de entregarse.
+        de entregarse. El sello {`"`}cliente{`"`} es trabajo para otros; el sello{" "}
+        {`"`}estudio{`"`} es producto o servicio de la casa.
       </p>
 
       <div className="trabajo-lista" style={{ marginTop: 'var(--space-xl)' }}>
@@ -23,7 +24,9 @@ export default function Trabajo() {
             <span className="cat">
               {p.categoria}
               <br />
-              {p.capa}
+              <span className={p.capa === 'cliente' ? 'chip chip-cliente' : 'chip chip-estudio'}>
+                {capaTitulo[p.capa]}
+              </span>
             </span>
           </Link>
         ))}

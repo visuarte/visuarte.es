@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { proyectos } from '../data/site';
+import { proyectos, capaTitulo } from '../data/site';
 
 export default function Proyecto() {
   const { id } = useParams();
@@ -31,7 +31,7 @@ export default function Proyecto() {
           </div>
           <div className="meta-campo">
             <span className="clave">Marca</span>
-            <div className="valor">{p.capa === 'cliente' ? 'Cliente' : 'Del estudio'}</div>
+            <div className="valor">{capaTitulo[p.capa]}</div>
           </div>
         </div>
       </div>

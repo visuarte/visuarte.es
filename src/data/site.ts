@@ -3,12 +3,26 @@
 // Todo el texto del sitio vive aquí. Nada de copy suelto en JSX.
 // ═══════════════════════════════════════════════════════════════
 
+export type Capa = 'cliente' | 'producto' | 'servicio';
+
+export const capaTitulo: Record<Capa, string> = {
+  cliente: 'Trabajo de cliente',
+  producto: 'Producto del estudio',
+  servicio: 'Servicio del estudio',
+};
+
+export const capaChip: Record<Capa, string> = {
+  cliente: 'CLIENTE',
+  producto: 'ESTUDIO',
+  servicio: 'ESTUDIO',
+};
+
 export interface Proyecto {
   id: string;
   numero: string; // "01"
   nombre: string;
   categoria: string; // sello / capa: qué es
-  capa: 'cliente' | 'producto' | 'servicio';
+  capa: Capa;
   ambito: string;
   servicio: string;
   resumen: string;
