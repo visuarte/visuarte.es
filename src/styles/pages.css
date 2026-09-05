@@ -29,9 +29,28 @@
   padding: var(--space-2xl) 0 var(--space-xl);
 }
 
+/* dos columnas: texto + imagotipo (llena el hueco de la derecha) */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-visual {
+  display: grid;
+  place-items: center;
+}
+
+.hero-visual img {
+  width: min(400px, 34vw);
+  height: auto;
+  opacity: 0.95;
+}
+
 .hero-title {
   font-size: clamp(2.4rem, 6vw, 4.6rem);
-  max-width: 20ch;
+  max-width: 18ch;
 }
 
 .hero-title em {
@@ -523,7 +542,39 @@ a.fila:hover {
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-visual {
+    display: none;
+  }
+}
+
 @media (max-width: 720px) {
+  /* header compacto: no desborda en móvil */
+  .site-header-inner {
+    gap: var(--space-sm);
+  }
+  .brand-mark {
+    height: 24px;
+  }
+  .brand-txt {
+    font-size: 0.82rem;
+  }
+  .brand-txt-sub {
+    display: none; /* STUDIO se oculta en pantallas estrechas */
+  }
+  .main-nav {
+    gap: 0.65rem;
+  }
+  .main-nav a {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+  .wrap {
+    padding: 0 var(--space-md);
+  }
   .fila {
     grid-template-columns: 1fr auto;
   }

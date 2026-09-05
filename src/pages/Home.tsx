@@ -6,25 +6,32 @@ export default function Home() {
   return (
     <>
       <section className="wrap hero">
-        <p className="eyebrow">
-          Estudio de diseño · imprenta · audiovisual · digital
-        </p>
-        {/* TODO Diego: claim definitivo — desvinculado del vocabulario Academia */}
-        <h1 className="display hero-title">
-          La idea, el trazo y <em>la pieza impresa.</em>
-        </h1>
-        <p className="lede hero-lede">
-          {contacto.marca} es un estudio donde la identidad se piensa, se diseña,
-          se imprime y se cuelga. Del papel al foco, del vinilo a la pantalla —
-          piezas que se ven antes de imprimirse y se revisan antes de entregarse.
-        </p>
-        <div className="hero-meta">
-          <Link to="/trabajo" className="btn">
-            Ver el trabajo
-          </Link>
-          <Link to="/contacto" className="btn btn-ghost">
-            Hablar con el estudio
-          </Link>
+        <div className="hero-grid">
+          <div>
+            <p className="eyebrow">
+              Estudio de diseño · imprenta · audiovisual · digital
+            </p>
+            {/* TODO Diego: claim definitivo — desvinculado del vocabulario Academia */}
+            <h1 className="display hero-title">
+              La idea, el trazo y <em>la pieza impresa.</em>
+            </h1>
+            <p className="lede hero-lede">
+              {contacto.marca} es un estudio donde la identidad se piensa, se diseña,
+              se imprime y se cuelga. Del papel al foco, del vinilo a la pantalla —
+              piezas que se ven antes de imprimirse y se revisan antes de entregarse.
+            </p>
+            <div className="hero-meta">
+              <Link to="/trabajo" className="btn">
+                Ver el trabajo
+              </Link>
+              <Link to="/contacto" className="btn btn-ghost">
+                Hablar con el estudio
+              </Link>
+            </div>
+          </div>
+          <div className="hero-visual" aria-hidden="true">
+            <img src="/logo/imagotipo-visuarte.png" alt="" />
+          </div>
         </div>
       </section>
 
