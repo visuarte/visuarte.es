@@ -9,14 +9,14 @@ export default function Home() {
         <p className="eyebrow">
           Estudio de diseño · imprenta · audiovisual · digital
         </p>
-        {/* TODO Diego: claim definitivo */}
+        {/* TODO Diego: claim definitivo — desvinculado del vocabulario Academia */}
         <h1 className="display hero-title">
-          La semilla, el canon y <em>la pieza impresa.</em>
+          La idea, el trazo y <em>la pieza impresa.</em>
         </h1>
         <p className="lede hero-lede">
-          {contacto.marca} es un estudio donde la identidad se piensa, se diseña, se
-          imprime y se cuelga. Del papel al foco, del vinilo a la pantalla — con
-          método propio y test real antes de entregar nada.
+          {contacto.marca} es un estudio donde la identidad se piensa, se diseña,
+          se imprime y se cuelga. Del papel al foco, del vinilo a la pantalla —
+          piezas que se ven antes de imprimirse y se revisan antes de entregarse.
         </p>
         <div className="hero-meta">
           <Link to="/trabajo" className="btn">

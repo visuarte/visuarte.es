@@ -2,22 +2,22 @@ import { servicios } from '../data/site';
 
 const metodo = [
   {
-    nombre: 'La semilla',
+    nombre: 'El encargo',
     texto:
       'Todo trabajo empieza por entender de verdad: qué necesita el cliente, quién lo va a ver, en qué soporte va a vivir.',
   },
   {
-    nombre: 'El canon',
+    nombre: 'El sistema',
     texto:
-      'Sistema de color y retícula propio, sellado y comprobado. La marca no se improvisa: se decide y se respeta en cada pieza.',
+      'Color y retícula propios, decididos y comprobados. La pieza no se improvisa: se apoya en un sistema y cada soporte lo respeta.',
   },
   {
-    nombre: 'Previsualizar antes de entregar',
+    nombre: 'Ver antes de entregar',
     texto:
-      'La pieza se ve antes de existir: mockups sobre el mundo real para venderla y para entregarla. Nunca se imprime a ciegas la primera vez.',
+      'La pieza se previsualiza sobre el mundo real antes de imprimirse o desplegarse. Nunca se imprime a ciegas la primera vez.',
   },
   {
-    nombre: 'Test real',
+    nombre: 'La revisión real',
     texto:
       'Antes de cerrar, la pieza pasa por ojos de verdad: se lee, se ve, se critica. Lo que no se entiende, se corrige antes de salir.',
   },

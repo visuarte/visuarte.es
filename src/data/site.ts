@@ -37,7 +37,7 @@ export const proyectos: Proyecto[] = [
     img: '/obras/imprenta_placa.jpg',
     numero: '01',
     nombre: 'Imprenta y rotulación',
-    categoria: 'Del canon al soporte',
+    categoria: 'Del diseño al soporte',
     capa: 'servicio',
     ambito: 'Físico · entorno',
     servicio: 'Gran formato, vinilo, rotulación de fachadas y acabados',
@@ -144,7 +144,7 @@ export const servicios = [
     numero: 'A',
     nombre: 'Identidad y diseño gráfico',
     texto:
-      'Logotipos, sistemas de identidad y piezas gráficas con método: canon, retícula y revisión real antes de entregar.',
+      'Logotipos, sistemas de identidad y piezas gráficas con sistema propio: color, retícula y revisión real antes de entregar.',
   },
   {
     numero: 'B',
@@ -163,12 +163,6 @@ export const servicios = [
     nombre: 'Digital y producto',
     texto:
       'Webs y productos digitales con sistema: tarjetas NFC, herramientas propias y software a medida.',
-  },
-  {
-    numero: 'E',
-    nombre: 'Academia y formación',
-    texto:
-      'Formación de IA aplicada al trabajo creativo y a la empresa. Grupos pequeños, método propio.',
   },
 ];
 

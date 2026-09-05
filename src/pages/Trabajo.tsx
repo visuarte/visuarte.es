@@ -11,8 +11,8 @@ export default function Trabajo() {
       </h1>
       <p className="lede">
         Piezas propias y de clientes. Cada una con su marca; todas con el mismo
-        método detrás: la pieza se piensa, se diseña, se imprime y se revisa antes
-        de entregarse. El sello {`"`}cliente{`"`} es trabajo para otros; el sello{" "}
+        oficio detrás: se estudia el encargo, se diseña, se imprime y se revisa
+        antes de entregar. El sello {`"`}cliente{`"`} es trabajo para otros; el sello{" "}
         {`"`}estudio{`"`} es producto o servicio de la casa.
       </p>
 

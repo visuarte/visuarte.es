@@ -10,7 +10,7 @@ export default function Contacto() {
     <section className="wrap hero">
       <p className="eyebrow">Contacto</p>
       <h1 className="display" style={{ fontSize: 'clamp(2.2rem,5.5vw,4.2rem)' }}>
-        Cuéntanos la semilla.
+        Cuéntanos el encargo.
       </h1>
       <p className="lede" style={{ marginTop: 'var(--space-lg)' }}>
         Un rótulo, una identidad, una pieza impresa, un proyecto digital o un
