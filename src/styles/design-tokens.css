@@ -11,10 +11,12 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Compartidos ── */
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-poster: "Anton", "Arial Black", sans-serif; /* experimento dadista (5 Sep) */
-  --font-sans: "Inter", system-ui, sans-serif;
+  /* ── Compartidos ──
+     TIPOGRAFÍA DE MARCA VISUARTE (Diego 5 Sep): POPPINS Bold y Regular
+     alternadas. Sistema web: Poppins (display bold + texto regular) + mono
+     para metadatos. Anton/Fraunces/Inter retirados. */
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
   --font-mono: "SF Mono", ui-monospace, "Cascadia Mono", "Roboto Mono", monospace;
 
   --radius-s: 4px;

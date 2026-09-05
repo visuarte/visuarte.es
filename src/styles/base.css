@@ -56,23 +56,21 @@ img {
 
 /* ── Tipografía ─────────────────────────────────────────────── */
 .display {
-  font-family: var(--font-poster);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: 0.002em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin: 0;
   text-wrap: balance;
-  text-transform: uppercase;
 }
 
-/* choque dada: la palabra enfática escapa del cartel a la serif itálica */
+/* alternancia Bold/Regular de la marca: la palabra enfática baja a regular */
 .display em,
 .hero-title em {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: 0;
-  text-transform: none;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .eyebrow {
