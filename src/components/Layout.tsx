@@ -2,10 +2,10 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { nav, contacto } from '../data/site';
 
 function Wordmark() {
-  // Todo el sitio en La Llama (oscuro) → wordmark 1t-crema siempre
+  // Todo el sitio en La Llama (oscuro) → logo final en blanco (del .ai maestro)
   return (
     <NavLink to="/" aria-label="VISUARTE — inicio" className="brand-link">
-      <img className="brand-mark" src="/logo/1t-crema.svg" alt="VISUARTE" />
+      <img className="brand-mark" src="/logo/logo-visuarte-blanco.png" alt="VISUARTE" />
     </NavLink>
   );
 }
