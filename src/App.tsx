@@ -8,10 +8,12 @@ import Proyecto from './pages/Proyecto';
 import Contacto from './pages/Contacto';
 
 const MOOD_POR_RUTA: Record<string, 'brasa' | 'llama'> = {
-  '/': 'brasa',
-  '/estudio': 'brasa',
+  // Decisión Diego 5 Sep: TODO el sitio en La Llama (oscuro).
+  // Diferencia al estudio de mapicp.com (que es claro) manteniendo la retícula.
+  '/': 'llama',
+  '/estudio': 'llama',
   '/trabajo': 'llama',
-  '/contacto': 'brasa',
+  '/contacto': 'llama',
 };
 
 function MoodShell() {

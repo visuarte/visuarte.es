@@ -13,6 +13,7 @@
 :root {
   /* ── Compartidos ── */
   --font-display: "Fraunces", "Georgia", serif;
+  --font-poster: "Anton", "Arial Black", sans-serif; /* experimento dadista (5 Sep) */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "SF Mono", ui-monospace, "Cascadia Mono", "Roboto Mono", monospace;
 

@@ -120,8 +120,24 @@ export const proyectos: Proyecto[] = [
     ],
     enlace: { texto: 'mapicp.com/academia', url: 'https://mapicp.com/academia' },
   },
+  {
+    id: 'sabores-rizzo',
+    img: '/obras/rizzo.jpg',
+    numero: '06',
+    nombre: 'Sabores Rizzo',
+    categoria: 'Identidad y rótulo',
+    capa: 'cliente',
+    ambito: 'Identidad · físico',
+    servicio: 'Identidad y rótulo de fachada',
+    resumen:
+      'Identidad para Sabores Rizzo: un rótulo con alma de mercado — iconos, banda y marco propios. Diseñada para lucir en fachada y en papel.',
+    detalle: [
+      'Diseño de logotipo y sistema de iconos de la casa (trigo, bandera, especias).',
+      'Composición preparada para rotulación de fachada y soportes impresos.',
+      'En fase de medidas y presupuesto cuando el cliente lo retome.',
+    ],
+  },
 ];
-
 // ── Servicios que el estudio ofrece de verdad ──────────────────
 export const servicios = [
   {

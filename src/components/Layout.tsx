@@ -1,16 +1,11 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { nav, contacto } from '../data/site';
 
 function Wordmark() {
-  const { pathname } = useLocation();
-  const oscuro = pathname.startsWith('/trabajo');
+  // Todo el sitio en La Llama (oscuro) → wordmark 1t-crema siempre
   return (
     <NavLink to="/" aria-label="VISUARTE — inicio" className="brand-link">
-      {oscuro ? (
-        <img className="brand-mark" src="/logo/1t-crema.svg" alt="VISUARTE" />
-      ) : (
-        <img className="brand-mark" src="/logo/1t-brasa.svg" alt="VISUARTE" />
-      )}
+      <img className="brand-mark" src="/logo/1t-crema.svg" alt="VISUARTE" />
     </NavLink>
   );
 }
