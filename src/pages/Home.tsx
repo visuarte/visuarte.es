@@ -1,143 +1,76 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Typewriter } from '../components/ui/Typewriter';
-import { CyberTitle } from '../components/ui/CyberTitle';
-import { ScalePop } from '../components/ui/ScalePop';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { CyberPlayer } from '../components/ui/CyberPlayer';
-import { MinorityIcons } from '../components/ui/MinorityIcons';
-import { ServicePanel } from '../components/ui/ServicePanel';
-import { SEO } from '../components/ui/SEO';
-import { SocialShare } from '../components/ui/SocialShare';
-
-const JSON_LD = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "VISUARTE",
-    "image": "https://visuarte.es/og-image.jpg",
-    "url": "https://visuarte.es",
-    "telephone": "+34616996306",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Valencia",
-        "addressCountry": "ES"
-    },
-    "description": "Productora Audiovisual & Digital especializada en WebGL y experiencias interactivas.",
-    "sameAs": [
-        "https://www.instagram.com/visuarte_printshop/"
-    ]
-};
+import { servicios, proyectos, contacto } from '../data/site';
 
 export default function Home() {
-    const [showPlayer, setShowPlayer] = useState(false);
-    const [selectedService, setSelectedService] = useState<any>(null);
+  const destacados = proyectos.slice(0, 3);
+  return (
+    <>
+      <section className="wrap hero">
+        <p className="eyebrow">
+          Estudio de diseño · imprenta · audiovisual · digital
+        </p>
+        {/* TODO Diego: claim definitivo */}
+        <h1 className="display hero-title">
+          La semilla, el canon y <em>la pieza impresa.</em>
+        </h1>
+        <p className="lede hero-lede">
+          {contacto.marca} es un estudio donde la identidad se piensa, se diseña, se
+          imprime y se cuelga. Del papel al foco, del vinilo a la pantalla — con
+          método propio y test real antes de entregar nada.
+        </p>
+        <div className="hero-meta">
+          <Link to="/trabajo" className="btn">
+            Ver el trabajo
+          </Link>
+          <Link to="/contacto" className="btn btn-ghost">
+            Hablar con el estudio
+          </Link>
+        </div>
+      </section>
 
-    useEffect(() => {
-        // Trigger player after text animation finishes (~9s)
-        const timer = setTimeout(() => setShowPlayer(true), 9000);
-        return () => clearTimeout(timer);
-    }, []);
+      <hr className="rule" />
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col justify-center min-h-[70vh] px-[var(--spacing-phi-2)]"
-        >
-            <SEO jsonLd={JSON_LD} />
-            <SocialShare />
-            <div className="mb-[var(--spacing-phi-1)] text-primary font-mono text-xs sm:text-sm tracking-widest">
-                <Typewriter text="SYSTEM INITIALIZED..." speed={50} />
-            </div>
+      <section className="wrap section">
+        <div className="sec-head">
+          <h2 className="display" style={{ fontSize: '1.8rem' }}>
+            Lo que hace el estudio
+          </h2>
+          <span className="sec-num">01 — CAPACIDADES</span>
+        </div>
+        <div className="servicios">
+          {servicios.map((s) => (
+            <article className="servicio" key={s.numero}>
+              <span className="servicio-num">{s.numero}</span>
+              <h3>{s.nombre}</h3>
+              <p>{s.texto}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-            <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="scale-90 origin-left"
-            >
-                <div className="flex flex-col md:flex-row md:items-end gap-6">
-                    <div>
-                        <CyberTitle text="DIGITAL" className="text-4xl sm:text-5xl md:text-6xl lg:text-[length:calc(var(--text-phi-3xl)*0.85)] leading-none" />
-                        <h1
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-[length:calc(var(--text-phi-3xl)*0.85)] font-display font-bold leading-none tracking-tighter mix-blend-exclusion text-primary opacity-90 glitch-text"
-                            data-text="EXPERIENCES"
-                        >
-                            EXPERIENCES
-                        </h1>
-                    </div>
-
-                    <div className="mb-2">
-                        <Link to="/work">
-                            <ScalePop>
-                                <button className="px-[var(--spacing-phi-2)] py-[var(--spacing-phi-1)] border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 uppercase tracking-widest text-xs sm:text-sm font-bold whitespace-nowrap">
-                                    View Projects <span className="ml-2">→</span>
-                                </button>
-                            </ScalePop>
-                        </Link>
-                    </div>
-                </div>
-            </motion.div>
-
-            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 mt-[var(--spacing-phi-2)] relative">
-                <div className="w-[249px] h-[450px] text-[length:var(--text-phi-base)] text-primary font-mono space-y-6 border-l-2 border-primary pl-[var(--spacing-phi-1)] flex flex-col pt-4 overflow-hidden bg-primary/5">
-                    <p className="leading-relaxed">
-                        <span className="opacity-50 mr-2">{'>'}</span>
-                        <Typewriter text="We create immersive web experiences that merge technology and art." speed={30} delay={500} cursor={false} />
-                    </p>
-                    <p className="leading-relaxed">
-                        <span className="opacity-50 mr-2">{'>'}</span>
-                        <Typewriter text="Refining the digital frontier with WebGL and interactive design." speed={30} delay={3500} cursor={false} />
-                    </p>
-                    <p className="leading-relaxed">
-                        <span className="opacity-50 mr-2">{'>'}</span>
-                        <Typewriter text="System Status: ONLINE. Ready for input." speed={30} delay={6500} />
-                    </p>
-                    <div className="mt-auto opacity-20 text-[10px] pb-2">
-                        <p>PORT: 8080</p>
-                        <p>STATUS: ANALYZING...</p>
-                    </div>
-                </div>
-
-                <div className="lg:absolute lg:left-[300px] lg:top-0 flex flex-col items-center">
-                    <div className="flex flex-col lg:flex-row items-center gap-8">
-                        <div className="flex flex-col items-center">
-                            <CyberPlayer
-                                isVisible={showPlayer}
-                                videoUrl="https://www.youtube.com/watch?v=OstKZd4iHVA"
-                            />
-                            <MinorityIcons
-                                isVisible={showPlayer}
-                                onSelect={(s) => setSelectedService(s)}
-                                selectedId={selectedService?.id}
-                            />
-
-                            <AnimatePresence>
-                                {showPlayer && !selectedService && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0 }}
-                                        className="mt-6 flex items-center gap-3 px-4 py-2 border border-primary/40 bg-primary/10 rounded-full"
-                                    >
-                                        <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
-                                        <span className="text-[10px] font-mono text-primary tracking-[4px] uppercase font-bold">
-                                            Click Here to Initialize
-                                        </span>
-                                        <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-
-                        <ServicePanel
-                            service={selectedService}
-                            onClose={() => setSelectedService(null)}
-                        />
-                    </div>
-                </div>
-            </div>
-        </motion.div>
-    );
+      <section className="wrap section-tight">
+        <div className="sec-head">
+          <h2 className="display" style={{ fontSize: '1.8rem' }}>
+            Trabajo reciente
+          </h2>
+          <Link to="/trabajo" className="link-arrow">
+            Ver todo →
+          </Link>
+        </div>
+        <div className="destacados">
+          {destacados.map((p) => (
+            <Link to={`/trabajo/${p.id}`} className="destacado" key={p.id}>
+              <span className="mono" style={{ color: 'var(--accent)' }}>
+                {p.numero} · {p.categoria}
+              </span>
+              <h3 className="titulo">{p.nombre}</h3>
+              <p className="mono" style={{ color: 'var(--muted)', margin: 0 }}>
+                {p.ambito} — {p.capa}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
+  );
 }

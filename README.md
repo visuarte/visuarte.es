@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# visuarte.es — VISUARTE Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web/portfolio de **VISUARTE Studio** (diseño, imprenta, audiovisual y digital).
+Cara pública del estudio. React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+## Ramas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `beta` — **rediseño en curso (canon Tierras-Mapi)**. Mood híbrido: secciones
+  de texto en La Brasa (clara) y portfolio en La Llama (oscura). Contenido real.
+- `legacy-cyber` — versión anterior (estética cyber-3D con contenido ficticio),
+  archivada el 5 Sep 2026. No se publica.
 
-## React Compiler
+## Sistema
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Tokens: `src/styles/design-tokens.css` — canon `paletas.json` v0.5.0
+  (Tierras-Mapi, sellado). Prohibido hex suelto en componentes.
+- Contenido único: `src/data/site.ts` (proyectos, servicios, contacto).
+- Capas visuales: `studio-brand` (piel del sitio) y `client-brand` (marca de
+  cada proyecto mostrada dentro del sistema del estudio).
 
-## Expanding the ESLint configuration
+## Desarrollo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install
+npm run dev     # local
+npm run build   # producción (tsc + vite)
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Vercel (workflow `.github/workflows/deploy.yml`, rama `main`, secrets
+`VERCEL_TOKEN`/`VERCEL_ORG_ID`/`VERCEL_PROJECT_ID`).

@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════════════════
+   VISUARTE.ES — DESIGN TOKENS (beta)
+   Fuente de la verdad: data/diseno/paletas.json v0.5.0 (canon
+   Tierras-Mapi, sellado 4 Sep 2026) + canon-tokens.css.
+   Mood híbrido por sección: "brasa" (clara) texto / "llama" (oscura)
+   portfolio. Nunca hex sueltos fuera de este archivo.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Compartidos ── */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Mono", "Roboto Mono", monospace;
+
+  --radius-s: 4px;
+  --radius-m: 8px;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 6rem;
+
+  --content-max: 76rem;
+  --measure: 62ch;
+
+  --ring-width: 2px;
+  --ring-offset: 2px;
+}
+
+/* ── RAMA CLARA · LA BRASA ── */
+[data-mood="brasa"] {
+  --bg: #F5EFE6;            /* papel cálido (fondo) */
+  --surface: #FFFFFF;       /* tarjeta real */
+  --surface-2: #F1EBE2;     /* campo / elevación interior */
+  --band: #ECE0CE;          /* banda decorativa aislada */
+  --ink: #221510;           /* texto principal — negro del fuego */
+  --muted: #6E5B4C;         /* texto atenuado (AA 5.63 sobre papel) */
+  --line: #8A7053;          /* borde canónico */
+  --accent: #A8441A;        /* fuego brasa (primario) */
+  --accent-hover: #8F3613;
+  --on-accent: #FFFFFF;
+  --badge: #1B1009;
+  --focus-ring: #A8441A;
+  --shadow-card: 0 1px 0 rgba(34, 21, 16, 0.08), 0 8px 24px rgba(34, 21, 16, 0.06);
+}
+
+/* ── RAMA OSCURA · LA LLAMA ── */
+[data-mood="llama"] {
+  --bg: #000000;            /* el vacío */
+  --surface: #3A2014;       /* superficie fuego (tarjeta real) */
+  --surface-2: #2A1509;     /* elevación interior */
+  --band: #754833;          /* banda decorativa aislada */
+  --ink: #FFFFFF;           /* texto principal */
+  --muted: #A78C79;         /* texto atenuado */
+  --line: #9A6B40;          /* borde */
+  --accent: #D76742;        /* fuego (primario) */
+  --accent-hover: #E88256;
+  --on-accent: #151513;     /* el vacío como texto del fuego — AA 5.14 */
+  --badge: #151513;
+  --focus-ring: #E88256;
+  --shadow-card: 0 0 0 1px rgba(154, 107, 64, 0.25), 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GUARDARRAILES (canon)
+   1. Un solo nivel de superficie por rama. Tarjetas interiores usan
+      --surface-2 con borde/sombra; jamás se inventa un rol nuevo.
+   2. Banda (--band): solo tinta clara/crema. Prohibido texto
+      atenuado o controles dentro (contraste 2.44 colapsa).
+   3. Foco unificado: --focus-ring, offset 2px, grosor 2px.
+   4. Hex sueltos prohibidos en componentes y páginas.
+   ═══════════════════════════════════════════════════════════════ */
