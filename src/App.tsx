@@ -28,6 +28,7 @@ function MoodShell() {
 
   return (
     <div data-mood={mood}>
+      <div className="grano" aria-hidden="true" />
       <Layout />
     </div>
   );

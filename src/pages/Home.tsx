@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { servicios, proyectos, contacto, capaTitulo } from '../data/site';
 
 export default function Home() {
-  const destacados = proyectos.slice(0, 3);
+  const destacados = proyectos.filter((p) => p.img).slice(0, 3);
   return (
     <>
       <section className="wrap hero">
@@ -60,9 +60,14 @@ export default function Home() {
         <div className="destacados">
           {destacados.map((p) => (
             <Link to={`/trabajo/${p.id}`} className="destacado" key={p.id}>
-              <span className="mono" style={{ color: 'var(--accent)' }}>
-                {p.numero} · {p.categoria}
-              </span>
+              <div className="obra-media obra-media--sm">
+                {p.img ? <img src={p.img} alt={p.nombre} loading="lazy" /> : null}
+              </div>
+              <div className="destacado-meta">
+                <span className="mono" style={{ color: 'var(--accent)' }}>
+                  {p.numero} · {p.categoria}
+                </span>
+              </div>
               <h3 className="titulo">{p.nombre}</h3>
               <span className={p.capa === 'cliente' ? 'chip chip-cliente' : 'chip chip-estudio'}>
                 {capaTitulo[p.capa]}

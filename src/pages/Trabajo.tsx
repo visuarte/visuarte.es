@@ -16,18 +16,32 @@ export default function Trabajo() {
         {`"`}estudio{`"`} es producto o servicio de la casa.
       </p>
 
-      <div className="trabajo-lista" style={{ marginTop: 'var(--space-xl)' }}>
+      <div className="obra-grid" style={{ marginTop: 'var(--space-xl)' }}>
         {proyectos.map((p) => (
-          <Link to={`/trabajo/${p.id}`} className="trabajo-item" key={p.id}>
-            <span className="num">{p.numero}</span>
-            <h2 className="titulo">{p.nombre}</h2>
-            <span className="cat">
-              {p.categoria}
-              <br />
-              <span className={p.capa === 'cliente' ? 'chip chip-cliente' : 'chip chip-estudio'}>
-                {capaTitulo[p.capa]}
-              </span>
-            </span>
+          <Link to={`/trabajo/${p.id}`} className="obra" key={p.id}>
+            <div className="obra-media">
+              {p.img ? (
+                <img src={p.img} alt={p.nombre} loading="lazy" />
+              ) : (
+                <div className="obra-media-vacia" aria-hidden="true">
+                  <span>{p.numero}</span>
+                </div>
+              )}
+            </div>
+            <div className="obra-cuerpo">
+              <div className="obra-meta">
+                <span className="mono" style={{ color: 'var(--accent)' }}>
+                  {p.numero}
+                </span>
+                <span
+                  className={p.capa === 'cliente' ? 'chip chip-cliente' : 'chip chip-estudio'}
+                >
+                  {capaTitulo[p.capa]}
+                </span>
+              </div>
+              <h2 className="obra-titulo">{p.nombre}</h2>
+              <p className="obra-cat">{p.categoria} — {p.ambito}</p>
+            </div>
           </Link>
         ))}
       </div>

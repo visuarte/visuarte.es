@@ -22,6 +22,7 @@ export interface Proyecto {
   numero: string; // "01"
   nombre: string;
   categoria: string; // sello / capa: qué es
+  img?: string | null; // obra real (public/obras); sin imagen = tarjeta tipográfica
   capa: Capa;
   ambito: string;
   servicio: string;
@@ -33,6 +34,7 @@ export interface Proyecto {
 export const proyectos: Proyecto[] = [
   {
     id: 'imprenta-rotulacion',
+    img: '/obras/imprenta_placa.jpg',
     numero: '01',
     nombre: 'Imprenta y rotulación',
     categoria: 'Del canon al soporte',
@@ -49,6 +51,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'bolco-vision',
+    img: null,
     numero: '02',
     nombre: 'BOLCO Vision',
     categoria: 'Identidad sellada',
@@ -65,6 +68,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'qrcard-online',
+    img: '/obras/qrcard.jpg',
     numero: '03',
     nombre: 'QR Card Online',
     categoria: 'Producto propio',
@@ -82,6 +86,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'camiart',
+    img: '/obras/camiart.jpg',
     numero: '04',
     nombre: 'Camiart',
     categoria: 'Marca del estudio',
@@ -99,6 +104,7 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 'academia-ia-mapicp',
+    img: '/obras/academia.jpg',
     numero: '05',
     nombre: 'Academia IA MAPICP',
     categoria: 'Producto propio',

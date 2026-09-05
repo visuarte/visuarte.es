@@ -28,3 +28,4 @@ dist-ssr
 
 # macOS AppleDouble (resource forks from ExFAT)
 ._*
+.env*

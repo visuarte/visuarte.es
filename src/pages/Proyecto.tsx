@@ -20,6 +20,12 @@ export default function Proyecto() {
           {p.resumen}
         </p>
 
+        {p.img && (
+          <div className="obra-media obra-media--ficha">
+            <img src={p.img} alt={p.nombre} />
+          </div>
+        )}
+
         <div className="meta-grid">
           <div className="meta-campo">
             <span className="clave">Servicio</span>

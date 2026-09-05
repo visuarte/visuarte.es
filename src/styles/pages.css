@@ -309,8 +309,131 @@
   color: var(--on-accent);
 }
 
+/* ── Galería de obras (portfolio con piezas reales) ─────────── */
+.obra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl) var(--space-lg);
+}
+
+.obra {
+  color: var(--ink);
+  display: block;
+}
+
+.obra-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+
+.obra-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.obra:hover .obra-media img {
+  transform: scale(1.03);
+}
+
+/* tarjeta sin foto: el número sobre el fondo hace de pieza */
+.obra-media-vacia {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  color: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+/* mini en home */
+.obra-media--sm {
+  aspect-ratio: 16 / 10;
+  margin-bottom: var(--space-md);
+}
+
+/* hero de ficha */
+.obra-media--ficha {
+  aspect-ratio: 16 / 7;
+  margin: var(--space-xl) 0 0;
+}
+
+.obra-cuerpo {
+  padding: var(--space-md) 0 0;
+}
+
+.obra-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xs);
+}
+
+.obra-titulo {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: var(--space-2xs) 0 var(--space-2xs);
+}
+
+.obra-cat {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* destacados home: media arriba dentro de la tarjeta */
+.destacado {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+.destacado .obra-media {
+  margin-bottom: var(--space-md);
+}
+
+/* ── Textura de papel (grano sutil, identidad de oficio) ────── */
+.grano {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  pointer-events: none;
+  opacity: 0;
+  background-repeat: repeat;
+}
+
+[data-mood="brasa"] .grano {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='black'/%3E%3C/svg%3E");
+  opacity: 0.045;
+}
+
+[data-mood="llama"] .grano {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='white'/%3E%3C/svg%3E");
+  opacity: 0.06;
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 720px) {
+  .obra-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .obra-media--ficha {
+    aspect-ratio: 4 / 3;
+  }
   .trabajo-item {
     grid-template-columns: auto 1fr;
     gap: var(--space-sm) var(--space-md);
