@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { servicios, proyectos, contacto, capaTitulo } from '../data/site';
+import { IMAGOTIPO_SVG } from '../components/imagotipo_svg';
 
 export default function Home() {
   const destacados = proyectos.filter((p) => p.img).slice(0, 3);
@@ -30,7 +31,10 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual" aria-hidden="true">
-            <img src="/logo/imagotipo-visuarte.png" alt="" />
+            <div
+              className="imagotipo"
+              dangerouslySetInnerHTML={{ __html: IMAGOTIPO_SVG }}
+            />
           </div>
         </div>
       </section>

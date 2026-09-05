@@ -42,7 +42,8 @@
   place-items: center;
 }
 
-.hero-visual img {
+.hero-visual img,
+.hero-visual .imagotipo svg {
   width: min(400px, 34vw);
   height: auto;
   opacity: 0.95;
