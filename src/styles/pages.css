@@ -4,11 +4,24 @@
 .brand-link {
   display: inline-flex;
   align-items: center;
+  gap: 0.55rem;
   line-height: 0;
+  color: var(--ink);
 }
 .brand-mark {
-  height: 28px;
+  height: 30px;
   width: auto;
+}
+.brand-txt {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.brand-txt-sub {
+  font-weight: 400;
+  color: var(--accent);
 }
 
 /* ── Home · hero ────────────────────────────────────────────── */

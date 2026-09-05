@@ -2,10 +2,13 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { nav, contacto } from '../data/site';
 
 function Wordmark() {
-  // Todo el sitio en La Llama (oscuro) → logo final en blanco (del .ai maestro)
+  // Imagotipo + texto VISUARTE en Poppins (marca, Diego 5 Sep)
   return (
     <NavLink to="/" aria-label="VISUARTE — inicio" className="brand-link">
-      <img className="brand-mark" src="/logo/logo-visuarte-blanco.png" alt="VISUARTE" />
+      <img className="brand-mark" src="/logo/imagotipo-visuarte.png" alt="" />
+      <span className="brand-txt">
+        VISUARTE<span className="brand-txt-sub"> STUDIO</span>
+      </span>
     </NavLink>
   );
 }
