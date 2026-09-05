@@ -81,20 +81,21 @@ export const proyectos: Proyecto[] = [
     enlace: { texto: 'qrcardonline.vercel.app', url: 'https://qrcardonline.vercel.app' },
   },
   {
-    id: 'camiprint',
+    id: 'camiart',
     numero: '04',
-    nombre: 'Camiprint',
-    categoria: 'Producto propio',
+    nombre: 'Camiart',
+    categoria: 'Marca del estudio',
     capa: 'producto',
     ambito: 'Textil · físico',
-    servicio: 'Merch y camisetas a una tinta',
+    servicio: 'Camisetas y estampación',
     resumen:
-      'Camisetas estampadas a una tinta, con criterio. La colección de ropa del estudio: identidad que se lleva puesta.',
+      'La marca de camisetas del estudio: colección propia a una tinta y canal de estampación para encargos. Todo pedido de camisetas pasa por aquí.',
     detalle: [
       'Estampación a una tinta, del logo del estudio y sus mundos.',
+      'Doble cara: colección propia de la casa y la Academia + encargos de estampación.',
       'Serigrafía de calidad pensada para durar muchos lavados.',
-      'También produce el merch de la Academia.',
     ],
+    enlace: { texto: 'camiart.com', url: 'https://camiart.com' },
   },
   {
     id: 'academia-ia-mapicp',
