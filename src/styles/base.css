@@ -242,6 +242,16 @@ img {
   color: var(--muted);
 }
 
+.footer-legal {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-legal:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
 /* ── Etiquetas / badges ────────────────────────────────────── */
 .tag {
   display: inline-block;
