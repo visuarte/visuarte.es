@@ -41,6 +41,10 @@ export function Layout() {
           </span>
           <span className="footer-word">VISUARTE STUDIO · Diego Gómez García · NIF 48550448R</span>
           <span className="footer-word">
+            <NavLink to="/legal/aviso" className="footer-legal">
+              Aviso legal
+            </NavLink>
+            {' · '}
             <NavLink to="/legal/privacidad-app" className="footer-legal">
               Privacidad
             </NavLink>

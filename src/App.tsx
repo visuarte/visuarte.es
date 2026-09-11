@@ -8,6 +8,7 @@ import Proyecto from './pages/Proyecto';
 import Cine from './pages/Cine';
 import Contacto from './pages/Contacto';
 import LegalApp from './pages/LegalApp';
+import AvisoLegal from './pages/AvisoLegal';
 
 const MOOD_POR_RUTA: Record<string, 'brasa' | 'llama'> = {
   // Decisión Diego 5 Sep: TODO el sitio en La Llama (oscuro).
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="trabajo/:id" element={<Proyecto />} />
           <Route path="cine" element={<Cine />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route path="legal/aviso" element={<AvisoLegal />} />
           <Route path="legal/privacidad-app" element={<LegalApp />} />
         </Route>
       </Routes>
