@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://visuarte.es/</loc><priority>1.0</priority></url>
+  <url><loc>https://visuarte.es/estudio</loc><priority>0.9</priority></url>
+  <url><loc>https://visuarte.es/trabajo</loc><priority>0.9</priority></url>
+  <url><loc>https://visuarte.es/trabajo/imprenta-rotulacion</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/trabajo/bolco-vision</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/trabajo/qrcard-online</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/trabajo/camiart</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/trabajo/academia-ia-mapicp</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/trabajo/sabores-rizzo</loc><priority>0.7</priority></url>
+  <url><loc>https://visuarte.es/cine</loc><priority>0.8</priority></url>
+  <url><loc>https://visuarte.es/contacto</loc><priority>0.8</priority></url>
+  <url><loc>https://visuarte.es/legal/aviso</loc><priority>0.3</priority></url>
+  <url><loc>https://visuarte.es/legal/privacidad-app</loc><priority>0.3</priority></url>
+</urlset>
