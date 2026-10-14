@@ -29,5 +29,11 @@ npm run lint
 
 ## Deploy
 
-Vercel (workflow `.github/workflows/deploy.yml`, rama `main`, secrets
-`VERCEL_TOKEN`/`VERCEL_ORG_ID`/`VERCEL_PROJECT_ID`).
+**Vercel — integración nativa de Git.** Push a `main` → Vercel construye y publica solo.
+Producción: <https://visuarte.es> · configuración en `vercel.json` (`outputDirectory: dist`:
+se despliega **solo el build**, nunca la raíz del repo).
+
+> ⚠️ El GitHub Action `.github/workflows/deploy.yml` **se retiró el 14 Oct 2026**. Era una
+> **segunda** vía de deploy que **nunca funcionó** (faltaba el secret `VERCEL_TOKEN` → fallaba
+> en 0 s en *cada* push desde el 24 jun) y era **redundante** con la integración nativa.
+> **No volver a montarlo:** Vercel ya despliega solo en cada push a `main`.
