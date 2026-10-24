@@ -231,3 +231,111 @@
   color: var(--muted);
   margin: 0 0 var(--space-sm);
 }
+
+/* ── /rotulacion (R3, 24 oct 2026) ─────────────────────────────────────── */
+
+/* Materiales: nombre a la izquierda, su sitio a la derecha. En móvil se apilan
+   (a 390 px el "uso" quedaba partido contra el borde). */
+.material-nombre {
+  font-weight: 600;
+  color: var(--ink);
+}
+.material-uso {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Las dos listas del precio: lo que se pide y lo que no se hace, con marca distinta.
+   El no lleva aspa apagada para que no parezca una prohibición al cliente. */
+.lista-marcada {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista-marcada li {
+  position: relative;
+  padding: var(--space-xs) 0 var(--space-xs) 1.4rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+  color: var(--muted);
+}
+.lista-marcada li::before {
+  content: '';
+  position: absolute;
+  left: 0.2rem;
+  top: 1.05rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.lista-no li::before {
+  content: '×';
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  top: 0.55rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Seis piezas (no cuatro territorios): 1 → 2 → 3. Con la retícula de 4 la segunda fila
+   dejaba dos huecos a la derecha (visto en la captura de 1280 px, 24 oct 2026). */
+.servicios--seis {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .servicios--seis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 900px) {
+  .servicios--seis {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Materiales en dos columnas: a todo lo ancho el nombre y su uso quedaban separados
+   por media pantalla y el ojo perdía el par. */
+@media (min-width: 760px) {
+  .lista-materiales {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-2xl);
+  }
+}
+
+/* Los cinco pasos del método: 5 en una fila cuando cabe; en medio, 2 columnas con el
+   quinto a lo ancho (5 no se reparte sin dejar un hueco). */
+.pasos-metodo--cinco {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .pasos-metodo--cinco {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pasos-metodo--cinco .paso:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 1080px) {
+  .pasos-metodo--cinco {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .pasos-metodo--cinco .paso:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .lista-materiales li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+  .material-uso {
+    text-align: left;
+  }
+}

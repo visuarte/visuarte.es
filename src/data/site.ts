@@ -197,3 +197,111 @@ export const audiovisual = {
     'Meritorio de arte en «La mitad de Óscar» — Manuel Martín Cuenca (2010)',
   ],
 };
+
+// ── ROTULACIÓN (R3) — lo que el taller hace de verdad, sin catálogo de relleno ──
+// Nada de aquí es inventado: son las piezas, los materiales y el método con los que se ha
+// trabajado (Rizzo, Salón N23, Anissa). Lo que no está comprobado no se escribe.
+export const rotulacion = {
+  piezas: [
+    {
+      numero: '01',
+      nombre: 'Fachadas y locales',
+      texto:
+        'Rotulación exterior e interior: metacrilato, composite, PVC y vinilo de corte o impreso. La fachada se mira antes de tocarla.',
+    },
+    {
+      numero: '02',
+      nombre: 'Rótulos y placas',
+      texto:
+        'Placas de señalización, directorios y rótulos con cuerpo. Corte, montaje y acabado en el taller.',
+    },
+    {
+      numero: '03',
+      nombre: 'Vehículos y flotas',
+      texto:
+        'Vinilado de coches, furgones y flotas completas. Vinilo fundido en lo que da curva, polimérico donde no hace falta.',
+    },
+    {
+      numero: '04',
+      nombre: 'Gran formato',
+      texto:
+        'Lonas, vallas, cartelería y fondos de escaparate o evento. Se dice el material y la resistencia que aguanta cada uno.',
+    },
+    {
+      numero: '05',
+      nombre: 'Textil y merchandising',
+      texto:
+        'Camisetas, polos y ropa de trabajo en DTF o vinilo textil. Una tinta para el logo, cuatricromía cuando la pieza lo pide.',
+    },
+    {
+      numero: '06',
+      nombre: 'Rótulos luminosos',
+      texto:
+        'Con electricista autorizado: la parte eléctrica la firma quien puede firmarla. Nosotros ponemos la cara y el montaje.',
+    },
+  ],
+  materiales: [
+    { material: 'Vinilo polimérico', uso: 'Superficies planas: el caballo de batalla' },
+    { material: 'Vinilo fundido (cast)', uso: 'Curvas, remaches y carrocería' },
+    { material: 'Laminado mate o brillo', uso: 'Protege la tinta y quita o pone reflejo' },
+    { material: 'Metacrilato', uso: 'Placas y rótulos con cuerpo' },
+    { material: 'Composite de aluminio', uso: 'Fachada rígida y ligera' },
+    { material: 'PVC espumado', uso: 'Cartelería rígida y económica' },
+    { material: 'Lona y malla', uso: 'Exterior y viento' },
+    { material: 'DTF y vinilo textil', uso: 'Ropa y merchandising' },
+  ],
+  metodo: [
+    {
+      titulo: 'Ver y medir',
+      texto: 'Se mide en el sitio. Sobre plano se decide; en la pared se comprueba.',
+    },
+    {
+      titulo: 'Decidir el material',
+      texto: 'Qué vinilo, sobre qué soporte y por qué. Se dice en el presupuesto, no después.',
+    },
+    {
+      titulo: 'Aprobar la pieza',
+      texto: 'El diseño se aprueba antes de imprimir. Lo que cambia después se re-cotiza.',
+    },
+    {
+      titulo: 'Producir en taller',
+      texto: 'Impresión, laminado y corte propios. Se revisa a ras de luz antes de que salga.',
+    },
+    {
+      titulo: 'Montar y cerrar el parte',
+      texto: 'Se monta con el cliente delante cuando se puede, y se cierra con foto el mismo día.',
+    },
+  ],
+  paraPrecio: [
+    'Qué es la pieza y para qué se usa',
+    'Dónde va: pared, chapa, cristal, carrocería o lona',
+    'Medidas, o una visita para tomarlas',
+    'Una foto del soporte tal y como está hoy',
+    'Para cuándo lo necesitas',
+  ],
+  noSeHace: [
+    'Precio firme sin haber visto el soporte',
+    'Taladrar a ciegas en una chapa nueva',
+    'Montar sobre un soporte degradado y callarlo',
+    'Firmar la parte eléctrica sin electricista autorizado',
+    'Cambiar el alcance sin re-cotizar',
+  ],
+  faq: [
+    {
+      p: '¿Se puede rotular sobre lo que ya hay puesto?',
+      r: 'Depende del estado del soporte y de cómo salga lo viejo. Se valora en la visita, porque un desmontaje mal hecho se lleva el material por delante. Muchas veces sale mejor una placa nueva que aprovechar la que hay: se dice cuál de las dos opciones conviene y por qué.',
+    },
+    {
+      p: '¿Cuánto se tarda?',
+      r: 'Una fachada suele estar entre 3 y 5 días laborables desde que se aprueba el diseño; un vehículo, entre 1 y 2 días de taller. Son plazos orientativos: se confirman cuando se ven las medidas y el soporte.',
+    },
+    {
+      p: '¿Quién monta y con qué?',
+      r: 'Montamos nosotros. Si la altura pide cesta o grúa, o hace falta permiso de ocupación de vía pública, se dice antes de empezar porque cambia el plazo y el precio. La instalación eléctrica de un rótulo luminoso la firma un electricista autorizado: nosotros no la firmamos.',
+    },
+    {
+      p: '¿Trabajáis fuera de la Vega Baja?',
+      r: 'Sí. Taller en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Si hay más distancia, el desplazamiento se valora en el presupuesto y se dice antes, nunca después.',
+    },
+  ],
+};

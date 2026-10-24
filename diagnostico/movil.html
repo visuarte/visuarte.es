@@ -38,7 +38,10 @@
               'viewport=' + ancho + ' ancho_pedido=' + document.getElementById('f').style.width +
               ' scrollWidth=' + doc.scrollWidth +
               ' clientWidth=' + doc.clientWidth +
-              '\ncolumnas_territorios=' + (() => { const g = d.querySelector('.servicios'); return g ? getComputedStyle(g).gridTemplateColumns.split(' ').length : 'n/a'; })() +
+              '\ncolumnas=' + ['.servicios', '.pasos-metodo', '.lista-materiales'].map((sel) => {
+                const g = d.querySelector(sel);
+                return sel + ':' + (g ? getComputedStyle(g).gridTemplateColumns.split(' ').length : 'n/a');
+              }).join(' · ') +
               '\nDESBORDAN (' + anchos.length + '):\n' +
               anchos.map((x) => '  ' + x.right + 'px  anchura=' + x.w + '  ' + x.sel.slice(0, 90)).join('\n');
           } catch (e) {

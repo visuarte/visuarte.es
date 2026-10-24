@@ -1,0 +1,147 @@
+---
+// ROTULACIÓN (R3, 24 oct 2026) — el oficio del taller: qué se rotula, con qué y cómo.
+// Sin galería de relleno: las piezas se publican cuando están montadas y el cliente da permiso.
+import Layout from '../layouts/Layout.astro';
+import { rotulacion as r, contacto } from '../data/site';
+---
+
+<Layout
+  titulo="Rotulación de fachadas, vehículos y gran formato · VISUARTE"
+  descripcion="Rotulación con taller propio en Ciudad Quesada (Rojales): fachadas y locales, rótulos y placas, vehículos, gran formato y textil. Se mide y se ve el soporte antes de dar precio firme."
+>
+  <!-- HERO: el oficio se dice con la boca del taller, no con adjetivos -->
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Rotulación · imagen del local y del vehículo</p>
+      <h1 class="display hero-title">
+        Un rótulo no se pega<br /><em>hasta que se mide.</em>
+      </h1>
+      <p class="lede hero-lede">
+        Rotulación de fachadas, vehículos y gran formato con taller propio. Primero se ve el soporte
+        y se mide; después se dice qué material va en cada pieza y por qué. El precio firme sale de
+        ahí, no de una foto por WhatsApp.
+      </p>
+      <div class="hero-meta">
+        <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+        <a
+          class="btn btn-ghost"
+          href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20rotular%20una%20fachada`}
+          rel="noopener">Mandar una foto por WhatsApp</a
+        >
+      </div>
+      <p class="hero-nota">Taller en {contacto.sede} · {contacto.cobertura}</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- 01 · QUÉ SE ROTULA -->
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.8rem">Qué se rotula</h2>
+      <span class="sec-num">01 — SEIS TIPOS DE PIEZA</span>
+    </div>
+    <div class="servicios servicios--seis">
+      {r.piezas.map((p) => (
+        <article class="servicio">
+          <div class="servicio-cab">
+            <h3>{p.nombre}</h3>
+            <span class="servicio-num">{p.numero}</span>
+          </div>
+          <p>{p.texto}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 02 · MATERIALES: cada uno con su sitio, sin lista de la compra -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Materiales y su sitio</h2>
+      <span class="sec-num">02 — SE DICE CUÁL Y POR QUÉ</span>
+    </div>
+    <ul class="lista-simple lista-materiales">
+      {r.materiales.map((m) => (
+        <li>
+          <span class="material-nombre">{m.material}</span>
+          <span class="material-uso">{m.uso}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 03 · MÉTODO: lo que pasa antes de que la pieza exista -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Cómo se hace</h2>
+      <span class="sec-num">03 — CINCO PASOS, SIEMPRE LOS MISMOS</span>
+    </div>
+    <div class="pasos-metodo pasos-metodo--cinco">
+      {r.metodo.map((p, i) => (
+        <div class="paso">
+          <span class="paso-num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 04 · PRECIO: lo que se pide y lo que no se hace -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Qué hace falta para dar precio</h2>
+      <span class="sec-num">04 — SIN HUMO</span>
+    </div>
+    <div class="dos-columnas">
+      <div>
+        <p class="mono-etiqueta">Se pide</p>
+        <ul class="lista-marcada">
+          {r.paraPrecio.map((x) => <li>{x}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="mono-etiqueta">No se hace</p>
+        <ul class="lista-marcada lista-no">
+          {r.noSeHace.map((x) => <li>{x}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · FAQ -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Preguntas que llegan siempre</h2>
+      <span class="sec-num">05 — ANTES DE ESCRIBIR</span>
+    </div>
+    <div class="faq">
+      {r.faq.map((f) => (
+        <details>
+          <summary>{f.p}</summary>
+          <p>{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">¿Qué hay que rotular?</h2>
+      <span class="sec-num">06 — PRESUPUESTO SIN COMPROMISO</span>
+    </div>
+    <p class="prose" style="max-width:none">
+      Con las medidas y una foto del sitio se puede dar una estimación honesta. Si la pieza pide
+      visita, se dice antes de dar número. Y si el soporte no aguanta lo que se le va a pegar, se
+      dice también: un vinilo sobre una pared que se descascarilla se cae con él.
+    </p>
+    <div class="hero-meta">
+      <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+      <a class="btn btn-ghost" href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a>
+    </div>
+    <p class="nota">
+      Las piezas montadas se publican cuando el cliente da permiso. No hay galería de relleno.
+    </p>
+  </section>
+</Layout>
