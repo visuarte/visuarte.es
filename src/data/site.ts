@@ -147,7 +147,7 @@ export const resenasPendientes = true;
 export const audiovisual = {
   nombre: 'Diego Gómez García',
   rol: 'Iluminación, cámara y coordinación en set',
-  imdb: 'https://www.imdb.com/name/nm13809776/',
+  imdb: 'https://www.imdb.com/es-es/name/nm13809776/',
   perfil:
     'Gaffer con tres años en spots publicitarios y cinco en audiovisual (spots, cine y videoclips). ' +
     'Iluminación para producto, moda y narrativa: LED, fresnel y DMX con control inalámbrico, ' +
