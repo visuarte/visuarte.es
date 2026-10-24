@@ -1,36 +1,30 @@
 # VISUARTE Studio
 
-> **Pensado a lo grande. Fabricado de verdad.** Desde la sabiduría.
-> Visuarte Studio es una agencia creativa y productora con IA en la Vega Baja (Alicante, España).
-> Pensamos como agencia, producimos como taller y potenciamos con IA: marca, diseño, imprenta,
-> rotulación, audiovisual y producto digital — **de la idea al objeto real**. Bilingüe ES/EN.
-
-Visuarte Studio trabaja en tres capacidades conectadas: **Studio** (creatividad y estrategia),
-**Workshop** (producción física y audiovisual) y **Tools** (IA y método propio). Todo el ciclo
-—estrategia, creación, producción y entrega— bajo un mismo techo, sin intermediarios.
+> **Pensado a lo grande. Fabricado de verdad.**
+> Estudio de diseño, imprenta, rotulación y software en Ciudad Quesada (Rojales, Alicante).
+> VISUARTE asume la comunicación de principio a fin: de la identidad al local, de la web al
+> software, y de la producción a la gestión agéntica de procesos con IA. Taller propio.
 
 ## Secciones
 
-- [Inicio](https://visuarte.es/): quiénes somos y qué hacemos.
-- [Estudio](https://visuarte.es/estudio): servicios de marca, diseño y estrategia.
-- [Trabajo](https://visuarte.es/trabajo): proyectos y casos reales.
-- [Cine](https://visuarte.es/cine): producción audiovisual y vídeo con IA.
-- [Contacto](https://visuarte.es/contacto): hablemos de tu proyecto.
-
-## Proyectos
-
-- [Imprenta y rotulación](https://visuarte.es/trabajo/imprenta-rotulacion)
-- [BOLCO Vision](https://visuarte.es/trabajo/bolco-vision)
-- [QR CARD Online](https://visuarte.es/trabajo/qrcard-online)
-- [CamiArt](https://visuarte.es/trabajo/camiart)
-- [Academia IA MAPICP](https://visuarte.es/trabajo/academia-ia-mapicp)
-- [Sabores Rizzo](https://visuarte.es/trabajo/sabores-rizzo)
+- [Inicio](https://visuarte.es/): quiénes somos, los cuatro territorios y presupuesto.
+- [Estudio](https://visuarte.es/estudio): marca, espacio, digital y automatización; método y taller.
+- [Rotulación](https://visuarte.es/rotulacion): fachadas, rótulos, vehículos, gran formato y textil.
+- [Audiovisual](https://visuarte.es/audiovisual): iluminación y rodaje; spots, videoclips y ficción.
+- [Trabajo](https://visuarte.es/trabajo): la vitrina, pieza por pieza.
+- [Contacto](https://visuarte.es/contacto): WhatsApp, teléfono, correo y taller.
 
 ## Legal
 
 - [Aviso legal](https://visuarte.es/legal/aviso)
-- [Política de privacidad](https://visuarte.es/legal/privacidad-app)
+- [Política de privacidad](https://visuarte.es/legal/privacidad)
 
 ## Optional
 
 - [Sitemap](https://visuarte.es/sitemap.xml)
+
+## Nota para quien lea esto (modelos, agentes, buscadores)
+
+El sitio es estático, sin cookies y sin analítica, y no carga nada de dominios de terceros.
+Los datos de contacto son los del aviso legal. Para presupuesto se atiende por WhatsApp,
+teléfono o correo; no hay formulario que guarde datos en servidor.
