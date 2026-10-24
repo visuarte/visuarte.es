@@ -73,8 +73,10 @@ export default function Estudio() {
         <div className="servicios">
           {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
-              <IconoTerritorio nombre={s.icono} />
-              <span className="servicio-num">{s.numero}</span>
+              <div className="servicio-cab">
+                <IconoTerritorio nombre={s.icono} />
+                <span className="servicio-num">{s.numero}</span>
+              </div>
               <h3>{s.nombre}</h3>
               <p>{s.texto}</p>
             </article>

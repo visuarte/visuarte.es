@@ -9,7 +9,10 @@
     <script>
       const out = document.getElementById('out');
       const f = document.getElementById('f');
-      const ruta = new URLSearchParams(location.search).get('ruta') || '/';
+      const qp = new URLSearchParams(location.search);
+      const ruta = qp.get('ruta') || '/';
+      const ancho = parseInt(qp.get('w') || '390', 10);
+      f.style.width = ancho + 'px';
       f.src = ruta;
       f.addEventListener('load', () => {
         setTimeout(() => {
@@ -17,22 +20,32 @@
             const d = f.contentDocument;
             const ancho = f.contentWindow.innerWidth;
             const doc = d.documentElement;
-            const anchos = [...d.querySelectorAll('*')]
+            const anchos = [...d.querySelectorAll('body *')]
+              .filter((el) => !el.closest('svg'))
               .map((el) => ({
                 sel: el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ').filter(Boolean).join('.') : ''),
                 w: Math.round(el.getBoundingClientRect().width),
                 right: Math.round(el.getBoundingClientRect().right),
               }))
-              .filter((x) => x.right > ancho + 1)
+              .filter((x) => x.right > ancho + 1 || (x.w > ancho + 1))
               .sort((a, b) => b.right - a.right)
               .slice(0, 15);
+            if (qp.get('scroll')) {
+              const objetivo = d.querySelector(qp.get('scroll'));
+              if (objetivo) objetivo.scrollIntoView({ block: 'start' });
+            }
             out.textContent =
-              'viewport=' + ancho +
+              'viewport=' + ancho + ' ancho_pedido=' + document.getElementById('f').style.width +
               ' scrollWidth=' + doc.scrollWidth +
               ' clientWidth=' + doc.clientWidth +
+              '\ncolumnas_territorios=' + (() => { const g = d.querySelector('.servicios'); return g ? getComputedStyle(g).gridTemplateColumns.split(' ').length : 'n/a'; })() +
               '\nDESBORDAN (' + anchos.length + '):\n' +
               anchos.map((x) => '  ' + x.right + 'px  anchura=' + x.w + '  ' + x.sel.slice(0, 90)).join('\n');
           } catch (e) {
+            if (qp.get('scroll')) {
+              const objetivo = d.querySelector(qp.get('scroll'));
+              if (objetivo) objetivo.scrollIntoView({ block: 'start' });
+            }
             out.textContent = 'error: ' + e.message;
           }
         }, 1200);

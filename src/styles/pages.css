@@ -45,6 +45,13 @@
 }
 
 .hero-visual img,
+/* El halo del imagotipo (::before con inset -30%) sangra fuera de su celda y a 1100 px
+   creaba scroll horizontal (medido 24 oct 2026: scrollWidth 1177 > clientWidth 1085).
+   Se contiene en su columna: el brillo sigue, el scroll desaparece. */
+.hero-visual {
+  overflow-x: clip;
+}
+
 .hero-visual .imagotipo svg {
   width: min(400px, 34vw);
   height: auto;
@@ -154,13 +161,30 @@
 /* ── Grid de servicios ──────────────────────────────────────── */
 .servicios {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* Una sola regla continua sobre toda la retícula: cuatro segmentos cortos rompían el eje
+     y el bloque quedaba descentrado (visto 24 oct 2026 en la captura de Diego). */
+  border-top: 1px solid var(--line);
+  /* 1 → 2 → 4. NUNCA 3: con auto-fit/minmax(260px) entraban tres columnas y la cuarta caía
+     sola a la línea siguiente en portátiles (980-1170 px), y eso descentraba la intención. */
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
 }
 
 .servicio {
   padding-top: var(--space-md);
-  border-top: 1px solid var(--line);
+}
+
+/* Cabecera del bloque: icono a la izquierda, número a la derecha, en el mismo eje óptico */
+.servicio-cab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.servicio-num {
+  line-height: 1;
 }
 
 .servicio-num {
@@ -724,5 +748,18 @@ a.fila:hover {
   .btn {
     min-height: 44px; /* objetivo táctil mínimo (protocolo de accesibilidad) */
     padding-block: 0.85rem;
+  }
+}
+
+
+/* Composición de los territorios: 1 / 2 / 4 columnas. Nunca 3 + 1 huérfana. */
+@media (min-width: 640px) {
+  .servicios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .servicios {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
