@@ -69,15 +69,19 @@ export const territorios: {
 ];
 
 // Prueba de oficio para la tira de confianza (producciones y marcas reales del CV)
-export const confianza = [
-  'ELPOZO',
-  'OPEL',
-  "Jack Daniel's",
-  'TENA',
-  'PC Componentes',
-  'Carlos Alcaraz',
-  'Viva Suecia',
-  'Arde Bogotá',
+// Producciones y marcas REALES del CV: por eso se pueden nombrar.
+// tipo 'marca' = anunciante · 'produccion' = artista/producción en la que se trabajó.
+// 'escala' corrige el PESO ÓPTICO: cada marca trae su proporción y con la misma altura
+// unas se ven gigantes y otras diminutas. 1 = altura base (26 px).
+export const confianza: { nombre: string; tipo: 'marca' | 'produccion'; logo?: string; escala?: number }[] = [
+  { nombre: 'ElPozo', tipo: 'marca', logo: '/marcas/elpozo-mono.png', escala: 1.05 },
+  { nombre: 'Opel', tipo: 'marca', logo: '/marcas/opel.svg', escala: 1.25 },
+  { nombre: "Jack Daniel's", tipo: 'marca', logo: '/marcas/jack-daniels.svg', escala: 1.7 },
+  { nombre: 'TENA', tipo: 'marca', logo: '/marcas/tena.svg', escala: 1.15 },
+  { nombre: 'PC Componentes', tipo: 'marca', logo: '/marcas/pccomponentes.png', escala: 1.05 },
+  { nombre: 'Carlos Alcaraz', tipo: 'marca' },
+  { nombre: 'Viva Suecia', tipo: 'produccion' },
+  { nombre: 'Arde Bogotá', tipo: 'produccion' },
 ];
 
 export const serviciosPresupuesto = [

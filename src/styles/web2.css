@@ -23,20 +23,56 @@
   color: var(--muted);
   margin-bottom: var(--space-sm);
 }
+/* Tira de marcas: se lee como una tira de logos (misma familia, mismo peso, misma altura
+   óptica, sin recuadros). Cuando lleguen los archivos reales, cada <li> pasa a <img>. */
 .confianza-lista {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-md) var(--space-lg);
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .confianza-lista li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  opacity: 0.82;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.confianza-lista li:hover {
+  opacity: 1;
+}
+/* Logos: se fuerzan a blanco mono para que la tira sea uniforme (no se recolorea la marca,
+   se unifica el tratamiento). Cero peticiones extra: son archivos locales. */
+.confianza-lista img {
+  width: auto;
+  max-width: 132px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.72;
+  transition: opacity 0.2s ease;
+}
+.confianza-lista li:hover img {
+  opacity: 1;
+}
+
+/* Los que son nombre de producción/artista llevan un punto para no confundirse con marcas */
+.confianza-lista li[data-tipo='produccion']::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 0.6rem;
+  opacity: 0.9;
 }
 
 /* Formulario de presupuesto */

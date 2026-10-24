@@ -38,9 +38,13 @@ import { contacto, territorios, confianza, serviciosPresupuesto, faq, resenasPen
 
   <!-- TIRA DE CONFIANZA: oficio real (producciones y marcas del CV) -->
   <section class="wrap confianza" aria-label="Marcas y producciones">
-    <p class="confianza-intro">Oficio en producciones de</p>
+    <p class="confianza-intro">Colaboramos con producciones y grandes marcas como</p>
     <ul class="confianza-lista">
-      {confianza.map((m) => <li>{m}</li>)}
+      {confianza.map((m) => (
+        <li data-tipo={m.tipo}>
+          {m.logo ? <img src={m.logo} alt={m.nombre} style={`height:${Math.round(26 * (m.escala ?? 1))}px`} loading="lazy" decoding="async" /> : m.nombre}
+        </li>
+      ))}
     </ul>
   </section>
 
