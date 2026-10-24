@@ -153,3 +153,81 @@
 @media (max-width: 720px) {
   .presupuesto { grid-template-columns: 1fr; }
 }
+
+/* ── Cabecera en móvil (medido 24 oct 2026 con diagnostico/movil.html) ─────
+   Desbordaba 30 px a 390: .site-header-inner NO es .wrap, así que conservaba el
+   relleno de 2 rem por lado y con cuatro enlaces ya no cabía (scrollWidth 405 > 375).
+   Arreglo: relleno de móvil + dos filas (marca arriba, navegación a lo ancho).
+   Así no se aprieta la tipografía y cada enlace gana zona táctil. */
+@media (max-width: 520px) {
+  .site-header-inner {
+    padding-inline: var(--space-md);
+    flex-wrap: wrap;
+    row-gap: var(--space-2xs);
+  }
+  .main-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--space-xs);
+  }
+  .main-nav a {
+    padding-block: 0.65rem;
+    white-space: nowrap;
+  }
+}
+
+
+/* Videoclips: dos piezas destacadas, el enlace ES el reproductor */
+/* ── /audiovisual (R2, 24 oct 2026) ──────────────────────────────────────
+   Sin iframes: el vídeo se abre en su sitio (cero cookies de terceros, cero JS). */
+.clip-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.clip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  transition: background 0.15s ease;
+}
+.clip:hover {
+  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+}
+.clip-titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.clip-rol {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Dos columnas (equipo / formación): una en móvil, sin grilla inventada */
+.dos-columnas {
+  display: grid;
+  gap: var(--space-xl) var(--space-2xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.mono-etiqueta {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-sm);
+}

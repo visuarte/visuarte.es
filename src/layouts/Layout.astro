@@ -43,7 +43,14 @@ const anio = new Date().getFullYear();
           <span class="brand-txt">VISUARTE<span class="brand-txt-sub"> STUDIO</span></span>
         </a>
         <nav class="main-nav" aria-label="Principal">
-          {nav.map((item) => <a href={item.path}>{item.nombre}</a>)}
+          {nav.map((item) => (
+            <a
+              href={item.path}
+              aria-current={Astro.url.pathname.startsWith(item.path) ? 'page' : undefined}
+            >
+              {item.nombre}
+            </a>
+          ))}
         </nav>
       </div>
     </header>

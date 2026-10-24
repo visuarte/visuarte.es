@@ -1,0 +1,140 @@
+---
+// AUDIOVISUAL (R2, 24 oct 2026) — la trayectoria real de rodaje, con el vídeo a un clic.
+// Sin iframes de YouTube: el vídeo se abre en su sitio, así que esta página no carga
+// cookies de terceros ni JavaScript. Cero obra ajena: se dice el ROL, no la propiedad.
+import Layout from '../layouts/Layout.astro';
+import { audiovisual as a } from '../data/site';
+
+const total = a.spots.length + a.videoclips.length + a.ficcion.length;
+---
+
+<Layout
+  titulo="Audiovisual — iluminación y rodaje · VISUARTE"
+  descripcion={`Iluminación, cámara y coordinación en set: ${total} producciones con esta mano dentro — spots, videoclips y ficción. Del primer boceto al último acabado.`}
+>
+  <!-- HERO: se dice el oficio y qué se hace dentro del rodaje -->
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Audiovisual · iluminación y rodaje</p>
+      <h1 class="display hero-title">
+        La luz se fabrica<br /><em>antes de encender.</em>
+      </h1>
+      <p class="lede hero-lede">
+        VISUARTE entra en el rodaje por la parte técnica: iluminación, cámara y coordinación en set.{' '}
+        {total} producciones llevan esta mano dentro. Cuando el proyecto es tuyo de principio a fin, se
+        hace igual de abajo arriba: primero la idea, después la luz.
+      </p>
+      <div class="hero-meta">
+        <a class="btn" href="/#presupuesto">Pedir presupuesto de rodaje</a>
+        <a class="btn btn-ghost" href={a.imdb} target="_blank" rel="noopener noreferrer">
+          Ficha en IMDb ↗
+        </a>
+      </div>
+      <p class="hero-nota">{a.nombre} · {a.rol}</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- 01 · SPOTS: tabla de créditos con el vídeo enlazado -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.8rem">Spots publicitarios</h2>
+      <span class="sec-num">01 — {a.spots.length} PIEZAS · VÍDEO ENLAZADO</span>
+    </div>
+    <p class="prose" style="max-width:none; margin-bottom:var(--space-md)">
+      El spot es de su marca y de su productora. Aquí se dice qué mano puso VISUARTE dentro del
+      rodaje, sin apropiarse de lo que no es nuestro.
+    </p>
+    <div class="tabla-cv">
+      {a.spots.map((s) => (
+        <a class="fila" href={s.url} target="_blank" rel="noopener noreferrer">
+          <span class="f-marca">{s.marca} ↗</span>
+          <span class="f-rol">{s.pieza} · {s.rol}</span>
+          <span class="f-anio">{s.anio}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 02 · VIDEOCLIPS -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Videoclips</h2>
+      <span class="sec-num">02 — MÚSICA · VÍDEO A UN CLIC</span>
+    </div>
+    <ul class="clip-lista">
+      {a.videoclips.map((v) => (
+        <li>
+          <a class="clip" href={v.url} target="_blank" rel="noopener noreferrer">
+            <span class="clip-titulo">{v.titulo} ↗</span>
+            <span class="clip-rol">{v.rol}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 03 · CINE Y FICCIÓN -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Cine y ficción</h2>
+      <span class="sec-num">03 — {a.ficcion.length} PRODUCCIONES</span>
+    </div>
+    <div class="tabla-cv">
+      {a.ficcion.map((p) => (
+        <div class="fila">
+          <span class="f-marca">{p.titulo}</span>
+          <span class="f-rol">{p.rol} — {p.tipo}</span>
+          <span class="f-anio">{p.anio}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 04 · EQUIPO Y FORMACIÓN: lo que hay en el set y de dónde viene el oficio -->
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Equipo, set y formación</h2>
+      <span class="sec-num">04 — CON QUÉ SE TRABAJA</span>
+    </div>
+    <div class="dos-columnas">
+      <div>
+        <p class="mono-etiqueta">Equipo propio</p>
+        <ul class="lista-simple">
+          {a.equipo.map((e) => <li>{e}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="mono-etiqueta">Formación</p>
+        <ul class="lista-simple">
+          {a.formacion.map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE: qué se puede pedir de verdad -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">¿Tienes un spot en la cabeza?</h2>
+      <span class="sec-num">05 — PRESUPUESTO SIN COMPROMISO</span>
+    </div>
+    <p class="prose" style="max-width:none">
+      Se puede pedir la parte técnica (iluminación y cámara para tu rodaje) o la pieza entera: idea,
+      dirección de arte, rodaje y montaje. Se responde con una estimación y, si hace falta ver el
+      sitio o el material, se dice <strong>antes</strong> de dar precio firme.
+    </p>
+    <div class="hero-meta">
+      <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+      <a
+        class="btn btn-ghost"
+        href="https://wa.me/34616996306?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto%20de%20rodaje"
+        rel="noopener">Hablar por WhatsApp</a
+      >
+    </div>
+    <p class="nota">
+      Créditos del CV de {a.nombre}. Cada enlace abre el vídeo original publicado por su marca.
+    </p>
+  </section>
+</Layout>

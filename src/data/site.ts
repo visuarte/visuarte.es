@@ -138,3 +138,62 @@ export const faq = [
 
 // RESEÑAS: pendiente de opiniones reales. NO se inventan testimonios (ver TODO en el bloque).
 export const resenasPendientes = true;
+
+// ── AUDIOVISUAL (R2) — trayectoria real, no catálogo inventado ──
+// Fuente: CV de Diego (gaffer) + los enlaces verificados uno a uno contra YouTube el 24 oct 2026
+// (oEmbed 200/200; los títulos que se muestran son los del vídeo real).
+// Lo que se dice aquí es el ROL en el rodaje, no la propiedad del spot: el spot es de su marca
+// y su productora. La web no se cuelga obra ajena.
+export const audiovisual = {
+  nombre: 'Diego Gómez García',
+  rol: 'Iluminación, cámara y coordinación en set',
+  imdb: 'https://www.imdb.com/name/nm13809776/',
+  perfil:
+    'Gaffer con tres años en spots publicitarios y cinco en audiovisual (spots, cine y videoclips). ' +
+    'Iluminación para producto, moda y narrativa: LED, fresnel y DMX con control inalámbrico, ' +
+    'en rodajes de alto ritmo, equipos cortos y plazos ajustados.',
+  spots: [
+    { marca: 'OPEL', pieza: 'Te falta taller', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/shorts/l5VvmxEHTjE' },
+    { marca: 'HELP FLASH', pieza: 'La baliza V16', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=NEFUlfmMiM0' },
+    { marca: 'ELPOZO · Selección Española', pieza: 'Saborea la gloria', anio: '2026', rol: '2ª unidad', url: 'https://www.youtube.com/watch?v=NzsnG_pinXI' },
+    { marca: 'ELPOZO x Viva Suecia', pieza: 'Cámara oculta', anio: '2026', rol: 'Cámara + ayte. iluminación', url: 'https://www.youtube.com/watch?v=r4V2MTyIfj8' },
+    { marca: 'PC Componentes', pieza: 'La calentada del otoño', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ZSfy8xhuWaA' },
+    { marca: 'Turismo de la Región de Murcia', pieza: 'Carlos Alcaraz', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=-0rwMZ5uEPk' },
+    { marca: "Jack Daniel's · Proximity", pieza: 'Rompe con lo de siempre', anio: '2024', rol: 'Best boy', url: 'https://www.youtube.com/watch?v=xgkFQKmcPVc' },
+    { marca: 'Montalbán y Rodríguez', pieza: 'Asiento y cubo Taray', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=CLHNhlggnzI' },
+    { marca: 'Tena Discreet', pieza: 'Campaña 2023', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=TtSYEAkYjVE' },
+    { marca: 'Yaass Casino', pieza: 'Si te gusta, te gusta', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=1bXkHgNySXQ' },
+    { marca: 'Limonar de Santomera', pieza: 'Clarica · sostenibilidad', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ylUlwpu53fg' },
+    { marca: 'Ravetllat Aromatics', pieza: 'Fragrances since 1939', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=Scf5yMDOJYg' },
+    { marca: 'Apupabet', pieza: 'Aúpate a ganar', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=HeiAX9rph8s' },
+  ],
+  videoclips: [
+    { titulo: 'Viva Suecia — Mala Prensa', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=SJZe9WkKcVc' },
+    { titulo: 'Arde Bogotá — Los Perros', rol: 'Best boy', url: 'https://www.youtube.com/watch?v=iy-X7U6Znm0' },
+  ],
+  ficcion: [
+    { titulo: 'SECUESTRO', anio: '2026', rol: 'Refuerzo de eléctricos', tipo: 'Película · LASTOR MEDIA' },
+    { titulo: 'MAKING OF', anio: '2025', rol: 'Gaffer', tipo: 'Serie · Estudio Áurea · 27 jornadas' },
+    { titulo: 'FUGA', anio: '2025', rol: 'Gaffer', tipo: 'Película · A Poco a Poco' },
+    { titulo: 'BESOS ROBADOS', anio: '2024-25', rol: 'Gaffer', tipo: 'Película · A Poco a Poco + Ordet · 16 jornadas' },
+    { titulo: 'COMPAÑERXS', anio: '2025', rol: 'Dirección de fotografía', tipo: 'Corto · Casablanca Films' },
+    { titulo: 'SIN HUELLAS', anio: '2023', rol: 'Eléctrico', tipo: 'Serie · Prime Video' },
+    { titulo: 'TODOS', anio: '2023', rol: 'Gaffer', tipo: 'Largometraje' },
+    { titulo: 'FLECHAZO', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
+    { titulo: 'CONFINAMIENTO (HIPOXIA)', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
+    { titulo: 'LA MALDITA PRIMAVERA', anio: '2022', rol: 'Gaffer', tipo: 'Cortometraje' },
+    { titulo: 'FAST YOUTH', anio: '2023', rol: 'Gaffer', tipo: 'Short film · Creamurcia' },
+    { titulo: 'COTTON CANDY', anio: '2025', rol: 'Gaffer', tipo: 'Rodaje · 5 días' },
+  ],
+  equipo: [
+    'Equipo completo de iluminación: LED, fresnel y DMX',
+    'Control DMX inalámbrico para montajes rápidos',
+    'Blackmagic 6K Pro + Canon R8',
+    'Vehículo propio para el transporte de equipo',
+  ],
+  formacion: [
+    'Técnico Superior en Realización de Audiovisuales y Espectáculos (2008-2010)',
+    'Técnico Superior en Gráfica Publicitaria (2005-2008)',
+    'Meritorio de arte en «La mitad de Óscar» — Manuel Martín Cuenca (2010)',
+  ],
+};
