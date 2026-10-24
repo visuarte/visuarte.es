@@ -47,6 +47,7 @@
   --muted: #6E5B4C;         /* texto atenuado (AA 5.63 sobre papel) */
   --line: #8A7053;          /* borde canónico */
   --accent: #A8441A;        /* fuego brasa — brasa-2t de la MADRE (primario) */
+  --accent-texto: #A8441A;  /* acento cuando es TEXTO: AA 5,3:1 sobre el papel */
   --accent-hover: #8F3613;
   --on-accent: #FFFFFF;
   --badge: #1B1009;
@@ -64,6 +65,10 @@
   --muted: #A78C79;         /* texto atenuado */
   --line: #9A6B40;          /* borde */
   --accent: #E88256;        /* fuego luminoso — llama-2t de la MADRE (no el #D76742 quemado de MAPI) */
+  /* Acento para TEXTO sobre negro (24 Oct 2026). El brasa de la spec (#A8441A)
+     da 3,5:1 y no pasa AA; este es el mismo tono subido de luz lo justo para
+     pasar: H=18°, S=0,73, 4,85:1. Para fondos y botones sigue el de arriba. */
+  --accent-texto: #CD5320;
   --accent-hover: #F0A58B;
   --on-accent: #151513;     /* el vacío como texto del fuego — AA 6.76 sobre #E88256 */
   --badge: #151513;

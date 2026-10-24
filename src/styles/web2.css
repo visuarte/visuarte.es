@@ -180,7 +180,7 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--accent-texto);
   /* Alinea el número con la primera línea de la pregunta, no con la caja. */
   padding-top: 0.35em;
 }
@@ -203,7 +203,7 @@
   position: absolute;
   inset: 50% 0 auto 0;
   height: 1.5px;
-  background: var(--accent);
+  background: var(--accent-texto);
   transform: translateY(-50%);
 }
 .faq-mas::after {
@@ -358,7 +358,7 @@
   padding: 0;
 }
 .resena-estrellas {
-  color: var(--accent);
+  color: var(--accent-texto);
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   margin-bottom: var(--space-sm);
@@ -450,7 +450,7 @@
 .pieza-num-mini {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--accent);
+  color: var(--accent-texto);
 }
 .pieza-cab h3 {
   font-family: var(--font-display);
@@ -487,7 +487,7 @@
   font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-texto);
   border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   border-radius: 999px;
   padding: 0.2rem 0.6rem;
@@ -499,7 +499,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-texto);
 }
 .pieza-enlace:hover {
   color: var(--accent-hover);
@@ -558,7 +558,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-texto);
   margin-top: var(--space-xs);
 }
 .territorio-enlace:hover {
@@ -613,7 +613,7 @@
   text-underline-offset: 3px;
 }
 .legal a:hover {
-  color: var(--accent);
+  color: var(--accent-texto);
 }
 .legal strong {
   color: var(--ink);
@@ -914,7 +914,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-texto);
 }
 .lightbox-ficha h3 {
   margin: 0;
@@ -942,8 +942,8 @@
   padding-bottom: 2px;
 }
 .lightbox-cerrar:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-texto);
+  border-bottom-color: var(--accent-texto);
 }
 
 /* La lista de materiales de la ficha: lo que se compró y se montó, con medidas.
@@ -969,7 +969,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--accent-texto);
 }
 
 /* ── La tarjeta que abre su ficha (24 oct 2026) ───────────────────────────
@@ -1046,8 +1046,8 @@
   padding: 0.45rem 0.7rem;
 }
 .lightbox-cerrar-fijo:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-texto);
+  border-color: var(--accent-texto);
 }
 
 /* ── / (24 oct 2026) — la muestra de cada territorio ──────────────────────

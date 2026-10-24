@@ -152,7 +152,7 @@ img {
 
 .main-nav a[aria-current="page"] {
   color: var(--ink);
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--accent-texto);
 }
 
 /* ── Secciones ──────────────────────────────────────────────── */
@@ -199,7 +199,7 @@ img {
   border: 1px solid var(--line);
 }
 .btn-ghost:hover {
-  border-color: var(--accent);
+  border-color: var(--accent-texto);
   background: transparent;
 }
 
@@ -208,7 +208,7 @@ img {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-texto);
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
@@ -268,7 +268,7 @@ img {
 
 .tag-sello {
   background: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--accent-texto);
   color: var(--on-accent);
 }
 
@@ -289,5 +289,5 @@ img {
 .display em {
   font-style: italic;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--accent-texto);
 }
