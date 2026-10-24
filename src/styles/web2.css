@@ -952,6 +952,20 @@
   border-color: var(--accent);
 }
 
+/* ── / (24 oct 2026) — la muestra de cada territorio ──────────────────────
+   Una tira de 192x73 al pie de la tarjeta: color y vida en una sección que
+   era toda texto. No es ilustración de relleno — es material: la paleta de una
+   marca, las letras de una fachada, la trama de una pantalla, el filo de un
+   corte. Tres son recortes de trabajo real y la cuarta va generada. */
+.servicio-muestra {
+  display: block;
+  width: 192px;
+  height: 73px;
+  object-fit: cover;
+  border-radius: var(--radius-s);
+  margin-bottom: var(--space-sm);
+}
+
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
    mismo: la pieza sigue en blanco y negro en reposo y se enciende al pasar por
    encima. Se quita la animación, no el encendido (24 oct 2026). */

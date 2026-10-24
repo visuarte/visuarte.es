@@ -41,6 +41,8 @@ export const territorios: {
   icono: TerritorioIcono;
   texto: string;
   href: string;
+  /** Muestra de material (192x73): color y vida en la tarjeta, no decoración. */
+  muestra: string;
 }[] = [
   {
     numero: '01',
@@ -48,6 +50,7 @@ export const territorios: {
     icono: 'marca',
     texto:
       'Identidad, naming y dirección de arte. La marca se piensa y se diseña aquí: logotipo, sistema, tono, fotografía y vídeo.',
+    muestra: '/territorios/marca.webp',
     href: '/estudio',
   },
   {
@@ -56,6 +59,7 @@ export const territorios: {
     icono: 'espacio',
     texto:
       'Rotulación, imprenta e imagen del local, por dentro y por fuera. Fachadas, vinilo, gran formato y acabados, con taller propio.',
+    muestra: '/territorios/espacio.webp',
     href: '/rotulacion',
   },
   {
@@ -64,6 +68,7 @@ export const territorios: {
     icono: 'digital',
     texto:
       'Web full stack, software a medida, e-commerce y producto propio. Lo que se ve en pantalla, construido y mantenido aquí.',
+    muestra: '/territorios/digital.webp',
     href: '/estudio',
   },
   {
@@ -72,6 +77,7 @@ export const territorios: {
     icono: 'automatizacion',
     texto:
       'Gestión de procesos con IA: se automatiza el trabajo repetitivo del negocio, nunca el criterio ni la producción.',
+    muestra: '/territorios/automatizacion.webp',
     href: '/estudio',
   },
 ];

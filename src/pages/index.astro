@@ -89,6 +89,15 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
     <div class="servicios">
       {territorios.map((t) => (
         <article class="servicio">
+          <img
+            class="servicio-muestra"
+            src={t.muestra}
+            alt=""
+            width="192"
+            height="73"
+            loading="lazy"
+            decoding="async"
+          />
           <div class="servicio-cab">
             <Icono nombre={t.icono} size={22} />
             <h3><a href={t.href}>{t.nombre}</a></h3>
