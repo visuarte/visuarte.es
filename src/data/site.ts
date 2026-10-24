@@ -346,14 +346,14 @@ export const estudio = {
       texto:
         'Identidad, naming y dirección de arte. El logotipo, el sistema, el tono, la fotografía y el vídeo. Una marca se piensa antes de dibujarse.',
       piezas: ['Logotipo y sistema de identidad', 'Naming y tono de voz', 'Dirección de arte', 'Manual de uso'],
-      href: '/audiovisual',
-      enlace: 'Ver la parte audiovisual',
+      href: '/trabajo',
+      enlace: 'Ver las marcas hechas',
     },
     {
       numero: '02',
       nombre: 'Espacio',
       texto:
-        'Rotulación, imprenta e imagen del local, por dentro y por fuera. Fachadas, vinilo, gran formato y acabados, con taller propio.',
+        'Todo lo que ocupa sitio físico sale de la misma mesa: se mide el soporte, se imprime, se lamina y se monta. La fachada y el vehículo no se subcontratan a un tercero que nunca ha visto la pared.',
       piezas: ['Fachadas y rótulos', 'Vehículos y flotas', 'Gran formato', 'Textil y merchandising'],
       href: '/rotulacion',
       enlace: 'Ver rotulación',
