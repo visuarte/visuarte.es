@@ -953,17 +953,19 @@
 }
 
 /* ── / (24 oct 2026) — la muestra de cada territorio ──────────────────────
-   Una tira de 192x73 al pie de la tarjeta: color y vida en una sección que
-   era toda texto. No es ilustración de relleno — es material: la paleta de una
-   marca, las letras de una fachada, la trama de una pantalla, el filo de un
-   corte. Tres son recortes de trabajo real y la cuarta va generada. */
+   Ensayo 2 (Diego, 24 oct): la tira pequeña flotaba. Ahora LLENA el ancho de la
+   tarjeta y cierra el bloque: cada territorio es argumento arriba y material
+   abajo, como una ficha con su muestra pegada. Sigue siendo material, no
+   ilustración: la paleta de una marca, las letras de una fachada, la trama de
+   una pantalla y el filo de un corte. */
 .servicio-muestra {
   display: block;
-  width: 192px;
-  height: 73px;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  height: auto;
   object-fit: cover;
   border-radius: var(--radius-s);
-  margin: var(--space-md) auto 0;
+  margin-top: var(--space-md);
 }
 
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
