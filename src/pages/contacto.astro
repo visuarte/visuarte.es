@@ -12,8 +12,29 @@ const wa = `https://wa.me/${contacto.telefonoIntl}?text=${encodeURIComponent(
 <Layout
   titulo="Contacto — VISUARTE Studio · Ciudad Quesada (Rojales)"
   descripcion="Hablar con VISUARTE: WhatsApp, teléfono o correo. Taller en Ciudad Quesada (Rojales), cobertura en Alicante, Vega Baja y Murcia. Se responde con una estimación honesta."
+  precarga="/hero/contacto-1600.webp"
+  precargaSrcset="/hero/contacto-900.webp 900w, /hero/contacto-1600.webp 1600w"
 >
-  <section class="wrap hero">
+  <!-- HERO (24 oct 2026): el guiño clásico, pero en material. Una carta doblada
+       con su sello de lacre, en macro y con la misma luz cálida que las otras
+       páginas. No es un sobre de icono: es cera, papel y una sombra. Y el sello
+       no es adorno — en esta casa lo que se entrega se firma. Generada en local
+       con BOLCO VISION/FLUX; el encendido es un filtro CSS, cero JavaScript. -->
+  <section class="hero hero--encender">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="/hero/contacto-1600.webp"
+        srcset="/hero/contacto-900.webp 900w, /hero/contacto-1600.webp 1600w"
+        sizes="100vw"
+        alt=""
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-velo"></div>
+    </div>
+    <div class="wrap">
     <div>
       <p class="eyebrow">Contacto</p>
       <h1 class="display hero-title">Hablemos.</h1>
@@ -27,6 +48,7 @@ const wa = `https://wa.me/${contacto.telefonoIntl}?text=${encodeURIComponent(
         <a class="btn btn-ghost" href={`tel:+${contacto.telefonoIntl}`}>Llamar</a>
       </div>
       <p class="hero-nota">Taller en {contacto.sede} · {contacto.cobertura}</p>
+    </div>
     </div>
   </section>
 
