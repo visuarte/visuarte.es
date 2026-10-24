@@ -11,8 +11,28 @@ import { trabajo, contacto } from '../data/site';
 <Layout
   titulo="Trabajo — VISUARTE Studio"
   descripcion="La vitrina de VISUARTE: identidad y rótulo de fachada, cartelería, textil, producto propio y web. Qué se hizo en cada pieza, con qué y en cuánto tiempo."
+  precarga="/hero/trabajo-1600.webp"
+  precargaSrcset="/hero/trabajo-900.webp 900w, /hero/trabajo-1600.webp 1600w"
 >
-  <section class="wrap hero">
+  <!-- HERO (24 oct 2026): entra la imagen que faltaba. El canto de una pila de
+       pliegos en macro —lo que se ve cuando la pieza ya está hecha—, generada en
+       local con BOLCO VISION/FLUX y con el mismo encendido gris→color de las
+       otras cuatro: un filtro CSS, cero JavaScript. -->
+  <section class="hero hero--encender">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="/hero/trabajo-1600.webp"
+        srcset="/hero/trabajo-900.webp 900w, /hero/trabajo-1600.webp 1600w"
+        sizes="100vw"
+        alt=""
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-velo"></div>
+    </div>
+    <div class="wrap">
     <div>
       <p class="eyebrow">Trabajo · la vitrina</p>
       <h1 class="display hero-title">Del concepto<br /><em>a la pieza.</em></h1>
@@ -23,14 +43,15 @@ import { trabajo, contacto } from '../data/site';
       </div>
       <p class="hero-nota">{contacto.sede} · {contacto.cobertura}</p>
     </div>
+    </div>
   </section>
 
   <hr class="rule" />
 
   <section class="wrap section">
     <div class="sec-head">
-      <h2 class="display" style="font-size:1.5rem">Nueve piezas</h2>
-      <span class="sec-num">01 — NUEVE PIEZAS · CLIENTES Y PROYECTOS PROPIOS</span>
+      <h2 class="display" style="font-size:1.5rem">Las piezas</h2>
+      <span class="sec-num">01 — CLIENTES Y PROYECTOS PROPIOS</span>
     </div>
 
     <div class="vitrina" id="vitrina">

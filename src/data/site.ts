@@ -236,7 +236,7 @@ export const audiovisual = {
 // trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
 export const trabajo = {
   intro:
-    'Nueve piezas, de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto la tiene; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
+    'Piezas que van de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto, la muestra; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
   piezas: [
     {
       numero: '01',
