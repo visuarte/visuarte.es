@@ -1,0 +1,109 @@
+---
+// ESTUDIO (R5, 24 oct 2026) — la casa: los cuatro territorios, el método y el taller.
+// Es la página que reclaman los territorios de la portada. Sin fotos de relleno:
+// texto, dato y enlace a la página que sí tiene la obra.
+import Layout from '../layouts/Layout.astro';
+import { estudio, contacto } from '../data/site';
+---
+
+<Layout
+  titulo="El estudio — VISUARTE · diseño, imprenta y software"
+  descripcion="VISUARTE Studio: identidad, rotulación, web y software, y gestión de procesos con IA. Taller propio en Ciudad Quesada (Rojales). Se piensa aquí y se fabrica aquí."
+>
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">El estudio · {contacto.sede}</p>
+      <h1 class="display hero-title">Se piensa aquí.<br /><em>Se fabrica aquí.</em></h1>
+      <p class="lede hero-lede">
+        VISUARTE no es una agencia que encarga: piensa la marca, la produce en su taller y la
+        mantiene después. Cuatro territorios, un mismo criterio — del logotipo a la fachada, de la
+        web al proceso que lo mueve todo por detrás.
+      </p>
+      <div class="hero-meta">
+        <a class="btn" href="/contacto">Hablar del proyecto</a>
+        <a class="btn btn-ghost" href="/rotulacion">Ver el taller</a>
+      </div>
+      <p class="hero-nota">{contacto.cobertura} · {contacto.titular} · NIF {contacto.nif}</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- 01 · LOS CUATRO TERRITORIOS -->
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.8rem">Los cuatro territorios</h2>
+      <span class="sec-num">01 — UNO SOLO, CUATRO CARAS</span>
+    </div>
+    <div class="territorio-lista">
+      {estudio.territorios.map((t) => (
+        <article class="territorio">
+          <div class="territorio-cab">
+            <span class="servicio-num">{t.numero}</span>
+            <h3>{t.nombre}</h3>
+          </div>
+          <p>{t.texto}</p>
+          <ul class="territorio-piezas">
+            {t.piezas.map((p) => <li>{p}</li>)}
+          </ul>
+          <a class="territorio-enlace" href={t.href}>{t.enlace} →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 02 · MÉTODO -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Cómo se trabaja</h2>
+      <span class="sec-num">02 — CINCO PASOS, SIEMPRE LOS MISMOS</span>
+    </div>
+    <div class="pasos-metodo pasos-metodo--cinco">
+      {estudio.metodo.map((p, i) => (
+        <div class="paso">
+          <span class="paso-num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 03 · LO QUE HAY DENTRO -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Lo que hay dentro</h2>
+      <span class="sec-num">03 — NO SE SUBCONTRATA LO QUE SE PUEDE HACER</span>
+    </div>
+    <div class="dos-columnas">
+      {estudio.taller.map((t) => (
+        <div>
+          <p class="mono-etiqueta">{t.que}</p>
+          <p class="prose" style="max-width:none">{t.detalle}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 04 · QUIÉN -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Quién responde</h2>
+      <span class="sec-num">04 — CON NOMBRE Y CARA</span>
+    </div>
+    <p class="prose" style="max-width:none">
+      <strong>{contacto.titular}</strong> — técnico superior en Realización de Audiovisuales y en
+      Gráfica Publicitaria, y gaffer en spots y cine. Ese cruce es la casa: alguien que ha estado en
+      el set, en el taller y en el código, y que por eso sabe qué se puede prometer y qué no.
+    </p>
+    <p class="prose" style="max-width:none">
+      Cuando el trabajo lo pide, entra gente de confianza: montadores, electricistas autorizados y
+      taller externo. Se dice antes de empezar y se factura como parte del trabajo, nunca como
+      sorpresa.
+    </p>
+    <div class="hero-meta">
+      <a class="btn" href="/contacto">Hablar del proyecto</a>
+      <a class="btn btn-ghost" href="/audiovisual">Ver la trayectoria técnica</a>
+    </div>
+  </section>
+</Layout>

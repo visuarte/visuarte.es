@@ -244,6 +244,77 @@
   font-size: 0.95rem;
 }
 
+/* ── /estudio (R5, 24 oct 2026) ─────────────────────────────────────────
+   Cuatro territorios con su lista de piezas. Aquí sí caben en columna: cada uno
+   lleva texto, cuatro piezas y su enlace, y en rejilla de 2 se quedaban cortos. */
+.territorio-lista {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.territorio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-xs) var(--space-xl);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  align-items: start;
+}
+.territorio-cab {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+.territorio-cab h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.territorio > p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+  grid-column: 1;
+}
+.territorio-piezas {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.territorio-piezas li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 35%, transparent);
+}
+.territorio-enlace {
+  grid-column: 1;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: var(--space-xs);
+}
+.territorio-enlace:hover {
+  color: var(--accent-hover);
+}
+
+@media (max-width: 720px) {
+  .territorio {
+    grid-template-columns: 1fr;
+  }
+  .territorio-piezas {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: var(--space-xs);
+  }
+}
+
 /* ── Cierre del recorrido (24 oct 2026) ──────────────────────────────────
    El claim de cierre: una línea grande, sin adornos, con el CTA al lado.
    No es un banner: es la frase que se queda. */

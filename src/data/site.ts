@@ -202,6 +202,63 @@ export const audiovisual = {
   ],
 };
 
+// ── ESTUDIO (R5) — la casa: los cuatro territorios, el método y lo que hay dentro ──
+// Nada de equipo inventado: se nombra el taller propio y las herramientas que existen.
+export const estudio = {
+  territorios: [
+    {
+      numero: '01',
+      nombre: 'Marca',
+      texto:
+        'Identidad, naming y dirección de arte. El logotipo, el sistema, el tono, la fotografía y el vídeo. Una marca se piensa antes de dibujarse.',
+      piezas: ['Logotipo y sistema de identidad', 'Naming y tono de voz', 'Dirección de arte', 'Manual de uso'],
+      href: '/audiovisual',
+      enlace: 'Ver la parte audiovisual',
+    },
+    {
+      numero: '02',
+      nombre: 'Espacio',
+      texto:
+        'Rotulación, imprenta e imagen del local, por dentro y por fuera. Fachadas, vinilo, gran formato y acabados, con taller propio.',
+      piezas: ['Fachadas y rótulos', 'Vehículos y flotas', 'Gran formato', 'Textil y merchandising'],
+      href: '/rotulacion',
+      enlace: 'Ver rotulación',
+    },
+    {
+      numero: '03',
+      nombre: 'Digital',
+      texto:
+        'Web y software a medida: se construye y se mantiene aquí. Nada de plantillas que nadie sabe tocar después.',
+      piezas: ['Web y portfolio', 'E-commerce y configuradores', 'Software a medida', 'Producto propio (QR Card)'],
+      href: '/contacto',
+      enlace: 'Contar el proyecto',
+    },
+    {
+      numero: '04',
+      nombre: 'Automatización',
+      texto:
+        'Gestión de procesos con IA: se automatiza el trabajo repetitivo del negocio, nunca el criterio ni la producción. La máquina hace lo pesado; la decisión sigue siendo humana.',
+      piezas: ['Agentes que organizan y avisan', 'Generación de imagen y vídeo en local', 'Datos y documentos ordenados', 'Procesos que no se olvidan'],
+      href: '/contacto',
+      enlace: 'Ver qué se puede automatizar',
+    },
+  ],
+  metodo: [
+    { titulo: 'Se escucha', texto: 'Qué hay, qué se quiere y qué no. Sin reuniones de relleno.' },
+    { titulo: 'Se encuadra', texto: 'Alcance cerrado por escrito: qué entra, qué no y qué cuesta.' },
+    { titulo: 'Se aprueba', texto: 'Nada se produce sin aprobación. Lo que cambia después, se re-cotiza.' },
+    { titulo: 'Se fabrica', texto: 'En taller propio, con revisión a ras de luz antes de sacarlo.' },
+    { titulo: 'Se entrega y sigue', texto: 'Parte con foto el mismo día y la web sigue viva después.' },
+  ],
+  taller: [
+    { que: 'Taller de rotulación', detalle: 'Impresión de gran formato, laminado, corte y montaje. Aquí se mide, se imprime y se monta.' },
+    { que: 'Luz y rodaje', detalle: 'Equipo de iluminación LED, fresnel y control DMX, con cámara propia y vehículo para transporte.' },
+    { que: 'Herramientas propias', detalle: 'Generación de imagen y vídeo en local (BOLCO VISION) y un sistema propio de gestión de procesos con IA (MAPICP).' },
+    { que: 'Producto propio', detalle: 'QR Card Online: tarjetas NFC con perfil digital. Se diseña, se imprime y se programa aquí.' },
+  ],
+};
+// Nada de aquí es inventado: son las piezas, los materiales y el método con los que se ha
+// trabajado (Rizzo, Salón N23, Anissa). Lo que no está comprobado no se escribe.
 // ── ROTULACIÓN (R3) — lo que el taller hace de verdad, sin catálogo de relleno ──
 // Nada de aquí es inventado: son las piezas, los materiales y el método con los que se ha
 // trabajado (Rizzo, Salón N23, Anissa). Lo que no está comprobado no se escribe.
