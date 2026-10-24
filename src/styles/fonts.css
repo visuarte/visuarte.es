@@ -1,0 +1,34 @@
+/* POPPINS, SERVIDA DESDE CASA (24 oct 2026).
+   Antes se pedía a fonts.googleapis.com: eso manda la IP del visitante a Google en
+   cada visita, y es justo lo que la política de privacidad no puede decir que no pasa.
+   Son los mismos archivos (subset latin, woff2) servidos desde el propio dominio:
+   cero peticiones a terceros, cero cookies y un DNS menos antes de pintar el titular. */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/poppins-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}

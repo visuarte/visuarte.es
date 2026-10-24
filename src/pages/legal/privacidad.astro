@@ -1,0 +1,110 @@
+---
+// POLÍTICA DE PRIVACIDAD (RGPD arts. 13-14) — 24 oct 2026.
+// Escrita sobre lo que esta web HACE DE VERDAD (verificado en el build): sin cookies,
+// sin analítica, sin formularios que guarden nada y sin peticiones a terceros.
+// Si algún día se añade analítica o un endpoint de formulario, ESTA página se corrige
+// AÑADIENDO, no borrando: el canon legal obliga a que la política no mienta.
+import Layout from '../../layouts/Layout.astro';
+import { contacto } from '../../data/site';
+---
+
+<Layout
+  titulo="Política de privacidad — VISUARTE Studio"
+  descripcion="Qué datos trata visuarte.es, para qué y con qué base legal. Sin cookies, sin analítica y sin peticiones a terceros desde la web."
+>
+  <section class="wrap section-tight legal">
+    <p class="eyebrow">Información legal</p>
+    <h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Política de privacidad</h1>
+    <p class="nota">Última revisión: 24 de octubre de 2026</p>
+
+    <h2>1. Responsable del tratamiento</h2>
+    <ul class="lista-marcada">
+      <li>Responsable: {contacto.titular} — {contacto.marca} Studio</li>
+      <li>NIF: {contacto.nif}</li>
+      <li>Domicilio de actividad: {contacto.sede} (España)</li>
+      <li>Correo para ejercer derechos: <a href={`mailto:${contacto.email}`}>{contacto.email}</a></li>
+      <li>Teléfono: {contacto.telefono}</li>
+    </ul>
+
+    <h2>2. Qué datos se tratan</h2>
+    <p>
+      <strong>Esta web no recoge datos por sí misma.</strong> No hay formularios que envíen información
+      a un servidor, no hay cuentas de usuario, no hay analítica y no hay cookies publicitarias ni de
+      seguimiento. Tampoco se cargan tipografías, scripts ni imágenes desde dominios de terceros.
+    </p>
+    <p>Los datos que sí se tratan son los que tú nos das al contactar:</p>
+    <ul class="lista-marcada">
+      <li>Nombre y datos de contacto (teléfono, correo) que escribas tú</li>
+      <li>El contenido de tu mensaje y los archivos o fotos que decidas enviar</li>
+      <li>Los datos necesarios para emitir una factura, si contratas un trabajo (nombre fiscal, NIF, dirección)</li>
+    </ul>
+    <p>
+      El proveedor de alojamiento registra <em>logs técnicos</em> (dirección IP, fecha y recurso
+      solicitado) por seguridad y funcionamiento. No se usan para perfilarte ni se cruzan con nada.
+    </p>
+
+    <h2>3. Para qué y con qué base legal</h2>
+    <ul class="lista-marcada">
+      <li><strong>Responder a tu consulta</strong> — base: tu consentimiento al escribirnos (art. 6.1.a RGPD)</li>
+      <li><strong>Ejecutar el trabajo contratado</strong> — base: ejecución de contrato (art. 6.1.b RGPD)</li>
+      <li><strong>Emitir y conservar facturas</strong> — base: obligación legal fiscal (art. 6.1.c RGPD)</li>
+      <li><strong>Seguridad del sitio</strong> (logs del alojamiento) — base: interés legítimo (art. 6.1.f RGPD)</li>
+    </ul>
+    <p>No se usan tus datos para publicidad ni se elaboran perfiles.</p>
+
+    <h2>4. Cuánto tiempo</h2>
+    <p>
+      Las consultas que no acaban en trabajo se conservan mientras dure la conversación y se borran
+      después. Los datos de un trabajo se conservan mientras dure la relación y, después, durante los
+      plazos que exige la normativa fiscal y contable (con carácter general, cuatro años).
+    </p>
+
+    <h2>5. Destinatarios</h2>
+    <p>No se cede tu información a nadie, salvo obligación legal. Sí intervienen proveedores necesarios:</p>
+    <ul class="lista-marcada">
+      <li><strong>Alojamiento web</strong> — Vercel Inc. (logs técnicos del sitio)</li>
+      <li><strong>Correo electrónico</strong> — Google (Gmail), si nos escribes por correo</li>
+      <li><strong>Mensajería</strong> — WhatsApp (Meta Platforms Ireland), si nos escribes por WhatsApp</li>
+    </ul>
+    <p>
+      Si eliges WhatsApp, ten en cuenta que es un servicio de un tercero y que su uso implica el
+      tratamiento de tus datos conforme a <em>sus</em> condiciones y su política de privacidad. Si
+      prefieres evitarlo, escribe por correo o llama por teléfono: se atiende igual.
+    </p>
+
+    <h2>6. Tus derechos</h2>
+    <p>
+      Puedes pedir <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong>
+      de tus datos escribiendo a <a href={`mailto:${contacto.email}`}>{contacto.email}</a>. Se responde
+      en el plazo máximo de un mes.
+    </p>
+    <p>
+      Si consideras que no se ha atendido bien, puedes reclamar ante la
+      <strong>Agencia Española de Protección de Datos</strong>
+      (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>).
+    </p>
+
+    <h2>7. Menores</h2>
+    <p>
+      Este sitio no se dirige a menores de 14 años y no se recogen conscientemente datos de menores
+      sin autorización de quien ejerza la patria potestad.
+    </p>
+
+    <h2>8. Cookies</h2>
+    <p>
+      <strong>Este sitio no usa cookies.</strong> Ni técnicas, ni de analítica, ni publicitarias. Por
+      eso no hay banner: no hay nada que aceptar.
+    </p>
+
+    <h2>9. Cambios</h2>
+    <p>
+      Si cambia lo que hace la web (por ejemplo, si se añade un formulario con envío a servidor o una
+      herramienta de analítica), esta política se actualizará y la versión vigente será siempre la
+      publicada en esta dirección.
+    </p>
+
+    <p class="nota">
+      Identificación del titular y condiciones de uso: <a href="/legal/aviso">aviso legal</a>.
+    </p>
+  </section>
+</Layout>

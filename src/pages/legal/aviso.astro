@@ -1,0 +1,73 @@
+---
+// AVISO LEGAL (LSSI art. 10) — 24 oct 2026.
+// Datos del RESPONSABLE copiados del canon legal del ecosistema (fuente única):
+// data/legal-web/canon-legal-web.md §1. Este bloque NO se reescribe por web.
+import Layout from '../../layouts/Layout.astro';
+import { contacto } from '../../data/site';
+---
+
+<Layout
+  titulo="Aviso legal — VISUARTE Studio"
+  descripcion="Aviso legal de visuarte.es conforme al artículo 10 de la LSSI: titular, NIF, actividad y contacto de Visuarte Studio."
+>
+  <section class="wrap section-tight legal">
+    <p class="eyebrow">Información legal</p>
+    <h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Aviso legal</h1>
+    <p class="nota">Última revisión: 24 de octubre de 2026</p>
+
+    <h2>1. Titular del sitio</h2>
+    <p>
+      En cumplimiento de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la
+      información y de comercio electrónico (LSSI), se informa:
+    </p>
+    <ul class="lista-marcada">
+      <li>Titular: {contacto.titular} — nombre comercial {contacto.marca} Studio</li>
+      <li>NIF: {contacto.nif}</li>
+      <li>Actividad: diseño gráfico, imprenta, rotulación, producción audiovisual y producto digital</li>
+      <li>Domicilio de actividad: {contacto.sede} (España)</li>
+      <li>Correo: <a href={`mailto:${contacto.email}`}>{contacto.email}</a></li>
+      <li>Teléfono: <a href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a></li>
+    </ul>
+
+    <h2>2. Objeto</h2>
+    <p>
+      Este sitio tiene carácter informativo y comercial: muestra los servicios del estudio y permite
+      contactar con él. No se realiza venta ni pago en línea.
+    </p>
+
+    <h2>3. Propiedad intelectual e industrial</h2>
+    <p>
+      Los contenidos de este sitio (textos, diseños, composiciones, fotografías, marcas y logotipos
+      propios) pertenecen a su titular o se usan con autorización. Queda prohibida su reproducción,
+      distribución, comunicación pública o transformación sin autorización expresa.
+    </p>
+    <p>
+      Las marcas y logotipos de clientes, productoras y artistas que aparecen en este sitio
+      pertenecen a sus titulares y se muestran como referencia de trabajos realizados o de
+      colaboración profesional. Su presencia aquí no implica cesión de derechos ni patrocinio.
+    </p>
+
+    <h2>4. Enlaces a terceros</h2>
+    <p>
+      El sitio incluye enlaces a plataformas externas (WhatsApp, YouTube, IMDb). El titular no
+      controla ni responde de sus contenidos, políticas ni disponibilidad.
+    </p>
+
+    <h2>5. Responsabilidad</h2>
+    <p>
+      El titular no se hace responsable del mal uso de los contenidos ni de los daños derivados de
+      interrupciones, errores u omisiones ajenos a su control. La información técnica y los plazos
+      publicados son orientativos y se confirman por escrito en cada presupuesto.
+    </p>
+
+    <h2>6. Legislación aplicable</h2>
+    <p>
+      Esta relación se rige por la legislación española. Para cualquier controversia, las partes se
+      someten a los juzgados y tribunales que correspondan conforme a la normativa de consumo.
+    </p>
+
+    <p class="nota">
+      Protección de datos: <a href="/legal/privacidad">política de privacidad</a>.
+    </p>
+  </section>
+</Layout>

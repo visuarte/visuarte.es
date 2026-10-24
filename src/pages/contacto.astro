@@ -1,0 +1,111 @@
+---
+// CONTACTO (24 oct 2026) — sin formulario muerto: canales reales y qué mandar.
+// El formulario de la portada compone un correo (mailto): no se guarda nada en servidor.
+import Layout from '../layouts/Layout.astro';
+import { contacto } from '../data/site';
+
+const wa = `https://wa.me/${contacto.telefonoIntl}?text=${encodeURIComponent(
+  'Hola VISUARTE, quiero un presupuesto'
+)}`;
+---
+
+<Layout
+  titulo="Contacto — VISUARTE Studio · Ciudad Quesada (Rojales)"
+  descripcion="Hablar con VISUARTE: WhatsApp, teléfono o correo. Taller en Ciudad Quesada (Rojales), cobertura en Alicante, Vega Baja y Murcia. Se responde con una estimación honesta."
+>
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h1 class="display hero-title">Se habla,<br /><em>se mide y se hace.</em></h1>
+      <p class="lede hero-lede">
+        Escríbenos con lo que tengas: una foto, unas medidas a ojo o solo la idea. Se responde con
+        una estimación y, si hace falta ver el sitio, se dice <strong>antes</strong> de dar precio
+        firme.
+      </p>
+      <div class="hero-meta">
+        <a class="btn" href={wa} rel="noopener">Hablar por WhatsApp</a>
+        <a class="btn btn-ghost" href={`tel:+${contacto.telefonoIntl}`}>Llamar</a>
+      </div>
+      <p class="hero-nota">Taller en {contacto.sede} · {contacto.cobertura}</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- CANALES -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Por dónde pillarnos</h2>
+      <span class="sec-num">01 — SIN INTERMEDIARIOS</span>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-card">
+        <span class="clave">WhatsApp</span>
+        <a class="valor" href={wa} rel="noopener">{contacto.telefono}</a>
+        <p class="nota">Lo más rápido. Manda la foto del sitio y las medidas.</p>
+      </div>
+      <div class="contacto-card">
+        <span class="clave">Teléfono</span>
+        <a class="valor" href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a>
+        <p class="nota">Llamada directa, sin centralita.</p>
+      </div>
+      <div class="contacto-card">
+        <span class="clave">Correo</span>
+        <a class="valor" href={`mailto:${contacto.email}`}>{contacto.email}</a>
+        <p class="nota">Para archivos, planos y presupuestos con detalle.</p>
+      </div>
+      <div class="contacto-card">
+        <span class="clave">Taller</span>
+        <span class="valor">{contacto.sede}</span>
+        <p class="nota">{contacto.cobertura}. Visitas con cita: se avisa y se queda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ CONTAR -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Qué viene bien para empezar</h2>
+      <span class="sec-num">02 — CON ESTO SE PUEDE DAR PRECIO</span>
+    </div>
+    <div class="dos-columnas">
+      <div>
+        <p class="mono-etiqueta">Cuéntanos</p>
+        <ul class="lista-marcada">
+          <li>Qué es la pieza y para qué se usa</li>
+          <li>Dónde va: pared, chapa, cristal, carrocería o pantalla</li>
+          <li>Medidas, aunque sean a ojo</li>
+          <li>Una foto del sitio tal y como está hoy</li>
+          <li>Para cuándo lo necesitas</li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono-etiqueta">Y si aún no lo tienes</p>
+        <ul class="lista-marcada">
+          <li>Escribe igual: el proyecto se puede pensar juntos</li>
+          <li>Si hay que medir, se va al sitio antes de presupuestar</li>
+          <li>Si la idea no es viable, se dice antes de cobrar nada</li>
+          <li>Nada de presupuestos de tres páginas para una lona</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACIDAD, EN CORTO -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Qué pasa con tus datos</h2>
+      <span class="sec-num">03 — EN CORTO Y EN CLARO</span>
+    </div>
+    <p class="prose" style="max-width:none">
+      Esta web no tiene formularios que guarden nada en un servidor, ni analítica, ni cookies
+      publicitarias. Si nos escribes por WhatsApp o por correo, tus datos se usan para responderte y
+      para el trabajo, y nada más. El detalle completo está en la
+      <a href="/legal/privacidad">política de privacidad</a>.
+    </p>
+    <div class="hero-meta">
+      <a class="btn" href={wa} rel="noopener">Hablar por WhatsApp</a>
+      <a class="btn btn-ghost" href={`mailto:${contacto.email}`}>Escribir un correo</a>
+    </div>
+  </section>
+</Layout>

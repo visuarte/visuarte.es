@@ -238,6 +238,43 @@
     object-position: 60% 88%;
   }
 }
+/* Correo largo en la tarjeta de contacto: a 1,1 rem la dirección se partía en
+   "…@g / mail.com". Baja un punto y respira. */
+.contacto-card a.valor[href^='mailto:'] {
+  font-size: 0.95rem;
+}
+
+/* ── Páginas legales (24 oct 2026) ───────────────────────────────────────
+   Texto largo: se lee, no se decora. Medida de línea corta, jerarquía clara. */
+.legal {
+  max-width: 46rem;
+}
+.legal h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  margin: var(--space-xl) 0 var(--space-sm);
+}
+.legal p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-md);
+}
+.legal a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  text-underline-offset: 3px;
+}
+.legal a:hover {
+  color: var(--accent);
+}
+.legal strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* ── /audiovisual (R2, 24 oct 2026) ──────────────────────────────────────
    Sin iframes: el vídeo se abre en su sitio (cero cookies de terceros, cero JS). */
 /* Videoclips: dos piezas destacadas, el enlace ES el reproductor */

@@ -1,5 +1,6 @@
 ---
 // LAYOUT DE LA CASA — Astro (24 oct 2026). Sin framework en el cliente: esto se genera en build.
+import '../styles/fonts.css';
 import '../styles/design-tokens.css';
 import '../styles/base.css';
 import '../styles/pages.css';
@@ -39,12 +40,8 @@ const anio = new Date().getFullYear();
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
     <title>{titulo}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Poppins se sirve desde /fonts (propia): cero peticiones a terceros. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>

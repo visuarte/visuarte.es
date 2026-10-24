@@ -106,7 +106,15 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
       <h2 class="display" style="font-size:1.8rem">¿Tienes un proyecto en mente?</h2>
       <span class="sec-num">02 — PRESUPUESTO SIN COMPROMISO</span>
     </div>
-    <form class="presupuesto" method="post" action="/api/presupuesto">
+    <!-- SIN SERVIDOR: el formulario compone un correo en la app del visitante (mailto).
+         Antes apuntaba a /api/presupuesto, una ruta que no existe: un envío daba 404.
+         No se guarda nada en ningún servidor nuestro. -->
+    <form
+      class="presupuesto"
+      method="post"
+      action={`mailto:${contacto.email}`}
+      enctype="text/plain"
+    >
       <div class="campo">
         <label for="nombre">Tu nombre</label>
         <input id="nombre" name="nombre" type="text" autocomplete="name" required />
@@ -128,8 +136,10 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
       <div class="campo campo-ancho">
         <button class="btn" type="submit">Enviar y que me llamen</button>
         <p class="nota">
-          Respuesta en menos de 24 h laborables. Si el trabajo necesita inspección, se dice antes de
-          dar precio firme.
+          Al enviar se abre tu aplicación de correo con estos datos: el mensaje sale de tu cuenta y
+          no se guarda en ningún servidor de la web. Respuesta en menos de 24 h laborables. Si el
+          trabajo necesita inspección, se dice antes de dar precio firme. ¿Prefieres hablar?{' '}
+          <a href={`https://wa.me/${contacto.telefonoIntl}`} rel="noopener">WhatsApp</a>.
         </p>
       </div>
     </form>
