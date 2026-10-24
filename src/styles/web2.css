@@ -874,6 +874,84 @@
   color: var(--accent);
 }
 
+/* ── La tarjeta que abre su ficha (24 oct 2026) ───────────────────────────
+   En la vitrina el disparo es la propia imagen: se toca y se abre el trabajo
+   entero. La pista es el cursor y un punto de luz, sin mover la foto de sitio
+   (nada de zoom que baile mientras se lee). */
+.pieza-disparo {
+  display: block;
+  cursor: zoom-in;
+  border-radius: var(--radius-s);
+}
+.pieza-disparo .pieza-media {
+  transition: box-shadow 220ms ease;
+}
+.pieza-disparo:hover .pieza-media,
+.pieza-disparo:focus-visible .pieza-media {
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Los soportes dentro de la ficha: la misma pieza en otros sitios. Dos columnas
+   como mucho — son pruebas, no un carrusel. */
+.lightbox-soportes {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+.lightbox-soportes figure {
+  margin: 0;
+}
+.lightbox-soportes img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: var(--radius-s);
+}
+.lightbox-soportes figcaption {
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (min-width: 620px) {
+  .lightbox-soportes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* La ficha tiene dos mitades: la media (foto y, si hay, los soportes) y el
+   texto. En una columna la media se quedaba con un hueco muerto debajo. */
+.lightbox-media {
+  display: grid;
+  gap: var(--space-sm);
+  align-content: start;
+}
+.lightbox-media > img {
+  max-height: 62vh;
+}
+.lightbox-cerrar-fijo {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 0.45rem 0.7rem;
+}
+.lightbox-cerrar-fijo:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
    mismo: la pieza sigue en blanco y negro en reposo y se enciende al pasar por
    encima. Se quita la animación, no el encendido (24 oct 2026). */

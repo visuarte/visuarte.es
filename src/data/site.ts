@@ -246,6 +246,15 @@ export const trabajo = {
       que: 'Insignia redonda: la tricolor italiana en pinceladas, el gorro de chef con tres estrellas y el nombre en dos voces —«Sabores» en cursiva y «RIZZO» en seco sobre tabla—, con albahaca, espiga y cubiertos en dorado. Alrededor, «Pizzas · Burger · Tradición».',
       img: '/obras/rizzo-marca.webp',
       alt: 'Logotipo de Sabores Rizzo: insignia redonda con la tricolor italiana, gorro de chef con tres estrellas y el nombre sobre una tabla, rodeado de albahaca y espigas',
+      proceso:
+        'El sistema sale de la deconstrucción: la tricolor en pinceladas, el gorro con tres estrellas, la albahaca, la espiga de trigo y los cubiertos. De ahí salieron cuatro propuestas —verdes y a color— hasta la insignia que se aprobó el 6 de julio de 2026. El nombre va en dos voces: «Sabores» en cursiva y «RIZZO» en seco sobre tabla, y la cierra «Pizzas · Burger · Tradición», que es lo que el cliente quería decir sin escribirlo.',
+      soportes: [
+        {
+          src: '/obras/rizzo/aplicacion.webp',
+          alt: 'Fachada con la insignia en el escaparate y el rótulo redondo sobre la puerta, junto a la carta iluminada',
+          pie: 'Fachada y carta',
+        },
+      ],
     },
     {
       numero: '02',

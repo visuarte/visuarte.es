@@ -4,6 +4,7 @@
 // donde no la hay autorizada, ficha con los datos reales. Nada de relleno ni de imágenes
 // que no sean nuestras.
 import Layout from '../layouts/Layout.astro';
+import Lightbox from '../components/Lightbox.astro';
 import { trabajo, contacto } from '../data/site';
 ---
 
@@ -32,16 +33,24 @@ import { trabajo, contacto } from '../data/site';
       <span class="sec-num">01 — NUEVE PIEZAS · CLIENTES Y PROYECTOS PROPIOS</span>
     </div>
 
-    <div class="vitrina">
+    <div class="vitrina" id="vitrina">
       {trabajo.piezas.map((p) => (
         <article class="pieza">
-          <div class:list={['pieza-media', { 'pieza-media--ficha': !p.img }]}>
-            {p.img ? (
-              <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
-            ) : (
-              <span class="pieza-num">{p.numero}</span>
-            )}
-          </div>
+          {p.soportes ? (
+            <a class="pieza-disparo" href={`#ficha-${p.numero}`}>
+              <div class="pieza-media">
+                <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
+              </div>
+            </a>
+          ) : (
+            <div class:list={['pieza-media', { 'pieza-media--ficha': !p.img }]}>
+              {p.img ? (
+                <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
+              ) : (
+                <span class="pieza-num">{p.numero}</span>
+              )}
+            </div>
+          )}
           <div class="pieza-cuerpo">
             <div class="pieza-cab">
               <span class="pieza-num-mini">{p.numero}</span>
@@ -64,6 +73,30 @@ import { trabajo, contacto } from '../data/site';
       autorizado se cuenta en ficha: qué se hizo, con qué material y cómo se montó.
     </p>
   </section>
+
+  <!-- LAS FICHAS (24 oct 2026): la tarjeta abre el trabajo entero — el proceso y
+       las otras caras de la pieza. Mismo componente que /rotulacion, sin JS:
+       se abre con :target y se cierra volviendo a #vitrina. -->
+  {trabajo.piezas
+    .filter((p) => p.soportes)
+    .map((p) => (
+      <Lightbox
+        id={`ficha-${p.numero}`}
+        src={p.img}
+        width={1080}
+        height={810}
+        alt={p.alt}
+        cliente={p.cliente}
+        tipo={p.tipo}
+        anio={p.anio}
+        mini={false}
+        soportes={p.soportes}
+        cerrarA="#vitrina"
+      >
+        <p>{p.que}</p>
+        {p.proceso && <p>{p.proceso}</p>}
+      </Lightbox>
+    ))}
 
   <section class="wrap section-tight">
     <div class="sec-head">
