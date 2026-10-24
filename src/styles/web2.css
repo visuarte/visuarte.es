@@ -1005,6 +1005,7 @@
 /* espacio — la luz que repasa la fachada, como un rótulo que arranca */
 .anim-luz {
   animation: muestra-luz 6.5s linear infinite;
+  animation-delay: 1.2s;
 }
 @keyframes muestra-luz {
   0% { transform: translateX(-40px); }
@@ -1032,10 +1033,58 @@
 /* automatizacion — el punto caliente recorriendo el filo del corte */
 .anim-filo {
   animation: muestra-filo 7s linear infinite;
+  animation-delay: 2.4s;
 }
 @keyframes muestra-filo {
   0% { stroke-dashoffset: 576; }
   70%, 100% { stroke-dashoffset: -120; }
+}
+
+/* El barrido por SCROLL (Diego, 24 oct 2026): "el efecto se pierde porque no
+   llegas a tiempo". Con línea de tiempo de vista, el brillo no corre en un reloj:
+   avanza con la posición de la tarjeta en la pantalla, así que cruza justo
+   cuando tú llegas, y cada tarjeta lo hace a su ritmo. Sin JavaScript.
+   Donde no hay soporte, se queda el bucle de reloj de arriba: nunca hay hueco. */
+@keyframes muestra-brillo-scroll {
+  from { transform: translateX(-260px); }
+  to { transform: translateX(820px); }
+}
+@keyframes muestra-luz-scroll {
+  from { transform: translateX(-40px); }
+  to { transform: translateX(880px); }
+}
+@keyframes muestra-barrido-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(580px); }
+}
+@keyframes muestra-filo-scroll {
+  from { stroke-dashoffset: 576; }
+  to { stroke-dashoffset: -120; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .anim-brillo {
+      animation: muestra-brillo-scroll linear both;
+      animation-timeline: view();
+      animation-range: cover 5% cover 55%;
+    }
+    .anim-luz {
+      animation: muestra-luz-scroll linear both;
+      animation-timeline: view();
+      animation-range: cover 5% cover 55%;
+    }
+    .anim-barrido {
+      animation: muestra-barrido-scroll linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 60%;
+    }
+    .anim-filo {
+      animation: muestra-filo-scroll linear both;
+      animation-timeline: view();
+      animation-range: cover 5% cover 60%;
+    }
+  }
 }
 
 /* Quien pide menos movimiento ve la muestra quieta: el material sigue ahí,
