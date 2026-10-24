@@ -177,16 +177,16 @@
 }
 
 
-/* Videoclips: dos piezas destacadas, el enlace ES el reproductor */
 /* ── HERO A SANGRE (24 oct 2026) ────────────────────────────────────────
    OJO con el encuadre: en `cover`, si la imagen es MENOS apaisada que la caja,
    no sobra ancho y object-position horizontal NO hace nada (medido: 78 %, 92 %
    y 100 % salían idénticas). El desplazamiento a la derecha se resuelve en el
-   ASSET: lienzo 1780×864 con el contenido alineado a la derecha y negro a la
-   izquierda. Así la masa cae a la derecha en cualquier viewport.
+   ASSET: lienzo 2200×816 (2,7:1) con el contenido alineado a la derecha y negro
+   a la izquierda; con eso sí hay ancho que recortar y el % de posición manda.
    La imagen no es un panel pegado: es la página. Por eso la sección NO es .wrap
    —el fondo cubre el ancho del viewport— y el texto vive dentro de un .wrap.
-   El velo es la garantía de lectura: negro opaco hasta el 45 %, donde está la copy. */
+   El velo es la garantía de lectura: negro opaco hasta el 45 %, donde está la copy.
+   IMAGEN FIJA por decisión de Diego (24 oct): sin deriva ni respiración. */
 .hero {
   position: relative;
   isolation: isolate;
@@ -201,10 +201,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 42% 50%;
-  /* Deriva: 44 s de paneo lentísimo, ida y vuelta. Cero JS. */
-  animation: deriva 32s ease-in-out infinite alternate;
-  will-change: transform;
+  object-position: 2% 50%;
 }
 .hero-velo {
   position: absolute;
@@ -223,34 +220,6 @@
   z-index: 1;
 }
 
-@keyframes deriva {
-  from {
-    transform: scale(1.05) translate3d(0, 0, 0);
-  }
-  to {
-    transform: scale(1.12) translate3d(-2.6%, -1.2%, 0);
-  }
-}
-
-/* Quien pide menos movimiento, no ve movimiento (y no pierde la imagen). */
-/* Con "reducir movimiento" el desplazamiento se apaga del todo (eso pide el ajuste),
-   pero la imagen no se queda muerta: respira con la opacidad —sin traslación, que es
-   lo que marea a quien activa ese ajuste. Medido el 24 oct: el Mac de Diego lo tiene
-   ACTIVADO (reduceMotion = 1), así que en su pantalla no se mueve; es el ajuste, no la web. */
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg img {
-    animation: respirar 18s ease-in-out infinite alternate;
-    transform: scale(1.05);
-  }
-  @keyframes respirar {
-    from {
-      opacity: 0.82;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
 
 /* Móvil: el velo pasa a vertical y se INVIERTE — el negro va arriba, donde está la
    copy, y la imagen se deja ver abajo, donde no hay texto. (Primera versión al revés:
@@ -271,6 +240,7 @@
 }
 /* ── /audiovisual (R2, 24 oct 2026) ──────────────────────────────────────
    Sin iframes: el vídeo se abre en su sitio (cero cookies de terceros, cero JS). */
+/* Videoclips: dos piezas destacadas, el enlace ES el reproductor */
 .clip-lista {
   list-style: none;
   padding: 0;
