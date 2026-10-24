@@ -250,15 +250,14 @@
 .resenas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-xl) var(--space-2xl);
   margin-top: var(--space-md);
 }
 .resena {
+  /* Sin marco (Diego, 24 oct): la tarjeta con borde cogía más protagonismo que la
+     cita. Aquí no hay caja: hay una cita, sus estrellas y su firma. */
   margin: 0;
-  padding: var(--space-lg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
-  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  padding: 0;
 }
 .resena-estrellas {
   color: var(--accent);
