@@ -89,6 +89,12 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
     <div class="servicios">
       {territorios.map((t) => (
         <article class="servicio">
+          <div class="servicio-cab">
+            <Icono nombre={t.icono} size={22} />
+            <h3><a href={t.href}>{t.nombre}</a></h3>
+            <span class="servicio-num">{t.numero}</span>
+          </div>
+          <p>{t.texto}</p>
           <img
             class="servicio-muestra"
             src={t.muestra}
@@ -98,12 +104,6 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
             loading="lazy"
             decoding="async"
           />
-          <div class="servicio-cab">
-            <Icono nombre={t.icono} size={22} />
-            <h3><a href={t.href}>{t.nombre}</a></h3>
-            <span class="servicio-num">{t.numero}</span>
-          </div>
-          <p>{t.texto}</p>
         </article>
       ))}
     </div>

@@ -963,7 +963,7 @@
   height: 73px;
   object-fit: cover;
   border-radius: var(--radius-s);
-  margin-bottom: var(--space-sm);
+  margin: var(--space-md) auto 0;
 }
 
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
