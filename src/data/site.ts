@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// VISUARTE.ES — CONTENIDO ÚNICO (beta)
+// VISUARTE.ES — CONTENIDO ÚNICO  (rama de producción: main; verificado 24 oct 2026)
 // Todo el texto del sitio vive aquí. Nada de copy suelto en JSX.
 // ═══════════════════════════════════════════════════════════════
 
@@ -82,7 +82,7 @@ export const proyectos: Proyecto[] = [
       'Impresión física por una cara + diseño por la otra; etiqueta NFC programada.',
       'Dos caminos: la tarjeta de empresa y el regalo con ticket emocional.',
     ],
-    enlace: { texto: 'qrcardonline.vercel.app', url: 'https://qrcardonline.vercel.app' },
+    enlace: { texto: 'qrcardonline.com', url: 'https://qrcardonline.com' },
   },
   {
     id: 'camiart',

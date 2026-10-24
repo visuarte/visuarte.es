@@ -9,6 +9,7 @@ import Cine from './pages/Cine';
 import Contacto from './pages/Contacto';
 import LegalApp from './pages/LegalApp';
 import AvisoLegal from './pages/AvisoLegal';
+import NoEncontrado from './pages/NoEncontrado';
 
 const MOOD_POR_RUTA: Record<string, 'brasa' | 'llama'> = {
   // Decisión Diego 5 Sep: TODO el sitio en La Llama (oscuro).
@@ -52,6 +53,8 @@ export default function App() {
           <Route path="contacto" element={<Contacto />} />
           <Route path="legal/aviso" element={<AvisoLegal />} />
           <Route path="legal/privacidad-app" element={<LegalApp />} />
+          {/* catch-all (24 oct 2026): sin esto, una URL inexistente devolvía la portada vacía */}
+          <Route path="*" element={<NoEncontrado />} />
         </Route>
       </Routes>
     </BrowserRouter>
