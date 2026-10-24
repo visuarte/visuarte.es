@@ -9,29 +9,45 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
 <Layout
   titulo="VISUARTE — Pensado a lo grande. Fabricado de verdad."
   descripcion="Estudio de diseño e imprenta en Alicante, Vega Baja y Murcia: marca, rotulación de fachadas y vehículos, audiovisual, digital y automatización. Del primer boceto al último acabado."
+  precarga="/hero/hero-1600.webp"
+  precargaSrcset="/hero/hero-900.webp 900w, /hero/hero-1600.webp 1600w"
 >
-  <!-- HERO: claim de la casa + CTA dual (pedir presupuesto / WhatsApp) -->
-  <section class="wrap hero">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">Marca · espacio · digital · automatización</p>
-        <h1 class="display hero-title">
-          {contacto.claim}<br /><em>{contacto.claimEm}</em>
-        </h1>
-        <p class="lede hero-lede">{contacto.lede}</p>
-        <div class="hero-meta">
-          <a href="#presupuesto" class="btn">Pedir presupuesto</a>
-          <a
-            href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
-            class="btn btn-ghost"
-            rel="noopener"
-            >Hablar con un especialista</a
-          >
+  <!-- HERO: claim de la casa + CTA dual (pedir presupuesto / WhatsApp)
+       Fondo a sangre (imagen generada en local con BOLCO VISION, 24 oct 2026):
+       la imagen ES la página — sin panel ni borde. El velo deja el texto sobre negro puro. -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="/hero/hero-1600.webp"
+        srcset="/hero/hero-900.webp 900w, /hero/hero-1600.webp 1600w"
+        sizes="100vw"
+        alt=""
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-velo"></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Marca · espacio · digital · automatización</p>
+          <h1 class="display hero-title">
+            {contacto.claim}<br /><em>{contacto.claimEm}</em>
+          </h1>
+          <p class="lede hero-lede">{contacto.lede}</p>
+          <div class="hero-meta">
+            <a href="#presupuesto" class="btn">Pedir presupuesto</a>
+            <a
+              href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
+              class="btn btn-ghost"
+              rel="noopener"
+              >Hablar con un especialista</a
+            >
+          </div>
+          <p class="hero-nota">{contacto.cobertura} · Sede en {contacto.sede}</p>
         </div>
-        <p class="hero-nota">{contacto.cobertura} · Sede en {contacto.sede}</p>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <img src="/logo/imagotipo-visuarte.png" alt="" width="400" height="400" />
       </div>
     </div>
   </section>

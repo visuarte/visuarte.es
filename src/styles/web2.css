@@ -178,6 +178,80 @@
 
 
 /* Videoclips: dos piezas destacadas, el enlace ES el reproductor */
+/* ── HERO A SANGRE (24 oct 2026) ────────────────────────────────────────
+   La imagen no es un panel pegado: es la página. Por eso la sección NO es .wrap
+   —el fondo cubre el ancho del viewport— y el texto vive dentro de un .wrap.
+   El velo es la garantía de lectura: negro opaco hasta el 45 %, donde está la copy. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% 50%;
+  /* Deriva: 44 s de paneo lentísimo, ida y vuelta. Cero JS. */
+  animation: deriva 44s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hero-velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 45%,
+    rgba(0, 0, 0, 0.78) 60%,
+    rgba(0, 0, 0, 0.3) 82%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes deriva {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-2.2%, -1%, 0);
+  }
+}
+
+/* Quien pide menos movimiento, no ve movimiento (y no pierde la imagen). */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg img {
+    animation: none;
+    transform: scale(1.04);
+  }
+}
+
+/* Móvil: el velo pasa a vertical y se INVIERTE — el negro va arriba, donde está la
+   copy, y la imagen se deja ver abajo, donde no hay texto. (Primera versión al revés:
+   las hebras caían justo detrás del párrafo.) */
+@media (max-width: 720px) {
+  .hero-velo {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.95) 46%,
+      rgba(0, 0, 0, 0.58) 72%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+  .hero-bg img {
+    object-position: 60% 88%;
+  }
+}
 /* ── /audiovisual (R2, 24 oct 2026) ──────────────────────────────────────
    Sin iframes: el vídeo se abre en su sitio (cero cookies de terceros, cero JS). */
 .clip-lista {

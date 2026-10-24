@@ -9,8 +9,11 @@ import { nav, contacto } from '../data/site';
 interface Props {
   titulo: string;
   descripcion: string;
+  /** Imagen crítica del LCP (solo la portada la usa): se precarga con prioridad alta. */
+  precarga?: string;
+  precargaSrcset?: string;
 }
-const { titulo, descripcion } = Astro.props;
+const { titulo, descripcion, precarga, precargaSrcset } = Astro.props;
 const anio = new Date().getFullYear();
 ---
 
@@ -19,6 +22,16 @@ const anio = new Date().getFullYear();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {precarga && (
+      <link
+        rel="preload"
+        as="image"
+        href={precarga}
+        imagesrcset={precargaSrcset}
+        imagesizes="100vw"
+        fetchpriority="high"
+      />
+    )}
     <link rel="icon" type="image/svg+xml" href="/logo/llama-2t.svg" />
     <meta name="theme-color" content="#151513" />
     <meta name="description" content={descripcion} />
