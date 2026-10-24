@@ -13,8 +13,12 @@ export const contacto = {
   marca: 'VISUARTE',
   claim: 'Pensado a lo grande.',
   claimEm: 'Fabricado de verdad.',
+  // Lede afinado por Diego (24 oct 2026): la IA se dice EXPLÍCITA, y se nombra el
+  // arco completo (identidad → local → web → software → producción → gestión agéntica).
   lede:
-    'VISUARTE se hace cargo de tu comunicación de principio a fin: estrategia, dirección de arte, diseño y producción. Tú te quitas esa carga; nosotros ponemos el criterio y el proceso.',
+    'VISUARTE asume tu comunicación de principio a fin: de la identidad al local, de la web al software, y de la producción a la gestión agéntica de procesos con IA. Tú te centras en tu negocio; nosotros ponemos el criterio y el proceso.',
+  // Claim de cierre (24 oct 2026): la promesa en una línea, al final del recorrido.
+  cierre: 'Visuarte se encarga. Tú, de tu negocio.',
   telefono: '616 996 306',
   telefonoIntl: '34616996306',
   email: 'visuarte.creativos@gmail.com',

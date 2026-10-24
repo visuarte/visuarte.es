@@ -244,6 +244,19 @@
   font-size: 0.95rem;
 }
 
+/* ── Cierre del recorrido (24 oct 2026) ──────────────────────────────────
+   El claim de cierre: una línea grande, sin adornos, con el CTA al lado.
+   No es un banner: es la frase que se queda. */
+.cierre {
+  border-top: 1px solid var(--line);
+}
+.cierre-claim {
+  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+  line-height: 1.12;
+  max-width: 22ch;
+  margin: var(--space-xs) 0 var(--space-lg);
+}
+
 /* ── Páginas legales (24 oct 2026) ───────────────────────────────────────
    Texto largo: se lee, no se decora. Medida de línea corta, jerarquía clara. */
 .legal {

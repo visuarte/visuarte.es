@@ -8,7 +8,7 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
 
 <Layout
   titulo="VISUARTE — Pensado a lo grande. Fabricado de verdad."
-  descripcion="Estudio de diseño e imprenta en Alicante, Vega Baja y Murcia: marca, rotulación de fachadas y vehículos, audiovisual, digital y automatización. Del primer boceto al último acabado."
+  descripcion="Estudio de diseño e imprenta en Alicante, Vega Baja y Murcia: marca, rotulación de fachadas y vehículos, audiovisual, web y software, y gestión de procesos con IA. Del primer boceto al último acabado."
   precarga="/hero/hero-1600.webp"
   precargaSrcset="/hero/hero-900.webp 900w, /hero/hero-1600.webp 1600w"
 >
@@ -174,4 +174,18 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
       ))}
     </div>
   </section>
+  <!-- CIERRE: el claim de cierre, la promesa en una línea (24 oct 2026) -->
+  <section class="wrap section-tight cierre">
+    <p class="eyebrow">En una línea</p>
+    <p class="display cierre-claim">{contacto.cierre}</p>
+    <div class="hero-meta">
+      <a href="#presupuesto" class="btn">Pedir presupuesto</a>
+      <a
+        href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
+        class="btn btn-ghost"
+        rel="noopener">Hablar por WhatsApp</a
+      >
+    </div>
+  </section>
+
 </Layout>
