@@ -155,7 +155,7 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
     <div class="resenas">
       {resenas.map((r) => (
         <figure class="resena">
-          <div class="resena-estrellas" aria-label={`${r.estrellas} de 5`}>
+          <div class="resena-estrellas" role="img" aria-label={`${r.estrellas} de 5`}>
             <span aria-hidden="true">{'★'.repeat(r.estrellas)}</span>
           </div>
           <blockquote>{r.texto}</blockquote>
