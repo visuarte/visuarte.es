@@ -522,6 +522,29 @@
   font-weight: 600;
 }
 
+/* ── El encendido (24 oct 2026) ─────────────────────────────────────────
+   Diego: "que se apagara y enchufara de color a blanco y negro la misma imagen".
+   Una sola imagen (duotono cálido) que arranca en gris y se enciende en ámbar.
+   Coste: cero bytes de más — es un filtro, no una segunda foto. No hay desplazamiento,
+   así que no es movimiento: no lo apaga `prefers-reduced-motion`. */
+.hero--encender .hero-bg img {
+  /* Arranca apagado (gris y un punto bajo) y se enciende con un fogonazo corto:
+     es el gesto de dar el interruptor, no un fundido lento de diapositiva. */
+  filter: grayscale(1) brightness(0.82);
+  animation: encender 1500ms cubic-bezier(0.2, 0.7, 0.2, 1) 800ms 1 forwards;
+}
+@keyframes encender {
+  0% {
+    filter: grayscale(1) brightness(0.82);
+  }
+  55% {
+    filter: grayscale(0.35) brightness(1.06);
+  }
+  100% {
+    filter: grayscale(0) brightness(1);
+  }
+}
+
 /* ── /audiovisual (R2, 24 oct 2026) ──────────────────────────────────────
    Sin iframes: el vídeo se abre en su sitio (cero cookies de terceros, cero JS). */
 /* Videoclips: dos piezas destacadas, el enlace ES el reproductor */
