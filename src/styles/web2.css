@@ -707,3 +707,42 @@
     text-align: left;
   }
 }
+
+/* ── /rotulacion (24 oct 2026) — obra montada ─────────────────────────────
+   La prueba antes que la lista: una fachada real con su pie de foto. No hay
+   carrusel ni galería de relleno; si mañana hay tres fotos autorizadas, esta
+   figura se repite tres veces. El pie va en mono y en minúsculas, como el
+   resto de datos de la casa (cliente · qué se hizo · año). */
+.obra-real {
+  margin: 0;
+}
+.obra-real img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-s);
+}
+.obra-real figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem var(--space-md);
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.obra-real figcaption strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* En pantalla ancha la foto se queda a dos tercios: a sangre completa se come
+   el titular de la página y la fachada ya se ve de sobra. */
+@media (min-width: 900px) {
+  .obra-real {
+    max-width: 62%;
+  }
+}
