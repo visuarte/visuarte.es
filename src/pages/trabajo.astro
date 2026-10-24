@@ -17,8 +17,8 @@ import { trabajo, contacto } from '../data/site';
       <h1 class="display hero-title">Del concepto<br /><em>a la pieza.</em></h1>
       <p class="lede hero-lede">{trabajo.intro}</p>
       <div class="hero-meta">
-        <a class="btn" href="/contacto">Hablar del proyecto</a>
-        <a class="btn btn-ghost" href="/rotulacion">Ver el taller</a>
+        <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+        <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
       </div>
       <p class="hero-nota">{contacto.sede} · {contacto.cobertura}</p>
     </div>
@@ -71,12 +71,8 @@ import { trabajo, contacto } from '../data/site';
       <span class="sec-num">02 — PRESUPUESTO SIN COMPROMISO</span>
     </div>
     <div class="hero-meta">
-      <a class="btn" href="/contacto">Hablar del proyecto</a>
-      <a
-        class="btn btn-ghost"
-        href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
-        rel="noopener">Hablar por WhatsApp</a
-      >
+      <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
     </div>
   </section>
 </Layout>

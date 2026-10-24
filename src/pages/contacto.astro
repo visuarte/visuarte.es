@@ -105,7 +105,7 @@ const wa = `https://wa.me/${contacto.telefonoIntl}?text=${encodeURIComponent(
     </p>
     <div class="hero-meta">
       <a class="btn" href={wa} rel="noopener">Hablar por WhatsApp</a>
-      <a class="btn btn-ghost" href={`mailto:${contacto.email}`}>Escribir un correo</a>
+      <a class="btn btn-ghost" href={`tel:+${contacto.telefonoIntl}`}>Llamar</a>
     </div>
   </section>
 </Layout>

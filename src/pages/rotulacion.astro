@@ -44,7 +44,7 @@ import { rotulacion as r, contacto } from '../data/site';
         <a
           class="btn btn-ghost"
           href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20rotular%20una%20fachada`}
-          rel="noopener">Mandar una foto por WhatsApp</a
+          rel="noopener">Hablar por WhatsApp</a
         >
       </div>
       <p class="hero-nota">Taller en {contacto.sede} · {contacto.cobertura}</p>
@@ -157,10 +157,11 @@ import { rotulacion as r, contacto } from '../data/site';
     </p>
     <div class="hero-meta">
       <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
-      <a class="btn btn-ghost" href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
     </div>
     <p class="nota">
       Las piezas montadas se publican cuando el cliente da permiso. No hay galería de relleno.
+      Teléfono directo: <a href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a>.
     </p>
   </section>
 </Layout>

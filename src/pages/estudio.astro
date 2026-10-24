@@ -20,8 +20,8 @@ import { estudio, contacto } from '../data/site';
         web al proceso que lo mueve todo por detrás.
       </p>
       <div class="hero-meta">
-        <a class="btn" href="/contacto">Hablar del proyecto</a>
-        <a class="btn btn-ghost" href="/rotulacion">Ver el taller</a>
+        <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+        <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
       </div>
       <p class="hero-nota">{contacto.cobertura} · {contacto.titular} · NIF {contacto.nif}</p>
     </div>
@@ -101,9 +101,13 @@ import { estudio, contacto } from '../data/site';
       taller externo. Se dice antes de empezar y se factura como parte del trabajo, nunca como
       sorpresa.
     </p>
+    <p class="prose" style="max-width:none">
+      La trayectoria técnica, con los créditos uno a uno, está en
+      <a href="/audiovisual">Audiovisual</a>.
+    </p>
     <div class="hero-meta">
-      <a class="btn" href="/contacto">Hablar del proyecto</a>
-      <a class="btn btn-ghost" href="/audiovisual">Ver la trayectoria técnica</a>
+      <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+      <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
     </div>
   </section>
 </Layout>
