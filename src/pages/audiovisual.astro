@@ -35,19 +35,22 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
     <div>
       <p class="eyebrow">Audiovisual · iluminación y rodaje</p>
       <h1 class="display hero-title">
-        La luz se fabrica<br /><em>antes de encender.</em>
+        La luz se controla<br /><em>antes de encenderse.</em>
       </h1>
       <p class="lede hero-lede">
-        VISUARTE entra en el rodaje por la parte técnica: iluminación, cámara y coordinación en set.{' '}
-        {total} producciones llevan esta mano dentro. Cuando el proyecto es tuyo de principio a fin, se
-        hace igual de abajo arriba: primero la idea, después la luz.
+        VISUARTE entra en el rodaje desde la parte técnica: iluminación, cámara y coordinación en set.
+        También producimos tu idea o te ayudamos a crear campañas de spots, videoclips, corporativos
+        y podcast. Producciones que cuentan historias con sensaciones WOW: primero la idea, después
+        la luz. Visuarte se hace cargo del proceso para que tu narrativa cobre vida, con el objetivo
+        marcado desde la raíz.
       </p>
       <div class="hero-meta">
         <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
         <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
       </div>
       <p class="hero-nota">
-        {a.nombre} · {a.rol} · <a href={a.imdb} target="_blank" rel="noopener noreferrer">ficha en IMDb ↗</a>
+        {a.nombre} · {a.rol} · {total} producciones ·{' '}
+        <a href={a.imdb} target="_blank" rel="noopener noreferrer">ficha en IMDb ↗</a>
       </p>
     </div>
     </div>
