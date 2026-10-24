@@ -9,24 +9,8 @@ import { estudio, contacto } from '../data/site';
 <Layout
   titulo="El estudio — VISUARTE · diseño, imprenta y software"
   descripcion="VISUARTE Studio: identidad, rotulación, web y software, y gestión de procesos con IA. Taller propio en Ciudad Quesada (Rojales). Se piensa aquí y se fabrica aquí."
-  precarga="/hero/estudio-1600.webp"
-  precargaSrcset="/hero/estudio-900.webp 900w, /hero/estudio-1600.webp 1600w"
 >
-  <section class="hero hero--encender">
-    <div class="hero-bg" aria-hidden="true">
-      <img
-        src="/hero/estudio-1600.webp"
-        srcset="/hero/estudio-900.webp 900w, /hero/estudio-1600.webp 1600w"
-        sizes="100vw"
-        alt=""
-        width="1600"
-        height="900"
-        fetchpriority="high"
-        decoding="async"
-      />
-      <div class="hero-velo"></div>
-    </div>
-    <div class="wrap">
+  <section class="wrap hero">
     <div>
       <p class="eyebrow">El estudio · {contacto.sede}</p>
       <h1 class="display hero-title">Se piensa aquí.<br /><em>Se fabrica aquí.</em></h1>
@@ -40,7 +24,6 @@ import { estudio, contacto } from '../data/site';
         <a class="btn btn-ghost" href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`} rel="noopener">Hablar por WhatsApp</a>
       </div>
       <p class="hero-nota">{contacto.cobertura} · {contacto.titular} · NIF {contacto.nif}</p>
-    </div>
     </div>
   </section>
 
