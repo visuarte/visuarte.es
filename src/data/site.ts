@@ -20,7 +20,7 @@ export const contacto = {
   // Lede afinado por Diego (24 oct 2026): la IA se dice EXPLÍCITA, y se nombra el
   // arco completo (identidad → local → web → software → producción → gestión agéntica).
   lede:
-    'VISUARTE asume tu comunicación de principio a fin: de la identidad al local, de la web al software, y de la producción a la gestión agéntica de procesos con IA. Tú te centras en tu negocio; nosotros ponemos el criterio y el proceso.',
+    'VISUARTE asume tu comunicación de principio a fin: de la identidad al local, de la web al software, y de la producción a la gestión agéntica de procesos con IA. El criterio y el proceso son nuestros.',
   // Claim de cierre (24 oct 2026): la promesa en una línea, al final del recorrido.
   cierre: 'Visuarte se encarga. Tú, de tu negocio.',
   telefono: '616 996 306',
