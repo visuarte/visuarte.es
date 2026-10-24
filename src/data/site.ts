@@ -90,14 +90,14 @@ export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
       { nombre: "Jack Daniel's", logo: '/marcas/jack-daniels.svg', escala: 1.7, tipo: 'marca' },
       { nombre: 'TENA', logo: '/marcas/tena.svg', escala: 1.15, tipo: 'marca' },
       { nombre: 'PC Componentes', logo: '/marcas/pccomponentes.png', escala: 1.05, tipo: 'marca' },
-      { nombre: 'Región de Murcia Turismo', tipo: 'cliente' },
+      { nombre: 'Región de Murcia Turismo', logo: '/marcas/murcia-turismo.png', escala: 1.2, tipo: 'cliente' },
     ],
   },
   {
     etiqueta: 'Con productoras',
     items: [
       { nombre: 'Grupo IDEX', logo: '/marcas/idex.svg', escala: 1.1, tipo: 'productora' },
-      { nombre: 'Twin Freaks Studio', logo: '/marcas/twin-freaks.png', escala: 1.2, tipo: 'productora' },
+      { nombre: 'Twin Freaks Studio', logo: '/marcas/twin-freaks.png', escala: 1.6, tipo: 'productora' },
     ],
   },
   {
