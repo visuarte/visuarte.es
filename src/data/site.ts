@@ -243,9 +243,9 @@ export const trabajo = {
       cliente: 'Sabores Rizzo',
       tipo: 'Identidad · logotipo y sistema',
       anio: '2026',
-      que: 'Logotipo con gorro de chef, cuatro estrellas y cubiertos, con su sistema de iconos (trigo, bandera, especias) pensado para lucir igual en fachada que en papel.',
-      img: '/obras/rizzo.jpg',
-      alt: 'Logotipo de Sabores Rizzo: gorro de chef con cuatro estrellas y cubiertos',
+      que: 'Insignia redonda: la tricolor italiana en pinceladas, el gorro de chef con tres estrellas y el nombre en dos voces —«Sabores» en cursiva y «RIZZO» en seco sobre tabla—, con albahaca, espiga y cubiertos en dorado. Alrededor, «Pizzas · Burger · Tradición».',
+      img: '/obras/rizzo-marca.webp',
+      alt: 'Logotipo de Sabores Rizzo: insignia redonda con la tricolor italiana, gorro de chef con tres estrellas y el nombre sobre una tabla, rodeado de albahaca y espigas',
     },
     {
       numero: '02',
