@@ -138,6 +138,37 @@ export const proyectos: Proyecto[] = [
     ],
   },
 ];
+// ── Los cuatro territorios (24 oct 2026) ────────────────────────
+// Diego: "Visuarte cubre marca, espacio, digital y automatización, NO una suma suelta
+// de servicios. Primero se dice qué eres para el cliente; después se despliega por bloques."
+// La automatización NO sustituye la producción: se lleva el trabajo repetitivo del negocio.
+export const territorios = [
+  {
+    numero: '01',
+    nombre: 'Marca',
+    texto:
+      'Identidad, naming y dirección de arte. La marca se piensa y se diseña aquí: logotipo, sistema, tono, fotografía y vídeo.',
+  },
+  {
+    numero: '02',
+    nombre: 'Espacio',
+    texto:
+      'Rotulación, imprenta e imagen del local, por dentro y por fuera. Fachadas, vinilo, gran formato y acabados, con taller propio.',
+  },
+  {
+    numero: '03',
+    nombre: 'Digital',
+    texto:
+      'Web full stack, software a medida, e-commerce y producto propio. Lo que se ve en pantalla, construido y mantenido aquí.',
+  },
+  {
+    numero: '04',
+    nombre: 'Automatización',
+    texto:
+      'Gestión de procesos con IA: se automatiza el trabajo repetitivo del negocio, nunca el criterio ni la producción.',
+  },
+];
+
 // ── Servicios que el estudio ofrece de verdad ──────────────────
 export const servicios = [
   {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { servicios } from '../data/site';
+import { territorios } from '../data/site';
 
 const metodo = [
   {
@@ -30,13 +30,15 @@ export default function Estudio() {
       <section className="wrap hero">
         <p className="eyebrow">El estudio</p>
         <h1 className="display" style={{ fontSize: 'clamp(2.2rem,5.5vw,4.2rem)' }}>
-          De la idea al objeto.
+          Tu marca, comunicada<br />
+          <em>en cualquier soporte.</em>
         </h1>
-        {/* TODO Diego: revisar copy biográfico */}
+        {/* Copy de apertura dictado por Diego (24 oct 2026), versión "más premium".
+            TODO Diego: falta su copy biográfico (datos y tono) — no se inventa. */}
         <p className="lede" style={{ marginTop: 'var(--space-lg)' }}>
-          VISUARTE es un estudio de diseño, imprenta y producción que trabaja de
-          punta a punta: la identidad se piensa aquí, se diseña aquí y se imprime
-          en el taller propio. Sin terceros en medio del mensaje.
+          Visuarte acompaña tu comunicación de forma integral y asume todo el
+          proceso, desde la idea hasta la entrega. Una sola visión, un solo equipo
+          y una carga menos para tu negocio.
         </p>
       </section>
 
@@ -63,12 +65,12 @@ export default function Estudio() {
       <section className="wrap section-tight">
         <div className="sec-head">
           <h2 className="display" style={{ fontSize: '1.8rem' }}>
-            Capacidades
+            Los cuatro territorios
           </h2>
-          <span className="sec-num">03 — SERVICIOS</span>
+          <span className="sec-num">03 — MARCA · ESPACIO · DIGITAL · AUTOMATIZACIÓN</span>
         </div>
         <div className="servicios">
-          {servicios.map((s) => (
+          {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
               <span className="servicio-num">{s.numero}</span>
               <h3>{s.nombre}</h3>

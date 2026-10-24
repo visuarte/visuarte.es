@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { servicios, proyectos, contacto, capaTitulo } from '../data/site';
+import { territorios, proyectos, contacto, capaTitulo } from '../data/site';
 import { IMAGOTIPO_SVG } from '../components/imagotipo_svg';
 
 export default function Home() {
@@ -10,24 +10,20 @@ export default function Home() {
         <div className="hero-grid">
           <div>
             <p className="eyebrow">
-              Estudio de diseño · imprenta · audiovisual · digital
+              Marca · espacio · digital · automatización
             </p>
-            {/* Claim sellado (POSICIONAMIENTO §9) + frase de promesa firmada 24 oct 2026.
-                Decisión: el claim manda el titular; «Desde la sabiduría» firma debajo;
-                el método se dice en una línea, sin esconderlo ni venderlo. */}
+            {/* Claim sellado + UNA frase que dice qué somos para el cliente (24 oct 2026).
+                Diego: «tres eslóganes seguidos no conectan»; «una sola mano» suena a manco;
+                «la dirección de arte no fabrica»; y el proceso no es un beneficio.
+                Se queda lo que vende: el cargo entero de la comunicación, y tú a lo tuyo. */}
             <h1 className="display hero-title">
               Pensado a lo grande.<br />
               <em>Fabricado de verdad.</em>
             </h1>
-            <p className="firma">Desde la sabiduría</p>
             <p className="lede hero-lede">
-              {contacto.marca} trabaja de punta a punta: dirección de arte, diseño y
-              producción. De la idea al objeto y a la pantalla, con una sola mano del
-              primer boceto al último acabado.
-            </p>
-            <p className="metodo">
-              Dirección de arte que fabrica con IA. Se ve antes de imprimirse y se
-              revisa antes de entregarse.
+              {contacto.marca} se hace cargo de tu comunicación de principio a fin:
+              estrategia, dirección de arte, diseño y producción. Tú te quitas esa
+              carga; nosotros ponemos el criterio y el proceso.
             </p>
             <div className="hero-meta">
               <Link to="/trabajo" className="btn">
@@ -52,12 +48,12 @@ export default function Home() {
       <section className="wrap section">
         <div className="sec-head">
           <h2 className="display" style={{ fontSize: '1.8rem' }}>
-            Lo que hace el estudio
+            Los cuatro territorios
           </h2>
-          <span className="sec-num">01 — CAPACIDADES</span>
+          <span className="sec-num">01 — MARCA · ESPACIO · DIGITAL · AUTOMATIZACIÓN</span>
         </div>
         <div className="servicios">
-          {servicios.map((s) => (
+          {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
               <span className="servicio-num">{s.numero}</span>
               <h3>{s.nombre}</h3>

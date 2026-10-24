@@ -157,11 +157,12 @@ img {
 
 /* ── Secciones ──────────────────────────────────────────────── */
 .section {
-  padding: var(--space-2xl) 0;
+  /* Solo vertical: el relleno lateral es de .wrap (24 oct 2026; antes lo anulaba). */
+  padding-block: var(--space-2xl);
 }
 
 .section-tight {
-  padding: var(--space-xl) 0;
+  padding-block: var(--space-xl);
 }
 
 .rule {
@@ -282,4 +283,11 @@ img {
   .main-nav a {
     letter-spacing: 0.06em;
   }
+}
+
+/* El acento en la segunda línea del titular, en toda la casa (no solo en .hero-title) */
+.display em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
 }
