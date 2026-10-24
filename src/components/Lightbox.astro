@@ -1,0 +1,59 @@
+---
+// LIGHTBOX DE OBRA — la pieza en pequeño, la ficha en grande (24 oct 2026).
+//
+// Sin una línea de JavaScript: se abre con :target (#id) y se cierra con el
+// enlace de cierre (vuelve a #obra) o con el botón atrás del navegador. En la
+// casa el cero JavaScript no es un adorno de la ficha de /trabajo: es la regla.
+//
+// El gesto de la imagen es el mismo de los heroes: en reposo va en blanco y
+// negro y se enciende en color al pasar por encima o al llegar con el teclado.
+// Se enciende, no parpadea.
+interface Props {
+  /** Ancla de la ficha. Tiene que ser única en la página. */
+  id: string;
+  src: string;
+  srcset?: string;
+  width: number;
+  height: number;
+  alt: string;
+  /** Pie corto del mini: cliente, qué es y año. */
+  cliente: string;
+  tipo: string;
+  anio: string;
+}
+const { id, src, srcset, width, height, alt, cliente, tipo, anio } = Astro.props;
+// El mini pide la variante pequeña; si no hay srcset, se sirve la misma.
+const miniSrc = srcset ? srcset.split(',')[0].trim().split(/\s+/)[0] : src;
+---
+
+<figure class="obra-mini">
+  <a class="obra-mini-disparo" href={`#${id}`}>
+    <img
+      src={miniSrc}
+      srcset={srcset}
+      sizes="320px"
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  <figcaption class="obra-mini-pie">
+    <strong>{cliente}</strong>
+    <span>{tipo} · {anio}</span>
+  </figcaption>
+</figure>
+
+<div class="lightbox" id={id} role="group" aria-labelledby={`${id}-titulo`}>
+  <a class="lightbox-fondo" href="#obra" aria-label="Cerrar la ficha"></a>
+  <figure class="lightbox-ficha">
+    <img src={src} srcset={srcset} sizes="(min-width: 900px) 720px, 92vw" alt={alt} width={width} height={height} decoding="async" />
+    <figcaption>
+      <p class="lightbox-eyebrow">{tipo} · {anio}</p>
+      <h3 id={`${id}-titulo`}>{cliente}</h3>
+      <slot />
+      <p class="lightbox-pie"><a class="lightbox-cerrar" href="#obra">Cerrar ×</a></p>
+    </figcaption>
+  </figure>
+</div>

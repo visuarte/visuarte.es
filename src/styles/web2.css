@@ -708,41 +708,151 @@
   }
 }
 
-/* ── /rotulacion (24 oct 2026) — obra montada ─────────────────────────────
-   La prueba antes que la lista: una fachada real con su pie de foto. No hay
-   carrusel ni galería de relleno; si mañana hay tres fotos autorizadas, esta
-   figura se repite tres veces. El pie va en mono y en minúsculas, como el
-   resto de datos de la casa (cliente · qué se hizo · año). */
-.obra-real {
+/* ── Obra montada: el mini y la ficha (24 oct 2026) ────────────────────────
+   La prueba antes que la lista. En reposo la pieza va pequeña y en blanco y
+   negro; al pasar por encima (o al llegar con el teclado) se enciende en color,
+   y al pulsar abre su ficha en grande. Es el mismo gesto de los heroes: el
+   interruptor. Todo con CSS: :target para abrir, filtro para encender. */
+.obra-mini {
   margin: 0;
+  max-width: 320px;
 }
-.obra-real img {
+.obra-mini-disparo {
+  display: block;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  /* El foco del teclado tiene que verse: si se quita el contorno hay que dar
+     otra señal, y aquí la señal es el mismo encendido de la foto. */
+  outline-offset: 3px;
+}
+.obra-mini-disparo img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-s);
+  filter: grayscale(1) brightness(0.82);
+  transition: filter 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.obra-real figcaption {
+.obra-mini-disparo:hover img,
+.obra-mini-disparo:focus-visible img {
+  filter: grayscale(0) brightness(1);
+}
+.obra-mini-pie {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem var(--space-md);
+  flex-direction: column;
+  gap: 0.15rem;
   margin-top: var(--space-sm);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+  line-height: 1.5;
 }
-.obra-real figcaption strong {
+.obra-mini-pie strong {
   color: var(--ink);
   font-weight: 600;
 }
 
-/* En pantalla ancha la foto se queda a dos tercios: a sangre completa se come
-   el titular de la página y la fachada ya se ve de sobra. */
-@media (min-width: 900px) {
-  .obra-real {
-    max-width: 62%;
+/* La ficha en grande. Se abre con #id y se cierra volviendo a #obra, así que
+   el botón atrás del navegador también cierra: no hay estado que se quede
+   pegado. Sin JS no hay trampa de foco; el enlace de cierre va el primero en
+   el orden de tabulación para poder salir con el teclado. */
+.lightbox {
+  display: none;
+}
+.lightbox:target {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  padding: var(--space-md);
+}
+.lightbox-fondo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+.lightbox-ficha {
+  position: relative;
+  margin: 0;
+  display: grid;
+  gap: var(--space-md);
+  max-width: 1040px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: var(--space-md);
+}
+/* En pantalla ancha la ficha va en dos columnas: la foto a la izquierda y el
+   trabajo contado a la derecha. En una sola columna el pie se quedaba debajo
+   del pliegue y había que rodar dentro de la ficha para cerrarla (visto en la
+   captura de 888 px, 24 oct 2026). */
+@media (min-width: 860px) {
+  .lightbox-ficha {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+    gap: var(--space-lg);
+  }
+}
+.lightbox-ficha img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  object-fit: contain;
+  border-radius: var(--radius-s);
+}
+.lightbox-ficha figcaption {
+  display: grid;
+  gap: 0.4rem;
+}
+.lightbox-eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lightbox-ficha h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.lightbox-ficha figcaption p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+.lightbox-pie {
+  margin-top: var(--space-sm);
+}
+.lightbox-cerrar {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.lightbox-cerrar:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
+   mismo: la pieza sigue en blanco y negro en reposo y se enciende al pasar por
+   encima. Se quita la animación, no el encendido (24 oct 2026). */
+@media (prefers-reduced-motion: reduce) {
+  .obra-mini-disparo img {
+    transition: none;
   }
 }

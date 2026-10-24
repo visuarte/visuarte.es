@@ -2,6 +2,7 @@
 // ROTULACIÓN (R3, 24 oct 2026) — el oficio del taller: qué se rotula, con qué y cómo.
 // Sin galería de relleno: las piezas se publican cuando están montadas y el cliente da permiso.
 import Layout from '../layouts/Layout.astro';
+import Lightbox from '../components/Lightbox.astro';
 import { rotulacion as r, contacto } from '../data/site';
 ---
 
@@ -54,27 +55,27 @@ import { rotulacion as r, contacto } from '../data/site';
 
   <hr class="rule" />
 
-  <!-- OBRA (24 oct 2026): la prueba va antes que la lista. Una fachada montada
-       y su pie con lo que se sabe: cliente, qué se hizo y año. Sin carrusel ni
-       relleno; cuando haya más fotos autorizadas, esta figura se repite. -->
-  <section class="wrap section-tight">
-    <figure class="obra-real">
-      <img
-        src="/obras/cima-fachada.webp"
-        srcset="/obras/cima-fachada-640.webp 640w, /obras/cima-fachada.webp 1080w"
-        sizes="(min-width: 900px) 62vw, 100vw"
-        alt="Fachada de CIMA, Centro de Entrenamiento y Salud: letras y banda con el nombre en PVC sobre panel azul, con el vinilo del escaparate debajo."
-        width="1080"
-        height="810"
-        loading="lazy"
-        decoding="async"
-      />
-      <figcaption>
-        <strong>CIMA · Centro de Entrenamiento y Salud</strong>
-        <span>Fachada en PVC con luminoso y vinilo de escaparate</span>
-        <span>2024</span>
-      </figcaption>
-    </figure>
+  <!-- OBRA (24 oct 2026): la prueba va antes que la lista. La pieza se ve pequeña
+       y en blanco y negro; al pasar por encima se enciende en color —el mismo gesto
+       de los heroes— y al pulsar abre su ficha en grande. Sin JavaScript: :target. -->
+  <section class="wrap section-tight" id="obra">
+    <Lightbox
+      id="ficha-cima"
+      src="/obras/cima-fachada.webp"
+      srcset="/obras/cima-fachada-640.webp 640w, /obras/cima-fachada.webp 1080w"
+      width={1080}
+      height={810}
+      alt="Fachada de CIMA, Centro de Entrenamiento y Salud: letras y banda con el nombre en PVC blanco sobre panel azul, con el vinilo de la marca en el escaparate."
+      cliente="CIMA · Centro de Entrenamiento y Salud"
+      tipo="Fachada en PVC con luminoso"
+      anio="2024"
+    >
+      <p>
+        Fachada de un centro de entrenamiento: panel de PVC azul con el nombre en letras blancas y
+        la banda de la actividad debajo, y el vinilo de la marca en el escaparate. El panel lleva
+        luminoso, así que el nombre se lee igual de día que de noche.
+      </p>
+    </Lightbox>
   </section>
 
   <!-- 01 · QUÉ SE ROTULA -->
