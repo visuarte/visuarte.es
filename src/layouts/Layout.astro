@@ -15,6 +15,9 @@ interface Props {
   precargaSrcset?: string;
 }
 const { titulo, descripcion, precarga, precargaSrcset } = Astro.props;
+// Dominio canónico y URL de esta página, para og:url y canonical.
+const sitio = 'https://visuarte.es';
+const canonica = new URL(Astro.url.pathname.replace(/\/index\.html$/, '/'), sitio).href;
 const anio = new Date().getFullYear();
 ---
 
@@ -39,6 +42,18 @@ const anio = new Date().getFullYear();
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VISUARTE Studio" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:url" content={canonica} />
+    <!-- La tarjeta de enlace: sin esto, pegar visuarte.es en WhatsApp o Telegram
+         salía sin imagen — un escaparate con la persiana a medio bajar.
+         1200x630, el claim de la casa y los filamentos del hero (24 oct 2026). -->
+    <meta property="og:image" content={`${sitio}/og-image.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VISUARTE Studio — Pensado a lo grande. Fabricado de verdad." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonica} />
     <title>{titulo}</title>
     <!-- Poppins se sirve desde /fonts (propia): cero peticiones a terceros. -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
