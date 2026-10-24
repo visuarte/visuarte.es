@@ -140,7 +140,7 @@ export const faq = [
   },
   {
     p: '¿Cómo se pide presupuesto?',
-    r: 'Con el formulario de esta página o por WhatsApp. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
+    r: 'Con el formulario de la portada —te abre el correo con los datos puestos— o por WhatsApp. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
   },
 ];
 
@@ -295,7 +295,7 @@ export const trabajo = {
       cliente: 'Audiovisual',
       tipo: 'Spots, videoclips y ficción',
       anio: '2019-2026',
-      que: 'Veintisiete producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en su página.',
+      que: 'Veintisiete producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en Audiovisual.',
       enlace: '/audiovisual',
       enlaceTexto: 'Ver los créditos y los vídeos',
     },
