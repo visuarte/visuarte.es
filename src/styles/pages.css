@@ -683,3 +683,14 @@ a.fila:hover {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+/* Iconos de territorio: heredan el acento y no piden nada a la red (inline SVG) */
+.servicio-icono {
+  display: block;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+.servicio-icono svg {
+  width: 100%;
+  height: 100%;
+}

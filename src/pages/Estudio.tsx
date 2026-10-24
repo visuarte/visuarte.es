@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { IconoTerritorio } from '../components/iconos';
 import { territorios } from '../data/site';
 
 const metodo = [
@@ -72,6 +73,7 @@ export default function Estudio() {
         <div className="servicios">
           {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
+              <IconoTerritorio nombre={s.icono} />
               <span className="servicio-num">{s.numero}</span>
               <h3>{s.nombre}</h3>
               <p>{s.texto}</p>

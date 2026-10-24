@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { IconoTerritorio } from '../components/iconos';
 import { territorios, proyectos, contacto, capaTitulo } from '../data/site';
 import { IMAGOTIPO_SVG } from '../components/imagotipo_svg';
 
@@ -55,6 +56,7 @@ export default function Home() {
         <div className="servicios">
           {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
+              <IconoTerritorio nombre={s.icono} />
               <span className="servicio-num">{s.numero}</span>
               <h3>{s.nombre}</h3>
               <p>{s.texto}</p>
