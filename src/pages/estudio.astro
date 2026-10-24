@@ -52,9 +52,16 @@ import { estudio, contacto } from '../data/site';
   <!-- 01 · LOS CUATRO TERRITORIOS -->
   <section class="wrap section">
     <div class="sec-head">
-      <h2 class="display" style="font-size:1.8rem">Los cuatro territorios</h2>
+      <h2 class="display" style="font-size:1.8rem">Qué entra en cada territorio</h2>
       <span class="sec-num">01 — UNO SOLO, CUATRO CARAS</span>
     </div>
+    <!-- Para que nadie se pregunte si esto es lo mismo que la portada (Diego,
+         24 oct 2026: "no crear ni dudas ni confusión"): el titular no repite el
+         de la portada y una línea lo dice en voz alta. Aquí se desglosa. -->
+    <p class="prose" style="max-width:62ch;margin-top:calc(var(--space-md) * -1)">
+      La portada enseña los cuatro territorios de un vistazo. Aquí se abren: qué
+      piezas entran en cada uno y por dónde se entra a verlas.
+    </p>
     <div class="territorio-lista">
       {estudio.territorios.map((t) => (
         <article class="territorio">
