@@ -131,15 +131,9 @@ export const serviciosPresupuesto = [
   'Otra cosa (lo cuento abajo)',
 ];
 
+// Orden de embudo (24 oct 2026), no por orden de llegada:
+// cobertura → presupuesto → materiales → tiempos.
 export const faq = [
-  {
-    p: '¿Cuánto se tarda en rotular una fachada o un vehículo?',
-    r: 'Una fachada suele estar entre 3 y 5 días laborables desde la aprobación del diseño; un vehículo, entre 1 y 2 días de taller. Plazos orientativos: se confirman tras ver el soporte y las medidas.',
-  },
-  {
-    p: '¿Qué materiales usáis?',
-    r: 'Vinilo polimérico o fundido según el soporte, laminado mate o brillo, composite y metacrilato para placas. Siempre se dice qué material va en cada pieza y por qué.',
-  },
   {
     p: '¿Trabajáis fuera de la Vega Baja?',
     r: 'Sí. Sede en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Para más distancia se valora el desplazamiento en el presupuesto, nunca después.',
@@ -147,6 +141,14 @@ export const faq = [
   {
     p: '¿Cómo se pide presupuesto?',
     r: 'Con el formulario de la portada —te abre el correo con los datos puestos— o por WhatsApp. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
+  },
+  {
+    p: '¿Qué materiales usáis?',
+    r: 'Vinilo polimérico o fundido según el soporte, laminado mate o brillo, composite y metacrilato para placas. Siempre se dice qué material va en cada pieza y por qué.',
+  },
+  {
+    p: '¿Cuánto se tarda en rotular una fachada o un vehículo?',
+    r: 'Una fachada suele estar entre 3 y 5 días laborables desde la aprobación del diseño; un vehículo, entre 1 y 2 días de taller. Plazos orientativos: se confirman tras ver el soporte y las medidas.',
   },
 ];
 
@@ -480,21 +482,23 @@ export const rotulacion = {
     'Cambiar el alcance sin re-cotizar',
   ],
   faq: [
-    {
-      p: '¿Se puede rotular sobre lo que ya hay puesto?',
-      r: 'Depende del estado del soporte y de cómo salga lo viejo. Se valora en la visita, porque un desmontaje mal hecho se lleva el material por delante. Muchas veces sale mejor una placa nueva que aprovechar la que hay: se dice cuál de las dos opciones conviene y por qué.',
-    },
-    {
-      p: '¿Cuánto se tarda?',
-      r: 'Una fachada suele estar entre 3 y 5 días laborables desde que se aprueba el diseño; un vehículo, entre 1 y 2 días de taller. Son plazos orientativos: se confirman cuando se ven las medidas y el soporte.',
-    },
-    {
-      p: '¿Quién monta y con qué?',
-      r: 'Montamos nosotros. Si la altura pide cesta o grúa, o hace falta permiso de ocupación de vía pública, se dice antes de empezar porque cambia el plazo y el precio. La instalación eléctrica de un rótulo luminoso la firma un electricista autorizado: nosotros no la firmamos.',
-    },
-    {
-      p: '¿Trabajáis fuera de la Vega Baja?',
-      r: 'Sí. Taller en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Si hay más distancia, el desplazamiento se valora en el presupuesto y se dice antes, nunca después.',
-    },
-  ],
+     // Mismo embudo: cobertura → calidad y proceso → tiempos. El presupuesto ya
+     // tiene sección entera justo encima (04 · qué hace falta para dar precio).
+     {
+       p: '¿Trabajáis fuera de la Vega Baja?',
+       r: 'Sí. Taller en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Si hay más distancia, el desplazamiento se valora en el presupuesto y se dice antes, nunca después.',
+     },
+     {
+       p: '¿Se puede rotular sobre lo que ya hay puesto?',
+       r: 'Depende del estado del soporte y de cómo salga lo viejo. Se valora en la visita, porque un desmontaje mal hecho se lleva el material por delante. Muchas veces sale mejor una placa nueva que aprovechar la que hay: se dice cuál de las dos opciones conviene y por qué.',
+     },
+     {
+       p: '¿Quién monta y con qué?',
+       r: 'Montamos nosotros. Si la altura pide cesta o grúa, o hace falta permiso de ocupación de vía pública, se dice antes de empezar porque cambia el plazo y el precio. La instalación eléctrica de un rótulo luminoso la firma un electricista autorizado: nosotros no la firmamos.',
+     },
+     {
+       p: '¿Cuánto se tarda?',
+       r: 'Una fachada suele estar entre 3 y 5 días laborables desde que se aprueba el diseño; un vehículo, entre 1 y 2 días de taller. Son plazos orientativos: se confirman cuando se ven las medidas y el soporte.',
+     },
+   ],
 };

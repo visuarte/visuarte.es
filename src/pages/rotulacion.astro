@@ -3,6 +3,7 @@
 // Sin galería de relleno: las piezas se publican cuando están montadas y el cliente da permiso.
 import Layout from '../layouts/Layout.astro';
 import Lightbox from '../components/Lightbox.astro';
+import Faq from '../components/Faq.astro';
 import { rotulacion as r, contacto } from '../data/site';
 ---
 
@@ -165,14 +166,7 @@ import { rotulacion as r, contacto } from '../data/site';
       <h2 class="display" style="font-size:1.5rem">Preguntas que llegan siempre</h2>
       <span class="sec-num">05 — ANTES DE ESCRIBIR</span>
     </div>
-    <div class="faq">
-      {r.faq.map((f) => (
-        <details>
-          <summary>{f.p}</summary>
-          <p>{f.r}</p>
-        </details>
-      ))}
-    </div>
+    <Faq entradas={r.faq} />
   </section>
 
   <!-- CIERRE -->

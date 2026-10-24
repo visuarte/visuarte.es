@@ -30,12 +30,18 @@
 /* Tira de marcas: se lee como una tira de logos (misma familia, mismo peso, misma altura
    óptica, sin recuadros). Cuando lleguen los archivos reales, cada <li> pasa a <img>. */
 .confianza-lista {
-  display: flex;
-  flex-wrap: wrap;
+  /* Retícula, no fila con space-between (24 oct 2026): con reparto a lo ancho,
+     "Proximity" se caía solo a una segunda línea y la primera fila se estiraba
+     con huecos desiguales.
+     Tres por fila siempre, salvo pantalla ancha, donde entran las seis de una.
+     Antes con auto-fit a 118 px el texto largo ("Twin Freaks Studio") partía en
+     dos líneas y el sexto logo caía huérfano. Ahora el reparto es fijo y honesto. */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  /* Reparto a lo ancho: sin esto la fila termina antes del borde derecho y la vista
-     pide rellenar el hueco. Con space-between la tira ocupa el ancho y respira. */
-  justify-content: space-between;
+  /* Centrado en su columna: la retícula queda simétrica y no deja un borde
+     derecho a jirones cuando el logo es corto. */
+  justify-items: center;
   gap: var(--space-md) var(--space-lg);
   list-style: none;
   padding: 0;
@@ -44,10 +50,12 @@
 .confianza-lista li {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 30px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1rem;
+  /* Los logos llegan a ~26 px de alto; a 1rem el texto se veía flaco al lado.
+     1,05rem los iguala sin que ninguno grite. */
+  font-size: 1.05rem;
   line-height: 1;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -57,11 +65,19 @@
 .confianza-lista li:hover {
   opacity: 1;
 }
+
+@media (min-width: 1000px) {
+  /* En pantalla ancha entran las seis en una fila, sin huecos raros. */
+  .confianza-lista {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
 /* Logos: se fuerzan a blanco mono para que la tira sea uniforme (no se recolorea la marca,
    se unifica el tratamiento). Cero peticiones extra: son archivos locales. */
 .confianza-lista img {
   width: auto;
-  max-width: 132px;
+  max-width: 118px;
+  max-height: 26px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.72;
@@ -122,21 +138,103 @@
   color: var(--muted);
 }
 
-/* FAQ sin JavaScript: <details> nativo */
-.faq { border-top: 1px solid var(--line); }
-.faq details { border-bottom: 1px solid var(--line); }
+/* ── FAQ, maquetada como consola (spec de Diego, 24 oct 2026) ──────────────
+   Tres columnas fijas: el número a la izquierda, la pregunta en el centro y el
+   indicador pegado a la derecha. Es una tabla de datos, no una lista de acordeón
+   de folleto. Sin JavaScript: <details> nativo.
+
+   Una desviación declarada: la spec pedía el acento en #A8441A, que es el naranja
+   brasa del tema claro. Sobre este negro da 3,5:1 de contraste y no pasa AA para texto normal —
+   así que va el token --accent (#E88256, 7,9:1), que es el mismo brasa encendido
+   del tema oscuro. El resto de la spec va tal cual: [01] mono, pregunta en gris
+   crema, «+» a la derecha, filetes finos, hover a blanco puro y respuesta con
+   sangrado alineado al texto de la pregunta. */
+.faq {
+  --faq-num: 3.4rem;
+  border-top: 1px solid var(--line);
+}
+.faq details {
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+}
 .faq summary {
+  display: grid;
+  grid-template-columns: var(--faq-num) 1fr 1.2rem;
+  align-items: start;
+  gap: var(--space-xs);
   cursor: pointer;
   padding: var(--space-md) 0;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
   list-style: none;
+  color: #CCCCCC;
+  transition: color 140ms ease;
 }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: ' +'; color: var(--accent); }
-.faq details[open] summary::after { content: ' −'; }
-.faq p { padding-bottom: var(--space-md); color: var(--muted); max-width: 70ch; }
+.faq summary:hover,
+.faq summary:focus-visible {
+  color: #FFFFFF;
+}
+.faq-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  /* Alinea el número con la primera línea de la pregunta, no con la caja. */
+  padding-top: 0.35em;
+}
+.faq-q {
+  min-width: 0;
+}
+/* El «+» es un dibujo de dos trazos: así el paso a «×» es una rotación de 45°
+   y no un cambio de carácter que baila de sitio al desplegar. */
+.faq-mas {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+  justify-self: end;
+  margin-top: 0.15em;
+  transition: transform 180ms ease;
+}
+.faq-mas::before,
+.faq-mas::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.faq-mas::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+.faq details[open] .faq-mas {
+  transform: rotate(45deg);
+}
+.faq-r {
+  /* Sangrado alineado al texto de la pregunta: el número queda como margen. */
+  margin: 0 1.2rem var(--space-md) var(--faq-num);
+  padding-right: var(--space-xs);
+  color: #999999;
+  line-height: 1.65;
+  max-width: 68ch;
+  font-size: 0.95rem;
+}
+@media (max-width: 560px) {
+  .faq {
+    --faq-num: 2.4rem;
+  }
+  .faq summary {
+    font-size: 0.95rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq summary,
+  .faq-mas {
+    transition: none;
+  }
+}
 
 /* Accesibilidad: salto al contenido (no visible hasta foco) */
 .skip {

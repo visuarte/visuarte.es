@@ -1,0 +1,35 @@
+---
+// FAQ — la sección con forma de consola (24 oct 2026, spec de Diego).
+//
+// Orden del embudo, no alfabético y no por orden de llegada:
+//   [01] cobertura / ubicación   → el filtro inicial: ¿me sirves desde donde estoy?
+//   [02] presupuesto / contacto  → la captación: ¿cómo te pido número?
+//   [03] materiales / calidad    → la confianza técnica: ¿con qué lo haces?
+//   [04] tiempos / logística     → la ejecución: ¿cuándo lo tengo?
+// El orden lo manda el array que entra; aquí solo se numera y se pinta.
+//
+// Sin JavaScript: <details> nativo. El «+» gira a «×» al abrir, y el teclado
+// funciona igual que el ratón (summary es un control de verdad).
+interface Entrada {
+  p: string;
+  r: string;
+}
+interface Props {
+  entradas: Entrada[];
+}
+const { entradas } = Astro.props;
+const dosDigitos = (n: number) => String(n).padStart(2, '0');
+---
+
+<div class="faq">
+  {entradas.map((f, i) => (
+    <details class="faq-item">
+      <summary>
+        <span class="faq-num">[{dosDigitos(i + 1)}]</span>
+        <span class="faq-q">{f.p}</span>
+        <span class="faq-mas" aria-hidden="true"></span>
+      </summary>
+      <p class="faq-r">{f.r}</p>
+    </details>
+  ))}
+</div>
