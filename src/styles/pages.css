@@ -34,7 +34,9 @@
 /* dos columnas: texto + imagotipo (llena el hueco de la derecha) */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  /* Minitoque de Diego (24 oct 2026): 1.25fr/0.75fr → 2.05fr/0.75fr. La copy pasa del
+     62,5 % al 73,2 % del ancho; el aire de la derecha es para la imagen de fondo. */
+  grid-template-columns: minmax(0, 2.05fr) minmax(0, 0.75fr);
   gap: var(--space-xl);
   align-items: center;
 }
