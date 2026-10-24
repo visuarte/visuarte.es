@@ -1,0 +1,76 @@
+---
+// MUESTRA DE TERRITORIO — la tira de material, con vida (24 oct 2026).
+//
+// Diego: "la animación te da un toque wow que pocos tienen". Aquí no hay una
+// línea de JavaScript: son cuatro SVG diminutos encima de la foto, animados con
+// CSS. Los cuatro repiten el gesto de la casa —la luz que enciende la materia—,
+// cada uno en su idioma:
+//
+//   marca           el brillo del pan de oro barriendo el papel
+//   espacio         la luz que repasa la fachada, como un rótulo que arranca
+//   digital         la línea de barrido de una pantalla y unos píxeles que viven
+//   automatizacion  el punto caliente que recorre el filo del corte
+//
+// Todo son transform y opacity: lo resuelve el compositor, no el procesador.
+// Y quien pida menos movimiento no ve ninguna: se apaga en CSS, sin preguntar.
+interface Props {
+  src: string;
+  tipo: 'marca' | 'espacio' | 'digital' | 'automatizacion';
+}
+const { src, tipo } = Astro.props;
+---
+
+<div class="muestra">
+  <img src={src} alt="" width="576" height="219" loading="lazy" decoding="async" />
+
+  <svg class="muestra-anim" viewBox="0 0 576 219" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    {tipo === 'marca' && (
+      <g>
+        <defs>
+          <linearGradient id="mm-oro" x1="0" x2="1">
+            <stop offset="0%" stop-color="#FFE3A8" stop-opacity="0" />
+            <stop offset="45%" stop-color="#FFD27A" stop-opacity="0.5" />
+            <stop offset="55%" stop-color="#FFF3D6" stop-opacity="0.62" />
+            <stop offset="100%" stop-color="#FFE3A8" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <rect class="anim-brillo" x="-180" y="-60" width="150" height="340" fill="url(#mm-oro)" transform="rotate(16 0 110)" />
+      </g>
+    )}
+
+    {tipo === 'espacio' && (
+      <g>
+        <defs>
+          <linearGradient id="mm-luz" x1="0" x2="1">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+            <stop offset="50%" stop-color="#FFE9C9" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <rect class="anim-luz" x="-260" y="0" width="240" height="219" fill="url(#mm-luz)" />
+      </g>
+    )}
+
+    {tipo === 'digital' && (
+      <g>
+        <rect class="anim-barrido" x="-4" y="0" width="2" height="219" fill="#8FE6FF" opacity="0.55" />
+        <rect class="anim-pixel p1" x="70" y="150" width="6" height="6" fill="#8FE6FF" />
+        <rect class="anim-pixel p2" x="300" y="70" width="6" height="6" fill="#FFFFFF" />
+        <rect class="anim-pixel p3" x="470" y="170" width="6" height="6" fill="#8FE6FF" />
+      </g>
+    )}
+
+    {tipo === 'automatizacion' && (
+      <g>
+        <defs>
+          <linearGradient id="mm-calor" x1="0" x2="1">
+            <stop offset="0%" stop-color="#FF9A3C" stop-opacity="0" />
+            <stop offset="50%" stop-color="#FFC46B" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#FF9A3C" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <line class="anim-filo" x1="0" y1="112" x2="576" y2="112" stroke="url(#mm-calor)" stroke-width="2" stroke-dasharray="120 456" />
+      </g>
+    )}
+  </svg>
+</div>

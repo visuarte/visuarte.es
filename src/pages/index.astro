@@ -3,6 +3,7 @@
 // CTA dual, tira de confianza, cuatro territorios, presupuesto rápido, reseñas, FAQ.
 import Layout from '../layouts/Layout.astro';
 import Icono from '../components/Icono.astro';
+import Muestra from '../components/Muestra.astro';
 import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenas, resenasUrl } from '../data/site';
 ---
 
@@ -95,15 +96,7 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
             <span class="servicio-num">{t.numero}</span>
           </div>
           <p>{t.texto}</p>
-          <img
-            class="servicio-muestra"
-            src={t.muestra}
-            alt=""
-            width="192"
-            height="73"
-            loading="lazy"
-            decoding="async"
-          />
+          <Muestra src={t.muestra} tipo={t.icono} />
         </article>
       ))}
     </div>

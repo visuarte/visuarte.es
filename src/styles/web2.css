@@ -955,17 +955,98 @@
 /* ── / (24 oct 2026) — la muestra de cada territorio ──────────────────────
    Ensayo 2 (Diego, 24 oct): la tira pequeña flotaba. Ahora LLENA el ancho de la
    tarjeta y cierra el bloque: cada territorio es argumento arriba y material
-   abajo, como una ficha con su muestra pegada. Sigue siendo material, no
-   ilustración: la paleta de una marca, las letras de una fachada, la trama de
-   una pantalla y el filo de un corte. */
-.servicio-muestra {
+   abajo. Sigue siendo material, no ilustración.
+   Ensayo 3 (misma tarde): encima va un SVG mínimo animado con CSS. Nada de JS:
+   el gesto es la luz que enciende la materia, el mismo de los heroes pero en
+   bucle lento y en pequeño. Solo transform y opacity. */
+.muestra {
+  position: relative;
+  margin-top: var(--space-md);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  isolation: isolate;
+}
+.muestra img {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 1;
   height: auto;
   object-fit: cover;
-  border-radius: var(--radius-s);
-  margin-top: var(--space-md);
+  /* El material respira: 1 -> 1,045 y vuelta, 18 s. Es lo que hace que la
+     tarjeta no esté muerta aunque el barrido esté en pausa. */
+  animation: muestra-aliento 18s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+}
+@keyframes muestra-aliento {
+  from { transform: scale(1); }
+  to { transform: scale(1.045); }
+}
+.muestra-anim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* plus-lighter suma luz: sobre una imagen clara (la paleta de oro, el cielo de
+     la fachada) el barrido se ve; con 'screen' se quedaba en nada. */
+  mix-blend-mode: plus-lighter;
+}
+
+/* marca — el brillo del oro barriendo el papel, cada 13 s */
+.anim-brillo {
+  transform: translateX(-260px);
+  animation: muestra-brillo 7s linear infinite;
+}
+@keyframes muestra-brillo {
+  0% { transform: translateX(-260px); }
+  100% { transform: translateX(820px); }
+}
+
+/* espacio — la luz que repasa la fachada, como un rótulo que arranca */
+.anim-luz {
+  animation: muestra-luz 6.5s linear infinite;
+}
+@keyframes muestra-luz {
+  0% { transform: translateX(-40px); }
+  100% { transform: translateX(880px); }
+}
+
+/* digital — la línea de barrido y tres píxeles que respiran a destiempo */
+.anim-barrido {
+  animation: muestra-barrido 7s linear infinite;
+}
+@keyframes muestra-barrido {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(580px); }
+}
+.anim-pixel {
+  animation: muestra-pixel 4.5s steps(1, end) infinite;
+}
+.anim-pixel.p2 { animation-delay: 1.4s; }
+.anim-pixel.p3 { animation-delay: 2.9s; }
+@keyframes muestra-pixel {
+  0%, 88% { opacity: 0.05; }
+  89%, 100% { opacity: 0.85; }
+}
+
+/* automatizacion — el punto caliente recorriendo el filo del corte */
+.anim-filo {
+  animation: muestra-filo 7s linear infinite;
+}
+@keyframes muestra-filo {
+  0% { stroke-dashoffset: 576; }
+  70%, 100% { stroke-dashoffset: -120; }
+}
+
+/* Quien pide menos movimiento ve la muestra quieta: el material sigue ahí,
+   solo que sin barrido. */
+@media (prefers-reduced-motion: reduce) {
+  .muestra-anim {
+    display: none;
+  }
+  .muestra img {
+    animation: none;
+  }
 }
 
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
