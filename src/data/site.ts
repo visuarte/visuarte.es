@@ -72,7 +72,7 @@ export const territorios: {
 // TIRA DE CONFIANZA — tres grupos honestos (24 oct 2026, correcciones de Diego):
 //   · marcas y CLIENTES (incluye Región de Murcia Turismo, que NO es Carlos Alcaraz)
 //   · PRODUCTORAS con las que trabaja (se les da promo: son su casa)
-//   · VIDEOCLIPS: artistas para los que se rodó
+//   (los VIDEOCLIPS no van aquí: viven en /audiovisual, con el vídeo a un clic)
 // 'escala' corrige el peso óptico (cada marca trae su proporción).
 export interface ItemConfianza {
   nombre: string;
@@ -103,13 +103,6 @@ export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
       { nombre: 'KAME Studio', tipo: 'productora' },
       { nombre: 'Portavoz', logo: '/marcas/portavoz.svg', escala: 1.15, tipo: 'productora' },
       { nombre: 'Proximity', tipo: 'productora' },
-    ],
-  },
-  {
-    etiqueta: 'Videoclips',
-    items: [
-      { nombre: 'Viva Suecia', tipo: 'videoclip' },
-      { nombre: 'Arde Bogotá', tipo: 'videoclip' },
     ],
   },
 ];
