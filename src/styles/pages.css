@@ -174,16 +174,22 @@
   padding-top: var(--space-md);
 }
 
-/* Cabecera del bloque: icono a la izquierda, número a la derecha, en el mismo eje óptico */
+/* Cabecera del bloque — composición elegida por Diego (24 oct 2026, opción D):
+   icono, título y número EN LA MISMA LÍNEA; el párrafo debajo. */
 .servicio-cab {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   margin-bottom: var(--space-sm);
 }
 
-.servicio-num {
+.servicio-cab h3 {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.servicio-cab .servicio-num {
+  margin-left: auto;
   line-height: 1;
 }
 

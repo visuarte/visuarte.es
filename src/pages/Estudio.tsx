@@ -74,10 +74,10 @@ export default function Estudio() {
           {territorios.map((s) => (
             <article className="servicio" key={s.numero}>
               <div className="servicio-cab">
-                <IconoTerritorio nombre={s.icono} />
+                <IconoTerritorio nombre={s.icono} size={22} />
+                <h3>{s.nombre}</h3>
                 <span className="servicio-num">{s.numero}</span>
               </div>
-              <h3>{s.nombre}</h3>
               <p>{s.texto}</p>
             </article>
           ))}
