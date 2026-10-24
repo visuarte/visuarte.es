@@ -94,14 +94,15 @@ export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
     ],
   },
   {
-    etiqueta: 'Con productoras',
+    etiqueta: 'Productoras y agencias',
     // Verificadas en el correo (remitente + facturas) y cruzadas con el CV.
     items: [
       { nombre: 'Twin Freaks Studio', logo: '/marcas/twin-freaks.png', escala: 1.6, tipo: 'productora' },
       { nombre: 'Grupo IDEX', logo: '/marcas/idex.svg', escala: 1.1, tipo: 'productora' },
       { nombre: 'Baikal Visual', logo: '/marcas/baikal.svg', escala: 1.15, tipo: 'productora' },
       { nombre: 'KAME Studio', tipo: 'productora' },
-      { nombre: 'Portavoz', tipo: 'productora' },
+      { nombre: 'Portavoz', logo: '/marcas/portavoz.svg', escala: 1.15, tipo: 'productora' },
+      { nombre: 'Proximity', tipo: 'productora' },
     ],
   },
   {
