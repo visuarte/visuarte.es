@@ -26,7 +26,9 @@
 
 /* ── Home · hero ────────────────────────────────────────────── */
 .hero {
-  padding: var(--space-2xl) 0 var(--space-xl);
+  /* Solo vertical: el relleno lateral lo pone .wrap (2rem). Antes era `padding: X 0 Y`,
+     que anulaba los laterales y dejaba todo el contenido pegado al borde (visto 24 oct 2026). */
+  padding-block: var(--space-2xl) var(--space-xl);
 }
 
 /* dos columnas: texto + imagotipo (llena el hueco de la derecha) */
