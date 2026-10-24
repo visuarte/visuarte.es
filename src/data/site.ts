@@ -144,8 +144,33 @@ export const faq = [
   },
 ];
 
-// RESEÑAS: pendiente de opiniones reales. NO se inventan testimonios (ver TODO en el bloque).
-export const resenasPendientes = true;
+// RESEÑAS REALES (24 oct 2026) — copiadas de Google tal cual, sin retocar ni recortar
+// el sentido. No se inventa ninguna: un testimonio falso es la mentira más cara del
+// marketing, y además se cae en cuanto alguien mira el perfil.
+// En el perfil hay 5★ y una de 1★ (dirección/teléfono). No se esconde: se enlaza al
+// perfil para que se lean todas. Fotografía del perfil: 24 oct 2026.
+export const resenas = [
+  {
+    nombre: 'Nebux',
+    estrellas: 5,
+    cuando: 'hace 8 meses',
+    texto:
+      'Brutal! Me hizo lo que le pedí súper rápido, encima el chico se nota que entiende muchísimo y me aconsejó perfectamente. Buen resultado y buena calidad!',
+  },
+  {
+    nombre: 'Andrea Martínez Dueñas',
+    estrellas: 5,
+    cuando: 'hace un año',
+    texto:
+      'Un acierto ponerme en las manos de Diego para el diseño e impresión de invitaciones. Un profesional con mucho talento, trato con el cliente y muy buenos medios en su local.',
+  },
+];
+
+// Al perfil de Google se va a leer TODAS, incluidas las que no gustan. Sin filtrar.
+export const resenasUrl =
+  'https://www.google.com/maps/search/?api=1&query=Visuarte+Studio+Ciudad+Quesada';
+export const resenasNota =
+  'Estas dos son las que se pueden leer enteras aquí. En Google están todas, las buenas y las malas: no se filtran.';
 
 // ── AUDIOVISUAL (R2) — trayectoria real, no catálogo inventado ──
 // Fuente: CV de Diego (gaffer) + los enlaces verificados uno a uno contra YouTube el 24 oct 2026

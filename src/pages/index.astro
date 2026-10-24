@@ -3,7 +3,7 @@
 // CTA dual, tira de confianza, cuatro territorios, presupuesto rápido, reseñas, FAQ.
 import Layout from '../layouts/Layout.astro';
 import Icono from '../components/Icono.astro';
-import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenasPendientes } from '../data/site';
+import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenas, resenasUrl, resenasNota } from '../data/site';
 ---
 
 <Layout
@@ -145,18 +145,31 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
     </form>
   </section>
 
-  <!-- RESEÑAS: bloque montado, contenido PENDIENTE (no se inventan testimonios) -->
+  <!-- RESEÑAS REALES: copiadas de Google, con nombre y fecha, y enlace al perfil
+       para leerlas TODAS (también la de 1★). No se filtra ni se inventa. -->
   <section class="wrap section-tight">
     <div class="sec-head">
       <h2 class="display" style="font-size:1.5rem">Opiniones de clientes</h2>
-      <span class="sec-num">03 — PENDIENTE DE RESEÑAS REALES</span>
+      <span class="sec-num">03 — DE GOOGLE, SIN RETOCAR</span>
     </div>
-    {resenasPendientes && (
-      <p class="prose" style="max-width:none">
-        Este bloque está montado y espera <strong>opiniones reales</strong> de clientes. No se
-        escribe ninguna de ejemplo: un testimonio inventado es la mentira más cara del marketing.
-      </p>
-    )}
+    <div class="resenas">
+      {resenas.map((r) => (
+        <figure class="resena">
+          <div class="resena-estrellas" aria-label={`${r.estrellas} de 5`}>
+            <span aria-hidden="true">{'★'.repeat(r.estrellas)}</span>
+          </div>
+          <blockquote>{r.texto}</blockquote>
+          <figcaption>
+            <strong>{r.nombre}</strong>
+            <span class="resena-fuente">Google · {r.cuando}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="nota">
+      {resenasNota}{' '}
+      <a href={resenasUrl} target="_blank" rel="noopener">Ver el perfil en Google ↗</a>
+    </p>
   </section>
 
   <!-- FAQ: responde lo que frena la llamada -->

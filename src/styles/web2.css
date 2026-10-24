@@ -244,6 +244,54 @@
   font-size: 0.95rem;
 }
 
+/* ── Reseñas reales (24 oct 2026) ────────────────────────────────────────
+   Dos columnas, cita en serif de la casa (display), estrellas en el acento.
+   Sin comillas de diseño: la cita va en bloque y el nombre debajo, como se cita. */
+.resenas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+.resena {
+  margin: 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+.resena-estrellas {
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  margin-bottom: var(--space-sm);
+}
+.resena blockquote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.resena figcaption {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-size: 0.9rem;
+}
+.resena figcaption strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.resena-fuente {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 /* ── /trabajo (R6, 24 oct 2026) — la vitrina ────────────────────────────
    Dos columnas en escritorio, una en móvil. La media es 4:3 y las piezas sin foto
    autorizada no llevan hueco gris: llevan su número en grande, como una ficha de
