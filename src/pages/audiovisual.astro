@@ -11,9 +11,27 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
 <Layout
   titulo="Audiovisual — iluminación y rodaje · VISUARTE"
   descripcion={`Iluminación, cámara y coordinación en set: ${total} producciones con esta mano dentro — spots, videoclips y ficción. Del primer boceto al último acabado.`}
+  precarga="/hero/audiovisual-1600.webp"
+  precargaSrcset="/hero/audiovisual-900.webp 900w, /hero/audiovisual-1600.webp 1600w"
 >
-  <!-- HERO: se dice el oficio y qué se hace dentro del rodaje -->
-  <section class="wrap hero">
+  <!-- HERO: se dice el oficio y qué se hace dentro del rodaje.
+       La imagen es un fresnel encendido (generada en local), en duotono cálido: arranca
+       en gris y se enciende. Una sola imagen, cero JavaScript. -->
+  <section class="hero hero--encender">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="/hero/audiovisual-1600.webp"
+        srcset="/hero/audiovisual-900.webp 900w, /hero/audiovisual-1600.webp 1600w"
+        sizes="100vw"
+        alt=""
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-velo"></div>
+    </div>
+    <div class="wrap">
     <div>
       <p class="eyebrow">Audiovisual · iluminación y rodaje</p>
       <h1 class="display hero-title">
@@ -31,6 +49,7 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
       <p class="hero-nota">
         {a.nombre} · {a.rol} · <a href={a.imdb} target="_blank" rel="noopener noreferrer">ficha en IMDb ↗</a>
       </p>
+    </div>
     </div>
   </section>
 
