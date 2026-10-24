@@ -1,161 +1,46 @@
-// ═══════════════════════════════════════════════════════════════
-// VISUARTE.ES — CONTENIDO ÚNICO  (rama de producción: main; verificado 24 oct 2026)
-// Todo el texto del sitio vive aquí. Nada de copy suelto en JSX.
-// ═══════════════════════════════════════════════════════════════
+// CONTENIDO ÚNICO DE LA WEB — versión Astro (2.0, 24 oct 2026)
+// Copy: el nuestro (claim firmado). Estructura y propuesta de valor: el plan de Iván.
+// Aquí no hay React: estos datos los consumen las páginas en el build (HTML estático).
 
-export type Capa = 'cliente' | 'producto' | 'servicio';
-
-export const capaTitulo: Record<Capa, string> = {
-  cliente: 'Trabajo de cliente',
-  producto: 'Producto del estudio',
-  servicio: 'Servicio del estudio',
-};
-
-export const capaChip: Record<Capa, string> = {
-  cliente: 'CLIENTE',
-  producto: 'ESTUDIO',
-  servicio: 'ESTUDIO',
-};
-
-export interface Proyecto {
-  id: string;
-  numero: string; // "01"
-  nombre: string;
-  categoria: string; // sello / capa: qué es
-  img?: string | null; // obra real (public/obras); sin imagen = tarjeta tipográfica
-  capa: Capa;
-  ambito: string;
-  servicio: string;
-  resumen: string;
-  detalle: string[];
-  enlace?: { texto: string; url: string };
-}
-
-export const proyectos: Proyecto[] = [
-  {
-    id: 'imprenta-rotulacion',
-    img: '/obras/imprenta_placa.jpg',
-    numero: '01',
-    nombre: 'Imprenta y rotulación',
-    categoria: 'Del diseño al soporte',
-    capa: 'servicio',
-    ambito: 'Físico · entorno',
-    servicio: 'Gran formato, vinilo, rotulación de fachadas y acabados',
-    resumen:
-      'De la pieza diseñada al objeto real: rotulación, vinilos, impresión de gran formato y acabados. El taller imprime lo que el estudio diseña.',
-    detalle: [
-      'Impresión de gran formato y rotulación de fachadas, vehículos y escaparates.',
-      'Laminados, vinilos de corte y acabados de calidad de imprenta.',
-      'La Roland SP540V del taller es el brazo físico del estudio: lo que se diseña, se imprime aquí.',
-    ],
-  },
-  {
-    id: 'bolco-vision',
-    img: null,
-    numero: '02',
-    nombre: 'BOLCO Vision',
-    categoria: 'Identidad sellada',
-    capa: 'cliente',
-    ambito: 'Identidad · digital',
-    servicio: 'Identidad corporativa + generación de imagen con IA local',
-    resumen:
-      'Identidad con contraste deliberado: bolco en trazo manual, VISION en sans recta. Detrás, infraestructura propia de generación de imagen y vídeo en local.',
-    detalle: [
-      'Logotipo y sistema de identidad validados con test real de lectura.',
-      'Pipeline de generación de imagen y vídeo en local (ComfyUI), sin depender de la nube.',
-      'Identidad pensada para crecer: del sello a la pieza audiovisual.',
-    ],
-  },
-  {
-    id: 'qrcard-online',
-    img: '/obras/qrcard.jpg',
-    numero: '03',
-    nombre: 'QR Card Online',
-    categoria: 'Producto propio',
-    capa: 'producto',
-    ambito: 'Físico · digital',
-    servicio: 'Tarjetas de visita NFC inteligentes',
-    resumen:
-      'La tarjeta es el vehículo: lo que vale es el NFC programado y el perfil digital que hay detrás. Configurador web, impresión física y programación de cada tarjeta.',
-    detalle: [
-      'Configurador web con pago integrado (Next.js, ES/EN).',
-      'Impresión física por una cara + diseño por la otra; etiqueta NFC programada.',
-      'Dos caminos: la tarjeta de empresa y el regalo con ticket emocional.',
-    ],
-    enlace: { texto: 'qrcardonline.com', url: 'https://qrcardonline.com' },
-  },
-  {
-    id: 'camiart',
-    img: '/obras/camiart.jpg',
-    numero: '04',
-    nombre: 'Camiart',
-    categoria: 'Marca del estudio',
-    capa: 'producto',
-    ambito: 'Textil · físico',
-    servicio: 'Camisetas y estampación',
-    resumen:
-      'La marca de camisetas del estudio: colección propia a una tinta y canal de estampación para encargos. Todo pedido de camisetas pasa por aquí.',
-    detalle: [
-      'Estampación a una tinta, del logo del estudio y sus mundos.',
-      'Doble cara: colección propia de la casa y la Academia + encargos de estampación.',
-      'Serigrafía de calidad pensada para durar muchos lavados.',
-    ],
-    enlace: { texto: 'camiart.com', url: 'https://camiart.com' },
-  },
-  {
-    id: 'academia-ia-mapicp',
-    img: '/obras/academia.jpg',
-    numero: '05',
-    nombre: 'Academia IA MAPICP',
-    categoria: 'Producto propio',
-    capa: 'producto',
-    ambito: 'Formación · digital',
-    servicio: 'Academia de IA aplicada',
-    resumen:
-      'Aprender a trabajar con IA, no a hablar de IA. De la teoría universal al creativo de imagen y vídeo, con método propio y clases en vivo.',
-    detalle: [
-      'Dos canales: teoría universal y taller creativo de imagen y vídeo.',
-      'Clases en vivo, grupos pequeños, sin humo.',
-      'Método MAPI: la semilla, entender, decidir, hacer, revisar.',
-    ],
-    enlace: { texto: 'mapicp.com/academia', url: 'https://mapicp.com/academia' },
-  },
-  {
-    id: 'sabores-rizzo',
-    img: '/obras/rizzo.jpg',
-    numero: '06',
-    nombre: 'Sabores Rizzo',
-    categoria: 'Identidad y rótulo',
-    capa: 'cliente',
-    ambito: 'Identidad · físico',
-    servicio: 'Identidad y rótulo de fachada',
-    resumen:
-      'Identidad para Sabores Rizzo: un rótulo con alma de mercado — iconos, banda y marco propios. Diseñada para lucir en fachada y en papel.',
-    detalle: [
-      'Diseño de logotipo y sistema de iconos de la casa (trigo, bandera, especias).',
-      'Composición preparada para rotulación de fachada y soportes impresos.',
-      'En fase de medidas y presupuesto cuando el cliente lo retome.',
-    ],
-  },
+export const nav = [
+  { nombre: 'Rotulación', path: '/rotulacion' },
+  { nombre: 'Audiovisual', path: '/audiovisual' },
+  { nombre: 'Trabajo', path: '/trabajo' },
+  { nombre: 'Contacto', path: '/contacto' },
 ];
-// ── Los cuatro territorios (24 oct 2026) ────────────────────────
-// Diego: "Visuarte cubre marca, espacio, digital y automatización, NO una suma suelta
-// de servicios. Primero se dice qué eres para el cliente; después se despliega por bloques."
-// La automatización NO sustituye la producción: se lleva el trabajo repetitivo del negocio.
+
+export const contacto = {
+  marca: 'VISUARTE',
+  claim: 'Pensado a lo grande.',
+  claimEm: 'Fabricado de verdad.',
+  lede:
+    'VISUARTE se hace cargo de tu comunicación de principio a fin: estrategia, dirección de arte, diseño y producción. Tú te quitas esa carga; nosotros ponemos el criterio y el proceso.',
+  telefono: '616 996 306',
+  telefonoIntl: '34616996306',
+  email: 'visuarte.creativos@gmail.com',
+  sede: 'Ciudad Quesada (Rojales)',
+  cobertura: 'Alicante · Vega Baja · Murcia',
+  nif: '48550448R',
+  titular: 'Diego Gómez García',
+};
+
+// Los cuatro territorios (nuestro marco del 24 oct; NO se enumeran diez servicios arriba)
 export type TerritorioIcono = 'marca' | 'espacio' | 'digital' | 'automatizacion';
-export interface Territorio {
+
+export const territorios: {
   numero: string;
   nombre: string;
-  texto: string;
   icono: TerritorioIcono;
-}
-export const territorios: Territorio[] = [
+  texto: string;
+  href: string;
+}[] = [
   {
     numero: '01',
     nombre: 'Marca',
     icono: 'marca',
     texto:
       'Identidad, naming y dirección de arte. La marca se piensa y se diseña aquí: logotipo, sistema, tono, fotografía y vídeo.',
+    href: '/estudio',
   },
   {
     numero: '02',
@@ -163,6 +48,7 @@ export const territorios: Territorio[] = [
     icono: 'espacio',
     texto:
       'Rotulación, imprenta e imagen del local, por dentro y por fuera. Fachadas, vinilo, gran formato y acabados, con taller propio.',
+    href: '/rotulacion',
   },
   {
     numero: '03',
@@ -170,6 +56,7 @@ export const territorios: Territorio[] = [
     icono: 'digital',
     texto:
       'Web full stack, software a medida, e-commerce y producto propio. Lo que se ve en pantalla, construido y mantenido aquí.',
+    href: '/estudio',
   },
   {
     numero: '04',
@@ -177,115 +64,50 @@ export const territorios: Territorio[] = [
     icono: 'automatizacion',
     texto:
       'Gestión de procesos con IA: se automatiza el trabajo repetitivo del negocio, nunca el criterio ni la producción.',
+    href: '/estudio',
   },
 ];
 
-// ── Servicios que el estudio ofrece de verdad ──────────────────
-export const servicios = [
+// Prueba de oficio para la tira de confianza (producciones y marcas reales del CV)
+export const confianza = [
+  'ELPOZO',
+  'OPEL',
+  "Jack Daniel's",
+  'TENA',
+  'PC Componentes',
+  'Carlos Alcaraz',
+  'Viva Suecia',
+  'Arde Bogotá',
+];
+
+export const serviciosPresupuesto = [
+  'Rotulación de fachada o local',
+  'Vinilado de vehículo o flota',
+  'Identidad / diseño gráfico',
+  'Producción audiovisual o fotografía',
+  'Textil y merchandising',
+  'Web / producto digital',
+  'Otra cosa (lo cuento abajo)',
+];
+
+export const faq = [
   {
-    numero: 'A',
-    nombre: 'Identidad y diseño gráfico',
-    texto:
-      'Logotipos, sistemas de identidad y piezas gráficas con sistema propio: color, retícula y revisión real antes de entregar.',
+    p: '¿Cuánto se tarda en rotular una fachada o un vehículo?',
+    r: 'Una fachada suele estar entre 3 y 5 días laborables desde la aprobación del diseño; un vehículo, entre 1 y 2 días de taller. Plazos orientativos: se confirman tras ver el soporte y las medidas.',
   },
   {
-    numero: 'B',
-    nombre: 'Imprenta y rotulación',
-    texto:
-      'Gran formato, vinilo, rotulación de fachadas y acabados. Del archivo al objeto impreso en el taller propio.',
+    p: '¿Qué materiales usáis?',
+    r: 'Vinilo polimérico o fundido según el soporte, laminado mate o brillo, composite y metacrilato para placas. Siempre se dice qué material va en cada pieza y por qué.',
   },
   {
-    numero: 'C',
-    nombre: 'Producción audiovisual',
-    texto:
-      'Rodaje, vídeo y efectos. Coordinación de producción y trabajo de iluminación en set.',
+    p: '¿Trabajáis fuera de la Vega Baja?',
+    r: 'Sí. Sede en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Para más distancia se valora el desplazamiento en el presupuesto, nunca después.',
   },
   {
-    numero: 'D',
-    nombre: 'Digital y producto',
-    texto:
-      'Webs y productos digitales con sistema: tarjetas NFC, herramientas propias y software a medida.',
+    p: '¿Cómo se pide presupuesto?',
+    r: 'Con el formulario de esta página o por WhatsApp. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
   },
 ];
 
-// ── Contacto (confirmado: tel/email salen del CV público de gaffer) ──
-export const contacto = {
-  marca: 'VISUARTE',
-  eslogan: 'Diseño, imprenta y producción.',
-  // TODO Diego: confirmar (datos tomados del CV público de gaffer, 2026)
-  telefono: '616 996 306',
-  email: 'visuarte.creativos@gmail.com',
-  base: '',
-  instagram: '@visuarte_printshop',
-  instagramUrl: 'https://www.instagram.com/visuarte_printshop/',
-};
-
-// ── Audiovisual: trayectoria real de Diego (CV gaffer, portfolio/cv) ──
-export const cine = {
-  nombre: 'Diego Gómez García',
-  rol: 'Gaffer · Iluminación para producto, moda y narrativa',
-  imdb: 'https://www.imdb.com/name/nm13809776/',
-  perfil:
-    'Gaffer con 3 años de experiencia en spots publicitarios y 5 en audiovisual (spots, cine y videoclips). Especializado en iluminación para producto, moda y narrativa visual. Trabajo habitual con LED, fresnel, DMX y control inalámbrico. Acostumbrado a rodajes de alto ritmo publicitario con equipos reducidos y deadlines ajustados.',
-  marcas: [
-    'OPEL',
-    'ELPOZO',
-    "JACK DANIEL'S",
-    'TENA',
-    'PC COMPONENTES',
-    'CARLOS ALCARAZ',
-    'HELP FLASH',
-    'MR MONTALBÁN',
-  ],
-  spots: [
-    { marca: 'OPEL', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/shorts/l5VvmxEHTjE' },
-    { marca: 'HELP FLASH', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=NEFUlfmMiM0' },
-    { marca: 'ELPOZO — Selección Española', anio: '2026', rol: '2ª Unidad', url: 'https://www.youtube.com/watch?v=NzsnG_pinXI' },
-    { marca: 'ELPOZO x Viva Suecia', anio: '2026', rol: 'Cámara + Ayte. Iluminación', url: 'https://www.youtube.com/watch?v=r4V2MTyIfj8' },
-    { marca: 'PC Componentes — 20 aniversario', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ZSfy8xhuWaA' },
-    { marca: 'Carlos Alcaraz — Turismo Murcia', anio: '2025', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=-0rwMZ5uEPk' },
-    { marca: "Jack Daniel's — Proximity", anio: '2024', rol: 'Best Boy', url: 'https://www.youtube.com/watch?v=xgkFQKmcPVc' },
-    { marca: 'Mr Montalbán', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=CLHNhlggnzI' },
-    { marca: 'Tena Discreet', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=TtSYEAkYjVE' },
-    { marca: 'Yasss Orenes', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=1bXkHgNySXQ' },
-    { marca: 'Limonar de Santomera', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=ylUlwpu53fg' },
-    { marca: 'Ravetllat Aromatics', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=Scf5yMDOJYg' },
-    { marca: 'Apupabet', anio: '2023', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=HeiAX9rph8s' },
-  ],
-  cineFiccion: [
-    { titulo: 'SECUESTRO', anio: '2026', rol: 'Refuerzo de eléctricos', tipo: 'Película · LASTOR MEDIA' },
-    { titulo: 'MAKING OF', anio: '2025', rol: 'Gaffer', tipo: 'Serie · Estudio Áurea · 27 jornadas' },
-    { titulo: 'FUGA', anio: '2025', rol: 'Gaffer', tipo: 'Película · A Poco a Poco' },
-    { titulo: 'BESOS ROBADOS', anio: '2024-25', rol: 'Gaffer', tipo: 'Película · A Poco a Poco + Ordet · 16 jornadas' },
-    { titulo: 'COMPAÑERXS', anio: '2025', rol: 'Dirección de fotografía', tipo: 'Corto · Casablanca Films' },
-    { titulo: 'SIN HUELLAS', anio: '2023', rol: 'Eléctrico', tipo: 'Serie · Prime Video' },
-    { titulo: 'TODOS', anio: '2023', rol: 'Gaffer', tipo: 'Largometraje' },
-    { titulo: 'FLECHAZO', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
-    { titulo: 'CONFINAMIENTO (HIPOXIA)', anio: '2025', rol: 'Gaffer', tipo: 'Corto · Estudio Áurea' },
-    { titulo: 'LA MALDITA PRIMAVERA', anio: '2022', rol: 'Gaffer', tipo: 'Cortometraje' },
-    { titulo: 'FAST YOUTH', anio: '2023', rol: 'Gaffer', tipo: 'Short film · Creamurcia' },
-    { titulo: 'COTTON CANDY', anio: '2025', rol: 'Gaffer', tipo: 'Rodaje · 5 días' },
-  ],
-  videoclips: [
-    { titulo: 'Viva Suecia — Mala Prensa', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=SJZe9WkKcVc' },
-    { titulo: 'Arde Bogotá — Los Perros', rol: 'Best Boy', url: 'https://www.youtube.com/watch?v=iy-X7U6Znm0' },
-  ],
-  equipo: [
-    'Equipo completo de iluminación: LED, fresnel y DMX',
-    'Control DMX inalámbrico para setups rápidos',
-    'BlackMagic 6K Pro + Canon R8',
-    'Vehículo propio para transporte de equipo',
-  ],
-  formacion: [
-    'Técnico Superior en Realización de Audiovisuales y Espectáculos (2008-2010)',
-    'Técnico Superior en Gráfica Publicitaria (2005-2008)',
-    'Meritorio de arte en «La Mitad de Óscar» — Manuel Martín Cuenca (2010)',
-  ],
-};
-
-export const nav = [
-  { nombre: 'Trabajo', path: '/trabajo' },
-  { nombre: 'Cine', path: '/cine' },
-  { nombre: 'Estudio', path: '/estudio' },
-  { nombre: 'Contacto', path: '/contacto' },
-];
+// RESEÑAS: pendiente de opiniones reales. NO se inventan testimonios (ver TODO en el bloque).
+export const resenasPendientes = true;

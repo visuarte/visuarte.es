@@ -1,0 +1,771 @@
+/* VISUARTE.ES — páginas y componentes (usa solo tokens, sin hex sueltos) */
+
+/* ── Wordmark / header ──────────────────────────────────────── */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  line-height: 0;
+  color: var(--ink);
+}
+.brand-mark {
+  height: 30px;
+  width: auto;
+}
+.brand-txt {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.brand-txt-sub {
+  font-weight: 400;
+  color: var(--accent);
+}
+
+/* ── Home · hero ────────────────────────────────────────────── */
+.hero {
+  /* Solo vertical: el relleno lateral lo pone .wrap (2rem). Antes era `padding: X 0 Y`,
+     que anulaba los laterales y dejaba todo el contenido pegado al borde (visto 24 oct 2026). */
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+/* dos columnas: texto + imagotipo (llena el hueco de la derecha) */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-visual {
+  display: grid;
+  place-items: center;
+}
+
+.hero-visual img,
+/* El halo del imagotipo (::before con inset -30%) sangra fuera de su celda y a 1100 px
+   creaba scroll horizontal (medido 24 oct 2026: scrollWidth 1177 > clientWidth 1085).
+   Se contiene en su columna: el brillo sigue, el scroll desaparece. */
+.hero-visual {
+  overflow-x: clip;
+}
+
+.hero-visual .imagotipo svg {
+  width: min(400px, 34vw);
+  height: auto;
+  opacity: 0.95;
+}
+
+/* respiro vivo del imagotipo: escala lenta + halo de fuego pulsante */
+.imagotipo {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.imagotipo svg {
+  position: relative;
+  z-index: 1;
+  animation: imag-respirar 7s ease-in-out infinite;
+}
+
+.imagotipo::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 0;
+  background: radial-gradient(circle at center, var(--accent) 0%, transparent 55%);
+  filter: blur(10px);
+  opacity: 0;
+  animation: imag-halo 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes imag-respirar {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@keyframes imag-halo {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imagotipo svg,
+  .imagotipo::before {
+    animation: none;
+  }
+  .imagotipo::before {
+    opacity: 0;
+  }
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  max-width: 18ch;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-lede {
+  margin-top: var(--space-lg);
+  max-width: 46ch;
+}
+
+.hero-meta {
+  margin-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ── Sección genérica con cabecera numerada ─────────────────── */
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.sec-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+/* ── Grid de servicios ──────────────────────────────────────── */
+.servicios {
+  display: grid;
+  /* Una sola regla continua sobre toda la retícula: cuatro segmentos cortos rompían el eje
+     y el bloque quedaba descentrado (visto 24 oct 2026 en la captura de Diego). */
+  border-top: 1px solid var(--line);
+  /* 1 → 2 → 4. NUNCA 3: con auto-fit/minmax(260px) entraban tres columnas y la cuarta caía
+     sola a la línea siguiente en portátiles (980-1170 px), y eso descentraba la intención. */
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.servicio {
+  padding-top: var(--space-md);
+}
+
+/* Cabecera del bloque — composición elegida por Diego (24 oct 2026, opción D):
+   icono, título y número EN LA MISMA LÍNEA; el párrafo debajo. */
+.servicio-cab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.servicio-cab h3 {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.servicio-cab .servicio-num {
+  margin-left: auto;
+  line-height: 1;
+}
+
+.servicio-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.servicio h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  margin: var(--space-xs) 0 var(--space-xs);
+}
+
+.servicio p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Lista de trabajos ──────────────────────────────────────── */
+.trabajo-lista {
+  display: grid;
+  gap: 0;
+}
+
+.trabajo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-lg);
+  align-items: baseline;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  transition: background 0.2s ease;
+}
+
+.trabajo-item:hover {
+  background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+}
+
+.trabajo-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.trabajo-item .num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.trabajo-item .titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.trabajo-item .cat {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.trabajo-item .flecha {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* destacados en home (sobre brasa): tarjeta contenida */
+.destacados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.destacado {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.destacado:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.destacado .titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: var(--space-sm) 0;
+}
+
+/* ── Ficha de proyecto ──────────────────────────────────────── */
+.proyecto-hero {
+  padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+.proyecto-titulo {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  max-width: 16ch;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+  border-top: 1px solid var(--line);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+}
+
+.meta-campo .clave {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.meta-campo .valor {
+  margin-top: var(--space-2xs);
+  color: var(--ink);
+}
+
+.detalle-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.detalle-list li {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  color: var(--muted);
+}
+.detalle-list li::before {
+  content: "·";
+  color: var(--accent);
+  margin-right: var(--space-sm);
+}
+
+/* ── Estudio · método ───────────────────────────────────────── */
+.pasos-metodo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  counter-reset: paso;
+}
+
+.paso {
+  border-left: 1px solid var(--line);
+  padding-left: var(--space-md);
+}
+.paso .paso-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  counter-increment: paso;
+}
+.paso h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: var(--space-2xs) 0 var(--space-xs);
+}
+.paso p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Contacto ───────────────────────────────────────────────── */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.contacto-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+}
+.contacto-card .clave {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contacto-card .valor {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.contacto-card a.valor:hover {
+  color: var(--accent);
+}
+
+/* ── Etiqueta de marca (cliente / estudio) ──────────────────── */
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* lo de la casa se distingue al instante: chip lleno */
+.chip-estudio {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ── Galería de obras (portfolio con piezas reales) ─────────── */
+.obra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl) var(--space-lg);
+}
+
+.obra {
+  color: var(--ink);
+  display: block;
+}
+
+.obra-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+
+.obra-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.obra:hover .obra-media img {
+  transform: scale(1.03);
+}
+
+/* tarjeta sin foto: el número sobre el fondo hace de pieza */
+.obra-media-vacia {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  color: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+/* mini en home */
+.obra-media--sm {
+  aspect-ratio: 16 / 10;
+  margin-bottom: var(--space-md);
+}
+
+/* hero de ficha */
+.obra-media--ficha {
+  aspect-ratio: 16 / 7;
+  margin: var(--space-xl) 0 0;
+}
+
+.obra-cuerpo {
+  padding: var(--space-md) 0 0;
+}
+
+.obra-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xs);
+}
+
+.obra-titulo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: var(--space-2xs) 0 var(--space-2xs);
+}
+
+.obra-cat {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* destacados home: media arriba dentro de la tarjeta */
+.destacado {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+.destacado .obra-media {
+  margin-bottom: var(--space-md);
+}
+
+/* ── Textura de papel (grano sutil, identidad de oficio) ────── */
+.grano {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  pointer-events: none;
+  opacity: 0;
+  background-repeat: repeat;
+}
+
+[data-mood="brasa"] .grano {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='black'/%3E%3C/svg%3E");
+  opacity: 0.045;
+}
+
+[data-mood="llama"] .grano {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='white'/%3E%3C/svg%3E");
+  opacity: 0.06;
+}
+
+/* ── Audiovisual (cine) ──────────────────────────────────────── */
+.marcas-fila {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: 0;
+}
+
+.marcas-fila li {
+  font-family: var(--font-poster);
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: var(--space-xs) var(--space-md);
+  opacity: 0.92;
+}
+
+.tabla-cv {
+  border-top: 1px solid var(--line);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  color: var(--ink);
+  transition: background 0.15s ease;
+}
+
+a.fila:hover {
+  background: color-mix(in srgb, var(--surface-2) 50%, transparent);
+}
+
+.f-marca {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.f-rol {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.f-anio {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.lista-simple {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-simple li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.lista-simple a {
+  color: var(--ink);
+  font-weight: 600;
+}
+.lista-simple a:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  /* header compacto: no desborda en móvil */
+  .site-header-inner {
+    gap: var(--space-sm);
+  }
+  .brand-mark {
+    height: 24px;
+  }
+  .brand-txt {
+    font-size: 0.82rem;
+  }
+  .brand-txt-sub {
+    display: none; /* STUDIO se oculta en pantallas estrechas */
+  }
+  .main-nav {
+    gap: 0.65rem;
+  }
+  .main-nav a {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+  .wrap {
+    padding: 0 var(--space-md);
+  }
+  .fila {
+    grid-template-columns: 1fr auto;
+  }
+  .f-rol {
+    grid-column: 1;
+  }
+  .f-anio {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .obra-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .obra-media--ficha {
+    aspect-ratio: 4 / 3;
+  }
+  .trabajo-item {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-sm) var(--space-md);
+  }
+  .trabajo-item .cat {
+    grid-column: 2;
+    text-align: left;
+    white-space: normal;
+  }
+  .trabajo-item .flecha {
+    display: none;
+  }
+}
+
+/* ── Portada · firma de la promesa y método ──────────────────────────────
+   La frase firmada (24 oct 2026) va como firma bajo el claim: mono, pequeña,
+   con el acento de La Llama. El método va debajo del lede, apagado: se dice, no se vende. */
+.firma {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: var(--space-md) 0 0;
+}
+
+.metodo {
+  max-width: 52ch;
+  margin-top: var(--space-md);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Iconos de territorio: heredan el acento y no piden nada a la red (inline SVG).
+   Van EN LÍNEA con el número: la cabecera del bloque es [icono 01], y debajo el título. */
+.servicio-icono {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--accent);
+  margin: 0 var(--space-xs) 0 0;
+}
+.servicio-icono + .servicio-num {
+  vertical-align: middle;
+}
+.servicio-icono svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ── Móvil (24 oct 2026) ────────────────────────────────────────────────
+   Medido con el diagnóstico de 390 px: no había desbordamiento, pero la
+   cabecera de sección peleaba en dos columnas de tres líneas y el titular
+   gritaba. Se apila y se ajusta la escala. */
+@media (max-width: 720px) {
+  .sec-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
+  .sec-num {
+    letter-spacing: 0.12em;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 8.5vw, 3.2rem);
+  }
+  .main-nav a {
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+  }
+  .btn {
+    min-height: 44px; /* objetivo táctil mínimo (protocolo de accesibilidad) */
+    padding-block: 0.85rem;
+  }
+}
+
+
+/* Composición de los territorios: 1 / 2 / 4 columnas. Nunca 3 + 1 huérfana. */
+@media (min-width: 640px) {
+  .servicios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .servicios {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

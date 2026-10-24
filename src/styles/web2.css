@@ -1,0 +1,112 @@
+/* WEB 2.0 (Astro, 24 oct 2026) — bloques nuevos del plan de conversión.
+   Se apoya en los tokens y clases que ya existían: aquí solo lo que no había. */
+
+.hero-nota {
+  margin-top: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Tira de confianza: oficio real, sin logos inventados */
+.confianza {
+  padding-block: var(--space-lg);
+  border-top: 1px solid var(--line);
+}
+.confianza-intro {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-sm);
+}
+.confianza-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.confianza-lista li {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+  opacity: 0.82;
+}
+
+/* Formulario de presupuesto */
+.presupuesto {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-lg);
+}
+.campo { display: flex; flex-direction: column; gap: 0.4rem; }
+.campo-ancho { grid-column: 1 / -1; }
+.campo label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.campo input,
+.campo select,
+.campo textarea {
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+  min-height: 44px;
+}
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.nota {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* FAQ sin JavaScript: <details> nativo */
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer;
+  padding: var(--space-md) 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ' +'; color: var(--accent); }
+.faq details[open] summary::after { content: ' −'; }
+.faq p { padding-bottom: var(--space-md); color: var(--muted); max-width: 70ch; }
+
+/* Accesibilidad: salto al contenido (no visible hasta foco) */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #0b0b0b;
+  padding: 0.7rem 1rem;
+  z-index: 100;
+}
+.skip:focus { left: var(--space-md); }
+
+@media (max-width: 720px) {
+  .presupuesto { grid-template-columns: 1fr; }
+}

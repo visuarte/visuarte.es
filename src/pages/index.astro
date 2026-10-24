@@ -1,0 +1,133 @@
+---
+// HOME — estructura de conversión del plan de Iván, copy de la casa (24 oct 2026).
+// CTA dual, tira de confianza, cuatro territorios, presupuesto rápido, reseñas, FAQ.
+import Layout from '../layouts/Layout.astro';
+import Icono from '../components/Icono.astro';
+import { contacto, territorios, confianza, serviciosPresupuesto, faq, resenasPendientes } from '../data/site';
+---
+
+<Layout
+  titulo="VISUARTE — Pensado a lo grande. Fabricado de verdad."
+  descripcion="Estudio de diseño e imprenta en Alicante, Vega Baja y Murcia: marca, rotulación de fachadas y vehículos, audiovisual, digital y automatización. Del primer boceto al último acabado."
+>
+  <!-- HERO: claim de la casa + CTA dual (pedir presupuesto / WhatsApp) -->
+  <section class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Marca · espacio · digital · automatización</p>
+        <h1 class="display hero-title">
+          {contacto.claim}<br /><em>{contacto.claimEm}</em>
+        </h1>
+        <p class="lede hero-lede">{contacto.lede}</p>
+        <div class="hero-meta">
+          <a href="#presupuesto" class="btn">Pedir presupuesto</a>
+          <a
+            href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
+            class="btn btn-ghost"
+            rel="noopener"
+            >Hablar con un especialista</a
+          >
+        </div>
+        <p class="hero-nota">{contacto.cobertura} · Sede en {contacto.sede}</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="/logo/imagotipo-visuarte.png" alt="" width="400" height="400" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TIRA DE CONFIANZA: oficio real (producciones y marcas del CV) -->
+  <section class="wrap confianza" aria-label="Marcas y producciones">
+    <p class="confianza-intro">Oficio en producciones de</p>
+    <ul class="confianza-lista">
+      {confianza.map((m) => <li>{m}</li>)}
+    </ul>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- LOS CUATRO TERRITORIOS (nuestro marco; no una lista de diez servicios) -->
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.8rem">Los cuatro territorios</h2>
+      <span class="sec-num">01 — MARCA · ESPACIO · DIGITAL · AUTOMATIZACIÓN</span>
+    </div>
+    <div class="servicios">
+      {territorios.map((t) => (
+        <article class="servicio">
+          <div class="servicio-cab">
+            <Icono nombre={t.icono} size={22} />
+            <h3><a href={t.href}>{t.nombre}</a></h3>
+            <span class="servicio-num">{t.numero}</span>
+          </div>
+          <p>{t.texto}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- PRESUPUESTO RÁPIDO: el formulario corto del plan de Iván -->
+  <section class="wrap section" id="presupuesto">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.8rem">¿Tienes un proyecto en mente?</h2>
+      <span class="sec-num">02 — PRESUPUESTO SIN COMPROMISO</span>
+    </div>
+    <form class="presupuesto" method="post" action="/api/presupuesto">
+      <div class="campo">
+        <label for="nombre">Tu nombre</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+      </div>
+      <div class="campo">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" name="telefono" type="tel" autocomplete="tel" required />
+      </div>
+      <div class="campo">
+        <label for="servicio">Qué necesitas</label>
+        <select id="servicio" name="servicio">
+          {serviciosPresupuesto.map((s) => <option>{s}</option>)}
+        </select>
+      </div>
+      <div class="campo campo-ancho">
+        <label for="mensaje">Cuéntalo en dos líneas (opcional)</label>
+        <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+      </div>
+      <div class="campo campo-ancho">
+        <button class="btn" type="submit">Enviar y que me llamen</button>
+        <p class="nota">
+          Respuesta en menos de 24 h laborables. Si el trabajo necesita inspección, se dice antes de
+          dar precio firme.
+        </p>
+      </div>
+    </form>
+  </section>
+
+  <!-- RESEÑAS: bloque montado, contenido PENDIENTE (no se inventan testimonios) -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Opiniones de clientes</h2>
+      <span class="sec-num">03 — PENDIENTE DE RESEÑAS REALES</span>
+    </div>
+    {resenasPendientes && (
+      <p class="prose" style="max-width:none">
+        Este bloque está montado y espera <strong>opiniones reales</strong> de clientes. No se
+        escribe ninguna de ejemplo: un testimonio inventado es la mentira más cara del marketing.
+      </p>
+    )}
+  </section>
+
+  <!-- FAQ: responde lo que frena la llamada -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Preguntas frecuentes</h2>
+      <span class="sec-num">04 — ANTES DE ESCRIBIR</span>
+    </div>
+    <div class="faq">
+      {faq.map((f) => (
+        <details>
+          <summary>{f.p}</summary>
+          <p>{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>
