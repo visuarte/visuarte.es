@@ -166,11 +166,10 @@ export const resenas = [
   },
 ];
 
-// Al perfil de Google se va a leer TODAS, incluidas las que no gustan. Sin filtrar.
+// El enlace al perfil vive en la firma de cada reseña, no en una nota al pie:
+// una frase explicando que no se filtra llama la atención sobre lo que no hace falta.
 export const resenasUrl =
   'https://www.google.com/maps/search/?api=1&query=Visuarte+Studio+Ciudad+Quesada';
-export const resenasNota =
-  'Estas dos son las que se pueden leer enteras aquí. En Google están todas, las buenas y las malas: no se filtran.';
 
 // ── AUDIOVISUAL (R2) — trayectoria real, no catálogo inventado ──
 // Fuente: CV de Diego (gaffer) + los enlaces verificados uno a uno contra YouTube el 24 oct 2026

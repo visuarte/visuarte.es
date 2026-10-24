@@ -3,7 +3,7 @@
 // CTA dual, tira de confianza, cuatro territorios, presupuesto rápido, reseñas, FAQ.
 import Layout from '../layouts/Layout.astro';
 import Icono from '../components/Icono.astro';
-import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenas, resenasUrl, resenasNota } from '../data/site';
+import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenas, resenasUrl } from '../data/site';
 ---
 
 <Layout
@@ -161,15 +161,13 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
           <blockquote>{r.texto}</blockquote>
           <figcaption>
             <strong>{r.nombre}</strong>
-            <span class="resena-fuente">Google · {r.cuando}</span>
+            <a class="resena-fuente" href={resenasUrl} target="_blank" rel="noopener">
+              Google · {r.cuando} ↗
+            </a>
           </figcaption>
         </figure>
       ))}
     </div>
-    <p class="nota">
-      {resenasNota}{' '}
-      <a href={resenasUrl} target="_blank" rel="noopener">Ver el perfil en Google ↗</a>
-    </p>
   </section>
 
   <!-- FAQ: responde lo que frena la llamada -->
