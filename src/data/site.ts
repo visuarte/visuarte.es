@@ -236,7 +236,7 @@ export const audiovisual = {
 // trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
 export const trabajo = {
   intro:
-    'Ocho piezas, de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto la tiene; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
+    'Nueve piezas, de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto la tiene; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
   piezas: [
     {
       numero: '01',
@@ -306,6 +306,15 @@ export const trabajo = {
       anio: '2026',
       que: 'Sustitución de la banderola existente por un rótulo retroiluminado. En curso: la instalación eléctrica la firma un electricista autorizado y la altura pide medios, así que el precio no se cierra hasta ver el soporte.',
       nota: 'En curso',
+    },
+    {
+      numero: '09',
+      cliente: 'Pedro Olmedo',
+      tipo: 'Identidad · logotipo y manual de marca',
+      anio: '2024',
+      que: 'Monograma PO: la P y la O se tocan y se leen como un solo trazo. El nombre va debajo, en versalitas inclinadas, sobre un granate de peso. Con su manual de marca, donde el logo convive con la foto en blanco y negro.',
+      img: '/obras/olmedo-marca.webp',
+      alt: 'Monograma PO de Pedro Olmedo en blanco sobre fondo granate, con el nombre debajo',
     },
   ],
 };
