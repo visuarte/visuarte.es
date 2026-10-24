@@ -848,6 +848,32 @@
   border-bottom-color: var(--accent);
 }
 
+/* La lista de materiales de la ficha: lo que se compró y se montó, con medidas.
+   En mono y con guion, como el resto de datos de la casa. Es lo que distingue
+   una ficha de una foto bonita. */
+.ficha-materiales {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.ficha-materiales li {
+  padding-left: 1rem;
+  position: relative;
+}
+.ficha-materiales li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 /* Quien pide menos movimiento no tiene que ver el fundido, pero el diseño es el
    mismo: la pieza sigue en blanco y negro en reposo y se enciende al pasar por
    encima. Se quita la animación, no el encendido (24 oct 2026). */
