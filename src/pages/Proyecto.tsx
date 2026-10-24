@@ -22,7 +22,10 @@ export default function Proyecto() {
 
         {p.img && (
           <div className="obra-media obra-media--ficha">
-            <img src={p.img} alt={p.nombre} />
+            {/* Esta imagen ES el contenido principal de la ficha: va por encima del pliegue.
+                Ponerle loading="lazy" sería un error (retrasa el LCP). Se prioriza y se
+                decodifica aparte. El lazy va donde estorba: en las rejillas (Home, Trabajo). */}
+            <img src={p.img} alt={p.nombre} fetchPriority="high" decoding="async" />
           </div>
         )}
 
