@@ -93,23 +93,23 @@ export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
   {
     etiqueta: 'Marcas y clientes',
     items: [
-      { nombre: 'ElPozo', logo: '/marcas/elpozo-mono.png', escala: 1.05, tipo: 'marca' },
-      { nombre: 'Opel', logo: '/marcas/opel.svg', escala: 1.25, tipo: 'marca' },
-      { nombre: "Jack Daniel's", logo: '/marcas/jack-daniels.svg', escala: 1.7, tipo: 'marca' },
-      { nombre: 'TENA', logo: '/marcas/tena.svg', escala: 1.15, tipo: 'marca' },
-      { nombre: 'PC Componentes', logo: '/marcas/pccomponentes.png', escala: 1.05, tipo: 'marca' },
-      { nombre: 'Región de Murcia Turismo', logo: '/marcas/murcia-turismo.png', escala: 1.2, tipo: 'cliente' },
+      { nombre: 'ElPozo', logo: '/marcas/elpozo-mono.png', escala: 1.0, tipo: 'marca' },
+      { nombre: 'Opel', logo: '/marcas/opel.png', escala: 1.2, tipo: 'marca' },
+      { nombre: "Jack Daniel's", logo: '/marcas/jack-daniels.png', escala: 1.3, tipo: 'marca' },
+      { nombre: 'TENA', logo: '/marcas/tena.png', escala: 1.0, tipo: 'marca' },
+      { nombre: 'PC Componentes', logo: '/marcas/pccomponentes.png', escala: 0.9, tipo: 'marca' },
+      { nombre: 'Región de Murcia Turismo', logo: '/marcas/murcia-turismo.png', escala: 1.25, tipo: 'cliente' },
     ],
   },
   {
     etiqueta: 'Productoras y agencias',
     // Verificadas en el correo (remitente + facturas) y cruzadas con el CV.
     items: [
-      { nombre: 'Twin Freaks Studio', logo: '/marcas/twin-freaks.png', escala: 1.6, tipo: 'productora' },
-      { nombre: 'Grupo IDEX', logo: '/marcas/idex.svg', escala: 1.1, tipo: 'productora' },
-      { nombre: 'Baikal Visual', logo: '/marcas/baikal.svg', escala: 1.15, tipo: 'productora' },
+      { nombre: 'Twin Freaks Studio', tipo: 'productora' },
+      { nombre: 'Grupo IDEX', logo: '/marcas/idex.png', escala: 0.95, tipo: 'productora' },
+      { nombre: 'Baikal Visual', logo: '/marcas/baikal.png', escala: 0.88, tipo: 'productora' },
       { nombre: 'KAME Studio', tipo: 'productora' },
-      { nombre: 'Portavoz', logo: '/marcas/portavoz.svg', escala: 1.15, tipo: 'productora' },
+      { nombre: 'Portavoz', logo: '/marcas/portavoz.png', escala: 0.9, tipo: 'productora' },
       { nombre: 'Proximity', tipo: 'productora' },
     ],
   },
