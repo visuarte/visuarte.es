@@ -69,19 +69,44 @@ export const territorios: {
 ];
 
 // Prueba de oficio para la tira de confianza (producciones y marcas reales del CV)
-// Producciones y marcas REALES del CV: por eso se pueden nombrar.
-// tipo 'marca' = anunciante · 'produccion' = artista/producción en la que se trabajó.
-// 'escala' corrige el PESO ÓPTICO: cada marca trae su proporción y con la misma altura
-// unas se ven gigantes y otras diminutas. 1 = altura base (26 px).
-export const confianza: { nombre: string; tipo: 'marca' | 'produccion'; logo?: string; escala?: number }[] = [
-  { nombre: 'ElPozo', tipo: 'marca', logo: '/marcas/elpozo-mono.png', escala: 1.05 },
-  { nombre: 'Opel', tipo: 'marca', logo: '/marcas/opel.svg', escala: 1.25 },
-  { nombre: "Jack Daniel's", tipo: 'marca', logo: '/marcas/jack-daniels.svg', escala: 1.7 },
-  { nombre: 'TENA', tipo: 'marca', logo: '/marcas/tena.svg', escala: 1.15 },
-  { nombre: 'PC Componentes', tipo: 'marca', logo: '/marcas/pccomponentes.png', escala: 1.05 },
-  { nombre: 'Carlos Alcaraz', tipo: 'marca' },
-  { nombre: 'Viva Suecia', tipo: 'produccion' },
-  { nombre: 'Arde Bogotá', tipo: 'produccion' },
+// TIRA DE CONFIANZA — tres grupos honestos (24 oct 2026, correcciones de Diego):
+//   · marcas y CLIENTES (incluye Región de Murcia Turismo, que NO es Carlos Alcaraz)
+//   · PRODUCTORAS con las que trabaja (se les da promo: son su casa)
+//   · VIDEOCLIPS: artistas para los que se rodó
+// 'escala' corrige el peso óptico (cada marca trae su proporción).
+export interface ItemConfianza {
+  nombre: string;
+  logo?: string;
+  escala?: number;
+  tipo: 'marca' | 'cliente' | 'productora' | 'videoclip';
+}
+
+export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
+  {
+    etiqueta: 'Marcas y clientes',
+    items: [
+      { nombre: 'ElPozo', logo: '/marcas/elpozo-mono.png', escala: 1.05, tipo: 'marca' },
+      { nombre: 'Opel', logo: '/marcas/opel.svg', escala: 1.25, tipo: 'marca' },
+      { nombre: "Jack Daniel's", logo: '/marcas/jack-daniels.svg', escala: 1.7, tipo: 'marca' },
+      { nombre: 'TENA', logo: '/marcas/tena.svg', escala: 1.15, tipo: 'marca' },
+      { nombre: 'PC Componentes', logo: '/marcas/pccomponentes.png', escala: 1.05, tipo: 'marca' },
+      { nombre: 'Región de Murcia Turismo', tipo: 'cliente' },
+    ],
+  },
+  {
+    etiqueta: 'Con productoras',
+    items: [
+      { nombre: 'Grupo IDEX', logo: '/marcas/idex.svg', escala: 1.1, tipo: 'productora' },
+      { nombre: 'Twin Freaks Studio', logo: '/marcas/twin-freaks.png', escala: 1.2, tipo: 'productora' },
+    ],
+  },
+  {
+    etiqueta: 'Videoclips',
+    items: [
+      { nombre: 'Viva Suecia', tipo: 'videoclip' },
+      { nombre: 'Arde Bogotá', tipo: 'videoclip' },
+    ],
+  },
 ];
 
 export const serviciosPresupuesto = [

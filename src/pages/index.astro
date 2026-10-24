@@ -3,7 +3,7 @@
 // CTA dual, tira de confianza, cuatro territorios, presupuesto rápido, reseñas, FAQ.
 import Layout from '../layouts/Layout.astro';
 import Icono from '../components/Icono.astro';
-import { contacto, territorios, confianza, serviciosPresupuesto, faq, resenasPendientes } from '../data/site';
+import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, resenasPendientes } from '../data/site';
 ---
 
 <Layout
@@ -36,16 +36,30 @@ import { contacto, territorios, confianza, serviciosPresupuesto, faq, resenasPen
     </div>
   </section>
 
-  <!-- TIRA DE CONFIANZA: oficio real (producciones y marcas del CV) -->
-  <section class="wrap confianza" aria-label="Marcas y producciones">
-    <p class="confianza-intro">Colaboramos con producciones y grandes marcas como</p>
-    <ul class="confianza-lista">
-      {confianza.map((m) => (
-        <li data-tipo={m.tipo}>
-          {m.logo ? <img src={m.logo} alt={m.nombre} style={`height:${Math.round(26 * (m.escala ?? 1))}px`} loading="lazy" decoding="async" /> : m.nombre}
-        </li>
-      ))}
-    </ul>
+  <!-- TIRA DE CONFIANZA: marcas/clientes, productoras (promo) y videoclips -->
+  <section class="wrap confianza" aria-label="Marcas, productoras y videoclips">
+    {confianzaGrupos.map((g) => (
+      <div class="confianza-grupo">
+        <p class="confianza-intro">{g.etiqueta}</p>
+        <ul class="confianza-lista">
+          {g.items.map((m) => (
+            <li data-tipo={m.tipo}>
+              {m.logo ? (
+                <img
+                  src={m.logo}
+                  alt={m.nombre}
+                  style={`height:${Math.round(26 * (m.escala ?? 1))}px`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                m.nombre
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </section>
 
   <hr class="rule" />

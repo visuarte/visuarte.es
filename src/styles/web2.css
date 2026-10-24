@@ -16,6 +16,9 @@
   padding-block: var(--space-xl);
   border-top: 1px solid var(--line);
 }
+.confianza-grupo + .confianza-grupo {
+  margin-top: var(--space-lg);
+}
 .confianza-intro {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -65,7 +68,7 @@
   opacity: 1;
 }
 
-/* Los que son nombre de producción/artista llevan un punto para no confundirse con marcas */
+/* Los nombres sin logo (artistas, instituciones) llevan punto de acento */
 .confianza-lista li[data-tipo='produccion']::before {
   content: '';
   width: 5px;
