@@ -244,6 +244,115 @@
   font-size: 0.95rem;
 }
 
+/* ── /trabajo (R6, 24 oct 2026) — la vitrina ────────────────────────────
+   Dos columnas en escritorio, una en móvil. La media es 4:3 y las piezas sin foto
+   autorizada no llevan hueco gris: llevan su número en grande, como una ficha de
+   catálogo. Un hueco vacío se lee como web rota; un número se lee como archivo. */
+.vitrina {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--space-2xl) var(--space-xl);
+  margin-top: var(--space-lg);
+}
+.pieza-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  /* Casi negro, no marrón: mientras una imagen carga (o si falla) no debe parecer
+     una tarjeta rota, debe parecer un hueco esperando. */
+  background: color-mix(in srgb, var(--bg) 90%, var(--line));
+}
+.pieza-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pieza-media--ficha {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--surface) 90%, transparent),
+    color-mix(in srgb, var(--bg) 92%, transparent)
+  );
+  border: 1px solid var(--line);
+}
+.pieza-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.pieza-cuerpo {
+  padding-top: var(--space-md);
+}
+.pieza-cab {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+.pieza-num-mini {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+.pieza-cab h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+  flex: 1 1 auto;
+}
+.pieza-anio {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.pieza-tipo {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: var(--space-2xs) 0 var(--space-sm);
+}
+.pieza-que {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+  max-width: 52ch;
+}
+.pieza-nota {
+  display: inline-block;
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+.pieza-enlace {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pieza-enlace:hover {
+  color: var(--accent-hover);
+}
+
 /* ── /estudio (R5, 24 oct 2026) ─────────────────────────────────────────
    Cuatro territorios con su lista de piezas. Aquí sí caben en columna: cada uno
    lleva texto, cuatro piezas y su enlace, y en rejilla de 2 se quedaban cortos. */

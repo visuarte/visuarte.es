@@ -2,7 +2,11 @@
 // Copy: el nuestro (claim firmado). Estructura y propuesta de valor: el plan de Iván.
 // Aquí no hay React: estos datos los consumen las páginas en el build (HTML estático).
 
+// Nav de 5 (24 oct 2026, Diego): Estudio primero —es la casa— y después las tres
+// puertas de trabajo. Sin iconos: la nav es mono en versalitas y un icono por enlace
+// la convierte en un menú de app. Se decide con el ojo, no por costumbre.
 export const nav = [
+  { nombre: 'Estudio', path: '/estudio' },
   { nombre: 'Rotulación', path: '/rotulacion' },
   { nombre: 'Audiovisual', path: '/audiovisual' },
   { nombre: 'Trabajo', path: '/trabajo' },
@@ -199,6 +203,86 @@ export const audiovisual = {
     'Técnico Superior en Realización de Audiovisuales y Espectáculos (2008-2010)',
     'Técnico Superior en Gráfica Publicitaria (2005-2008)',
     'Meritorio de arte en «La mitad de Óscar» — Manuel Martín Cuenca (2010)',
+  ],
+};
+
+// ── TRABAJO (R6) — la vitrina: siete piezas, con imagen solo donde la hay ──
+// Regla: la foto de la obra de un cliente entra cuando el cliente autoriza; lo que
+// no está autorizado se cuenta en ficha, no se disfraza. Las imágenes que sí van son
+// trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
+export const trabajo = {
+  intro:
+    'Ocho piezas, de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto la tiene; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
+  piezas: [
+    {
+      numero: '01',
+      cliente: 'Sabores Rizzo',
+      tipo: 'Identidad · logotipo y sistema',
+      anio: '2026',
+      que: 'Logotipo con gorro de chef, cuatro estrellas y cubiertos, con su sistema de iconos (trigo, bandera, especias) pensado para lucir igual en fachada que en papel.',
+      img: '/obras/rizzo.jpg',
+      alt: 'Logotipo de Sabores Rizzo: gorro de chef con cuatro estrellas y cubiertos',
+    },
+    {
+      numero: '02',
+      cliente: 'Sabores Rizzo',
+      tipo: 'Rótulo de fachada y panel de menú',
+      anio: '2026',
+      que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
+      nota: 'Foto de la fachada: pendiente de autorización',
+    },
+    {
+      numero: '03',
+      cliente: 'Salón N23',
+      tipo: 'Cartel de precios y cuadrículas de rifa',
+      anio: '2026',
+      que: 'Revisión de seis precios sobre el original del cliente, verificada píxel a píxel: solo cambian los números, nada se desplaza. PVC de 3 mm con vinilo laminado mate y dos rifas numeradas, 200 y 100.',
+      nota: 'Foto de la pieza: pendiente de autorización',
+    },
+    {
+      numero: '04',
+      cliente: 'VISUARTE',
+      tipo: 'Esta web · diseño y código',
+      anio: '2026',
+      que: 'Sitio estático en Astro: cero JavaScript servido, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
+      img: '/obras/visuarte-web.webp',
+      alt: 'Cabecera de visuarte.es con el titular y la imagen de filamentos',
+    },
+    {
+      numero: '05',
+      cliente: 'QR Card Online',
+      tipo: 'Producto propio · tarjeta NFC y perfil digital',
+      anio: '2026',
+      que: 'Configurador web con pago, impresión de la tarjeta por una cara y diseño por la otra, y programación del chip NFC de cada unidad.',
+      img: '/obras/qrcard-bambu.webp',
+      alt: 'Tarjeta NFC de QR Card sobre soporte de bambú',
+    },
+    {
+      numero: '06',
+      cliente: 'Camiart',
+      tipo: 'Textil y estampación',
+      anio: '2025',
+      que: 'Marca de camisetas del estudio: colección propia a una tinta y canal de estampación para encargos. Todo pedido de textil pasa por aquí.',
+      img: '/obras/camiart.jpg',
+      alt: 'Camiseta Camiart con el logotipo de la brújula estampado en el pecho',
+    },
+    {
+      numero: '07',
+      cliente: 'Audiovisual',
+      tipo: 'Spots, videoclips y ficción',
+      anio: '2019-2026',
+      que: 'Veintisiete producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en su página.',
+      enlace: '/audiovisual',
+      enlaceTexto: 'Ver los créditos y los vídeos',
+    },
+    {
+      numero: '08',
+      cliente: 'Puntada a Puntada',
+      tipo: 'Rótulo luminoso · en curso',
+      anio: '2026',
+      que: 'Sustitución de la banderola existente por un rótulo retroiluminado. En curso: la instalación eléctrica la firma un electricista autorizado y la altura pide medios, así que el precio no se cierra hasta ver el soporte.',
+      nota: 'En curso',
+    },
   ],
 };
 

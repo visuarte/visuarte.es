@@ -1,0 +1,82 @@
+---
+// TRABAJO (R6, 24 oct 2026) — la vitrina.
+// Cada pieza: número, cliente, tipo, año, qué se hizo y su media. Donde hay foto, foto;
+// donde no la hay autorizada, ficha con los datos reales. Nada de relleno ni de imágenes
+// que no sean nuestras.
+import Layout from '../layouts/Layout.astro';
+import { trabajo, contacto } from '../data/site';
+---
+
+<Layout
+  titulo="Trabajo — VISUARTE Studio"
+  descripcion="La vitrina de VISUARTE: identidad y rótulo de fachada, cartelería, textil, producto propio y web. Qué se hizo en cada pieza, con qué y en cuánto tiempo."
+>
+  <section class="wrap hero">
+    <div>
+      <p class="eyebrow">Trabajo · la vitrina</p>
+      <h1 class="display hero-title">Del concepto<br /><em>a la pieza.</em></h1>
+      <p class="lede hero-lede">{trabajo.intro}</p>
+      <div class="hero-meta">
+        <a class="btn" href="/contacto">Hablar del proyecto</a>
+        <a class="btn btn-ghost" href="/rotulacion">Ver el taller</a>
+      </div>
+      <p class="hero-nota">{contacto.sede} · {contacto.cobertura}</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Ocho piezas</h2>
+      <span class="sec-num">01 — OCHO PIEZAS · CLIENTES Y PROYECTOS PROPIOS</span>
+    </div>
+
+    <div class="vitrina">
+      {trabajo.piezas.map((p) => (
+        <article class="pieza">
+          <div class:list={['pieza-media', { 'pieza-media--ficha': !p.img }]}>
+            {p.img ? (
+              <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
+            ) : (
+              <span class="pieza-num">{p.numero}</span>
+            )}
+          </div>
+          <div class="pieza-cuerpo">
+            <div class="pieza-cab">
+              <span class="pieza-num-mini">{p.numero}</span>
+              <h3>{p.cliente}</h3>
+              <span class="pieza-anio">{p.anio}</span>
+            </div>
+            <p class="pieza-tipo">{p.tipo}</p>
+            <p class="pieza-que">{p.que}</p>
+            {p.nota && <p class="pieza-nota">{p.nota}</p>}
+            {p.enlace && (
+              <a class="pieza-enlace" href={p.enlace}>{p.enlaceTexto} →</a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="nota" style="margin-top:var(--space-lg)">
+      Las fotos de obra de clientes entran cuando el cliente da el visto bueno. Lo que aún no está
+      autorizado se cuenta en ficha: qué se hizo, con qué material y cómo se montó.
+    </p>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">¿Tienes una pieza en mente?</h2>
+      <span class="sec-num">02 — PRESUPUESTO SIN COMPROMISO</span>
+    </div>
+    <div class="hero-meta">
+      <a class="btn" href="/contacto">Hablar del proyecto</a>
+      <a
+        class="btn btn-ghost"
+        href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
+        rel="noopener">Hablar por WhatsApp</a
+      >
+    </div>
+  </section>
+</Layout>
