@@ -12,7 +12,8 @@
 
 /* Tira de confianza: oficio real, sin logos inventados */
 .confianza {
-  padding-block: var(--space-lg);
+  /* Aire arriba y abajo: la tira respira como las demás secciones (antes iba pegada al borde). */
+  padding-block: var(--space-xl);
   border-top: 1px solid var(--line);
 }
 .confianza-intro {
