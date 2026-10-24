@@ -663,3 +663,23 @@ a.fila:hover {
     display: none;
   }
 }
+
+/* ── Portada · firma de la promesa y método ──────────────────────────────
+   La frase firmada (24 oct 2026) va como firma bajo el claim: mono, pequeña,
+   con el acento de La Llama. El método va debajo del lede, apagado: se dice, no se vende. */
+.firma {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: var(--space-md) 0 0;
+}
+
+.metodo {
+  max-width: 52ch;
+  margin-top: var(--space-md);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

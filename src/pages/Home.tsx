@@ -12,14 +12,22 @@ export default function Home() {
             <p className="eyebrow">
               Estudio de diseño · imprenta · audiovisual · digital
             </p>
-            {/* TODO Diego: claim definitivo — desvinculado del vocabulario Academia */}
+            {/* Claim sellado (POSICIONAMIENTO §9) + frase de promesa firmada 24 oct 2026.
+                Decisión: el claim manda el titular; «Desde la sabiduría» firma debajo;
+                el método se dice en una línea, sin esconderlo ni venderlo. */}
             <h1 className="display hero-title">
-              La idea, el trazo y <em>la pieza impresa.</em>
+              Pensado a lo grande.<br />
+              <em>Fabricado de verdad.</em>
             </h1>
+            <p className="firma">Desde la sabiduría</p>
             <p className="lede hero-lede">
-              {contacto.marca} es un estudio donde la identidad se piensa, se diseña,
-              se imprime y se cuelga. Del papel al foco, del vinilo a la pantalla —
-              piezas que se ven antes de imprimirse y se revisan antes de entregarse.
+              {contacto.marca} trabaja de punta a punta: dirección de arte, diseño y
+              producción. De la idea al objeto y a la pantalla, con una sola mano del
+              primer boceto al último acabado.
+            </p>
+            <p className="metodo">
+              Dirección de arte que fabrica con IA. Se ve antes de imprimirse y se
+              revisa antes de entregarse.
             </p>
             <div className="hero-meta">
               <Link to="/trabajo" className="btn">
