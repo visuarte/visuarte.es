@@ -832,11 +832,17 @@ a.fila:hover {
   margin: 0;
 }
 .caso-figura img {
-  width: 100%;
-  height: auto;
+  /* Ancho automático y techo de altura: una foto vertical (una tarjeta en la mano) a
+     todo el ancho de su columna se comía 1.000 px y empujaba la ficha fuera de la
+     pantalla. Con `width: auto` la caja mide lo que mide la foto —nada de bandas de
+     fondo a los lados— y se centra. La foto sigue entera, sin recortar. */
   display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 40rem;
+  margin-inline: auto;
   border-radius: var(--radius-m);
-  background: var(--surface-2);
 }
 .caso-figura figcaption {
   margin-top: var(--space-sm);

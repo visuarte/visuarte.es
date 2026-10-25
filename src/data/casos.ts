@@ -217,6 +217,144 @@ export const casos: Caso[] = [
       },
     ],
   },
+  {
+    slug: 'qr-card',
+    // ✅ Listo para publicar: la prueba es una unidad REAL en uso, fotografiada.
+    // (Pendiente solo el OK de Diego; mientras tanto la puerta queda como en Rizzo.)
+    publicado: false,
+    prueba: {
+      src: '/obras/qrcard/tarjeta-resena.webp',
+      alt: 'Tarjeta NFC negra de Visuarte con el QR de reseñas de Google, teléfono y correo, sostenida en la mano',
+      ancho: 1080,
+      alto: 1920,
+      pie: 'Una unidad real en uso: la tarjeta del estudio, con el QR de reseñas de Google.',
+    },
+    categoria: 'Digital & producto',
+    cliente: 'QR Card Online',
+    titular: 'Una tarjeta que se guarda sola.',
+    golpe:
+      'Producto propio: la web que configura el pedido, la tarjeta que se imprime aquí y el chip que ' +
+      'abre el perfil. De la pantalla al bolsillo.',
+    ficha: [
+      { campo: 'Producto', valor: 'QR Card Online · producto propio' },
+      { campo: 'Qué es', valor: 'Tarjeta de visita NFC con perfil digital: un toque y el contacto queda guardado' },
+      { campo: 'Web', valor: 'qrcardonline.com (viva)' },
+      { campo: 'Trabajo', valor: '2026 · septiembre a octubre' },
+      { campo: 'Alcance', valor: 'Web con configurador y pago, diseño de la tarjeta, impresión y programación del chip' },
+    ],
+    reto: [
+      {
+        titulo: 'El papel se tira',
+        texto:
+          'Una tarjeta de visita de papel acaba en la papelera el mismo día. La de NFC se queda guardada ' +
+          'en el móvil del que la recibe, sin app y sin escribir nada. El producto tenía que resolver eso ' +
+          'en el primer toque: si el que la recibe duda, no la usa.',
+      },
+      {
+        titulo: 'Sin taller no hay producto',
+        texto:
+          'La tarjeta no es solo la web: hay que imprimirla, y el pedido normal es de una o dos unidades. ' +
+          'Los blanks con chip se compran de veinte en veinte y la impresión se cobra por lote, así que la ' +
+          'cadena tenía que funcionar a una unidad sin perder dinero ni plazo.',
+      },
+    ],
+    proceso: [
+      {
+        titulo: 'El catálogo',
+        texto:
+          'Tres soportes con el mismo chip: bio PVC (la funcional, la que se pide en cantidad), bambú (el ' +
+          'tacto cálido, la que se queda en la mesa) y metacrilato negro con corte y grabado láser.',
+      },
+      {
+        titulo: 'El configurador',
+        texto:
+          'En la web: modelo, color, subir la imagen del frente y verla colocada antes de pedir. Después los ' +
+          'datos, la tecnología y el pago. Cuatro pasos y el pedido entra sin una conversación previa.',
+      },
+      {
+        titulo: 'La impresión',
+        texto:
+          'Dos vías según tirada: taller propio (DTF y waterslide sobre PVC) para la pieza suelta, y taller ' +
+          'local con impresión directa sobre PVC para los lotes. Se elige por coste y por plazo, no por ' +
+          'costumbre.',
+      },
+      {
+        titulo: 'El chip',
+        texto:
+          'Cada unidad se programa antes de enviarse: un toque abre el perfil del cliente — contacto, web, ' +
+          'redes. No hay app que instalar ni cuenta que crear para quien la recibe.',
+      },
+      {
+        titulo: 'El perfil',
+        texto:
+          'Cambiar de teléfono, de cargo o de web no obliga a reimprimir: se cambia el perfil y la tarjeta ' +
+          'ya dice lo nuevo. Es la parte del producto que sigue viva cuando la tarjeta ya está en el bolsillo.',
+      },
+    ],
+    resultado: {
+      texto: [
+        'La web está viva en qrcardonline.com, con el configurador abierto al público y el bloque legal ' +
+          'completo (aviso, privacidad y desistimiento).',
+        'Y la pieza física existe: unidades de prueba impresas por las dos caras, y una en uso con el QR ' +
+          'de reseñas del estudio. La cadena entera —blanks, impresión, programación del chip— se montó ' +
+          'para poder servir de una en una.',
+      ],
+      piezas: [
+        {
+          pieza: 'Soportes',
+          medida: 'Tres modelos',
+          material: 'Bio PVC · bambú · metacrilato negro',
+          produccion: 'Impresión propia y taller local',
+        },
+        {
+          pieza: 'Chip',
+          medida: 'NTAG213 / NTAG215',
+          material: 'NXP, comprado en blanco',
+          produccion: 'Programado unidad a unidad',
+        },
+        {
+          pieza: 'Impresión',
+          medida: 'Una o dos caras',
+          material: 'DTF y waterslide sobre PVC · directo sobre PVC',
+          produccion: 'Taller propio y proveedor local',
+        },
+        {
+          pieza: 'Perfil digital',
+          medida: '—',
+          material: 'Web con cuenta: contacto, enlaces y redes',
+          produccion: 'Editable sin reimprimir',
+        },
+      ],
+    },
+    demuestra: [
+      'Que se puede vender un producto y no solo un servicio: web con pago, diseño, impresión y chip se sostienen en la misma casa.',
+      'Que la tirada de una unidad es viable: la técnica se elige por coste y plazo, no porque el proveedor tenga un mínimo.',
+      'Que lo digital y lo físico no son dos trabajos: la tarjeta vale porque el perfil sigue vivo detrás.',
+    ],
+    imagenes: [
+      {
+        src: '/obras/qrcard/unidades.webp',
+        alt: 'Tres unidades de tarjeta NFC turquesa y azul sobre fondo blanco, una colgada de un llavero',
+        ancho: 1000,
+        alto: 1334,
+        pie: 'Unidades de prueba: PVC impreso por las dos caras (22 sep 2026). El texto es de muestra.',
+      },
+      {
+        src: '/obras/qrcard/produccion.webp',
+        alt: 'Las dos tarjetas recién impresas, una azul y una turquesa, sobre la mesa de trabajo',
+        ancho: 1000,
+        alto: 1334,
+        pie: 'Salida de máquina: la cara impresa, antes de programar el chip.',
+      },
+      {
+        src: '/obras/qrcard-bambu.webp',
+        alt: 'Simulación del diseño de la tarjeta sobre acabado bambú',
+        ancho: 1200,
+        alto: 756,
+        pie: 'Simulación del acabado en bambú: es el render del catálogo, no una foto.',
+      },
+    ],
+  },
 ];
 
 /**
