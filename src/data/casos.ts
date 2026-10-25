@@ -42,6 +42,13 @@ export interface Caso {
   slug: string;
   /** false = el caso no se genera ni se enlaza. Se abre cuando existe la foto real. */
   publicado: boolean;
+  /**
+   * LA PUERTA DE VERDAD (25 oct 2026): la foto de la obra terminada en su sitio.
+   * Sin esto, el caso NO se genera aunque `publicado` esté a true — así no se puede
+   * publicar un caso con una simulación por descuido. Las imágenes de `imagenes`
+   * pueden ser bocetos o simulaciones; esta no.
+   */
+  prueba?: CasoImagen;
   /** Categoría de servicio (las cinco de SELECCION_NEXT). */
   categoria: string;
   cliente: string;
@@ -212,5 +219,8 @@ export const casos: Caso[] = [
   },
 ];
 
-/** Los casos que la web puede enseñar: los que tienen prueba. */
-export const casosPublicados = casos.filter((c) => c.publicado);
+/**
+ * Los casos que la web puede enseñar: publicados **y** con la foto de la obra real.
+ * Una sola de las dos condiciones no basta (por eso son dos campos y no un booleano).
+ */
+export const casosPublicados = casos.filter((c) => c.publicado && c.prueba);

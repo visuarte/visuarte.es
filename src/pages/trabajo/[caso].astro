@@ -13,8 +13,11 @@ export function getStaticPaths() {
 }
 
 const { caso } = Astro.props;
-// Las imágenes del caso: la primera abre el bloque, el resto siguen.
-const [imagenPrincipal, ...imagenesResto] = caso.imagenes;
+// La imagen de apertura es la PRUEBA (la obra terminada) si existe; si no, la primera
+// del caso. El resto sigue en la galería con su pie — así la simulación no se disfraza
+// de obra: aparece etiquetada como lo que es.
+const imagenPrincipal = caso.prueba ?? caso.imagenes[0];
+const imagenesResto = caso.imagenes.filter((im) => im.src !== imagenPrincipal?.src);
 ---
 
 <Layout
