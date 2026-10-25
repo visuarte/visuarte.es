@@ -62,9 +62,9 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
          nativos + :has(). Por defecto «Todas». Las cinco categorías son las de
          SELECCION_NEXT.md (Opción B, por servicio), no una taxonomía nueva. -->
     <div class="vitrina-bloque">
-      <fieldset class="vitrina-filtro">
+      <fieldset class="vitrina-filtro" autocomplete="off">
         <legend class="sr-only">Filtrar las piezas por tipo de trabajo</legend>
-        <input type="radio" name="cat-vitrina" id="cat-todas" class="filtro-radio" checked />
+        <input type="radio" name="cat-vitrina" id="cat-todas" class="filtro-radio" checked autocomplete="off" />
         <label for="cat-todas" class="filtro-chip">
           Todas <span class="filtro-num">{trabajo.piezas.length}</span>
         </label>
@@ -72,7 +72,7 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
           const n = trabajo.piezas.filter((p) => p.categoria === c.slug).length;
           return n > 0 ? (
             <>
-              <input type="radio" name="cat-vitrina" id={`cat-${c.slug}`} class="filtro-radio" />
+              <input type="radio" name="cat-vitrina" id={`cat-${c.slug}`} class="filtro-radio" autocomplete="off" />
               <label for={`cat-${c.slug}`} class="filtro-chip">
                 {c.nombre} <span class="filtro-num">{n}</span>
               </label>
