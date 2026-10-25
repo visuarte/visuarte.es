@@ -72,7 +72,10 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
               {p.img ? (
                 <img src={p.img} alt={p.alt} loading="lazy" decoding="async" />
               ) : (
-                <span class="pieza-num">{p.numero}</span>
+                <>
+                  <span class="pieza-num">{p.numero}</span>
+                  <span class="pieza-ficha-pie">ficha · sin foto</span>
+                </>
               )}
             </div>
           )}

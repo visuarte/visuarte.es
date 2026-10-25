@@ -402,9 +402,24 @@
    catálogo. Un hueco vacío se lee como web rota; un número se lee como archivo. */
 .vitrina {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
   gap: var(--space-2xl) var(--space-xl);
   margin-top: var(--space-lg);
+}
+
+/* TARJETA EN HORIZONTAL (25 oct 2026, Diego: «veo muy grande la imagen principal,
+   reduce a la mitad el tamaño»). En pantalla ancha la foto ocupa poco más de un
+   tercio y la ficha respira al lado; en móvil se apila, foto arriba. */
+@media (min-width: 720px) {
+  .vitrina .pieza {
+    display: grid;
+    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+    gap: var(--space-md);
+    align-items: start;
+  }
+  .vitrina .pieza > .pieza-cuerpo {
+    padding-top: 0;
+  }
 }
 .pieza-media {
   position: relative;
@@ -424,12 +439,42 @@
 .pieza-media--ficha {
   display: grid;
   place-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(
     150deg,
     color-mix(in srgb, var(--surface) 90%, transparent),
     color-mix(in srgb, var(--bg) 92%, transparent)
   );
   border: 1px solid var(--line);
+}
+/* La trama de la plantilla: rayado fino de imprenta, sin foto falsa.
+   Dice «aquí va una pieza» sin inventar lo que no hay. */
+.pieza-media--ficha::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--line) 22%, transparent) 0 1px,
+    transparent 1px 9px
+  );
+  pointer-events: none;
+}
+.pieza-media--ficha .pieza-num {
+  position: relative;
+  z-index: 1;
+}
+.pieza-ficha-pie {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 .pieza-num {
   font-family: var(--font-display);
