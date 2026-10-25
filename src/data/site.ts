@@ -238,10 +238,12 @@ export const audiovisual = {
   ],
 };
 
-// ── TRABAJO (R6) — la vitrina: siete piezas, con imagen solo donde la hay ──
+// ── TRABAJO (R6) — la vitrina: nueve piezas, con imagen solo donde la hay ──
 // Regla: la foto de la obra de un cliente entra cuando el cliente autoriza; lo que
 // no está autorizado se cuenta en ficha, no se disfraza. Las imágenes que sí van son
 // trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
+// ESTADO DE AUTORIZACIONES (25 oct 2026): Sabores Rizzo ✅ CONCEDIDA (fotos el lunes 26);
+// Salón N23 ⏳ pendiente. El detalle interno vive en data/tareas/sabores-rizzo-fachada.json.
 export const trabajo = {
   intro:
     'Piezas que van de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto, la muestra; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
@@ -270,7 +272,7 @@ export const trabajo = {
       tipo: 'Rótulo de fachada y panel de menú',
       anio: '2026',
       que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
-      nota: 'Foto de la fachada: pendiente de autorización',
+      nota: 'Foto del montaje, en breve.',
     },
     {
       numero: '03',
