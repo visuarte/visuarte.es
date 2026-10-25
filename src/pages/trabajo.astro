@@ -5,7 +5,7 @@
 // que no sean nuestras.
 import Layout from '../layouts/Layout.astro';
 import Lightbox from '../components/Lightbox.astro';
-import { trabajo, contacto } from '../data/site';
+import { trabajo, contacto, CATEGORIAS } from '../data/site';
 import { casosPublicados } from '../data/casos';
 
 // Un caso solo se enlaza cuando está publicado: la vitrina no manda a un 404.
@@ -58,9 +58,32 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
       <span class="sec-num">01 — CLIENTES Y PROYECTOS PROPIOS</span>
     </div>
 
+    <!-- FILTRO POR SERVICIO (25 oct 2026) — sin una línea de JavaScript: radios
+         nativos + :has(). Por defecto «Todas». Las cinco categorías son las de
+         SELECCION_NEXT.md (Opción B, por servicio), no una taxonomía nueva. -->
+    <div class="vitrina-bloque">
+      <fieldset class="vitrina-filtro">
+        <legend class="sr-only">Filtrar las piezas por tipo de trabajo</legend>
+        <input type="radio" name="cat-vitrina" id="cat-todas" class="filtro-radio" checked />
+        <label for="cat-todas" class="filtro-chip">
+          Todas <span class="filtro-num">{trabajo.piezas.length}</span>
+        </label>
+        {CATEGORIAS.map((c) => {
+          const n = trabajo.piezas.filter((p) => p.categoria === c.slug).length;
+          return n > 0 ? (
+            <>
+              <input type="radio" name="cat-vitrina" id={`cat-${c.slug}`} class="filtro-radio" />
+              <label for={`cat-${c.slug}`} class="filtro-chip">
+                {c.nombre} <span class="filtro-num">{n}</span>
+              </label>
+            </>
+          ) : null;
+        })}
+      </fieldset>
+
     <div class="vitrina" id="vitrina">
       {trabajo.piezas.map((p) => (
-        <article class="pieza">
+        <article class="pieza" data-cat={p.categoria}>
           {p.soportes ? (
             <a class="pieza-disparo" href={`#ficha-${p.numero}`}>
               <div class="pieza-media">
@@ -97,6 +120,7 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
           </div>
         </article>
       ))}
+    </div>
     </div>
 
     <p class="nota" style="margin-top:var(--space-lg)">

@@ -277,8 +277,20 @@ export const audiovisual = {
 // La ficha de cada pieza de la vitrina. Se tipa para que un campo que falta no pase
 // silencioso (antes el array se infería como unión y los campos opcionales se colaban
 // sin comprobar). `caso` es el slug del caso de estudio: /trabajo/<slug>.
+// LAS CINCO CATEGORÍAS DE SERVICIO (fuente: proyectos/carrera/SELECCION_NEXT.md,
+// Opción B «por servicio» — DECIDIDO). Son las de la vitrina, no una taxonomía nueva.
+export const CATEGORIAS = [
+  { slug: 'identidad', nombre: 'Identidad & branding' },
+  { slug: 'rotulos', nombre: 'Rótulos & fachadas' },
+  { slug: 'impresion', nombre: 'Impresión & textil' },
+  { slug: 'audiovisual', nombre: 'Fotografía & vídeo' },
+  { slug: 'digital', nombre: 'Digital & producto' },
+] as const;
+
 export interface PiezaTrabajo {
   numero: string;
+  /** Slug de CATEGORIAS — la vitrina filtra por aquí. */
+  categoria: string;
   cliente: string;
   tipo: string;
   anio: string;
@@ -307,6 +319,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       numero: '01',
       cliente: 'Sabores Rizzo',
       tipo: 'Identidad · logotipo y sistema',
+      categoria: 'identidad',
       anio: '2026',
       que: 'Insignia redonda: la tricolor italiana en pinceladas, el gorro de chef con tres estrellas y el nombre en dos voces —«Sabores» en cursiva y «RIZZO» en seco sobre tabla—, con albahaca, espiga y cubiertos en dorado. Alrededor, «Pizzas · Burger · Tradición».',
       img: '/obras/rizzo-marca.webp',
@@ -325,6 +338,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       numero: '02',
       cliente: 'Sabores Rizzo',
       tipo: 'Rótulo de fachada y panel de menú',
+      categoria: 'rotulos',
       anio: '2026',
       que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
       nota: 'Foto del montaje: pendiente de autorización.',
@@ -333,6 +347,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '03',
       cliente: 'Salón N23',
+      categoria: 'impresion',
       tipo: 'Cartel de precios y cuadrículas de rifa',
       anio: '2026',
       que: 'Revisión de seis precios sobre el original del cliente, verificada píxel a píxel: solo cambian los números, nada se desplaza. PVC de 3 mm con vinilo laminado mate y dos rifas numeradas, 200 y 100.',
@@ -341,6 +356,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '04',
       cliente: 'VISUARTE',
+      categoria: 'digital',
       tipo: 'Esta web · diseño y código',
       anio: '2026',
       que: 'Sitio estático en Astro: cero JavaScript servido, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
@@ -350,6 +366,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '05',
       cliente: 'QR Card Online',
+      categoria: 'digital',
       tipo: 'Producto propio · tarjeta NFC y perfil digital',
       anio: '2026',
       que: 'Configurador web con pago, impresión de la tarjeta por una cara y diseño por la otra, y programación del chip NFC de cada unidad.',
@@ -359,6 +376,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '06',
       cliente: 'Camiart',
+      categoria: 'impresion',
       tipo: 'Textil y estampación',
       anio: '2025',
       que: 'Marca de camisetas del estudio: colección propia a una tinta y canal de estampación para encargos. Todo pedido de textil pasa por aquí.',
@@ -368,6 +386,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '07',
       cliente: 'Audiovisual',
+      categoria: 'audiovisual',
       tipo: 'Spots, videoclips y ficción',
       anio: '2019-2026',
       que: `${totalRodajes} producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en Audiovisual.`,
@@ -380,6 +399,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
     {
       numero: '08',
       cliente: 'Pedro Olmedo',
+      categoria: 'identidad',
       tipo: 'Identidad · logotipo y manual de marca',
       anio: '2024',
       que: 'Monograma PO: la P y la O se tocan y se leen como un solo trazo. El nombre va debajo, en versalitas inclinadas, sobre un granate de peso. Con su manual de marca, donde el logo convive con la foto en blanco y negro.',
@@ -390,6 +410,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       numero: '09',
       cliente: "Jack Daniel's",
       tipo: 'Spot · best boy (pieza propia)',
+      categoria: 'audiovisual',
       anio: '2024',
       que: 'Montaje de 20 s del rodaje de «Rompe con lo de siempre»: entradilla, planos de cámara robot, el anuncio en el monitor y tarjeta de crédito. Formato 4:5, el de la casa.',
       enlace: '/audiovisual#piezas-video',
