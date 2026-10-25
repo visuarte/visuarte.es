@@ -209,8 +209,9 @@ export const audiovisual = {
       posterVideo: '/obras/jackdaniels/poster_video.jpg',
       video: '/obras/jackdaniels/jackdaniels_4x5_1080.mp4',
       alt: "Rodaje del spot de Jack Daniel's: el artista en el estudio, la cámara robot y el anuncio en el monitor.",
+      // Sin cifras que no estén en la fuente: nada de «tres horas» ni cuentas de jornada.
       texto:
-        'Tres horas de cámara robot, una guitarra enmarcada y un vaso que no se mueve. ' +
+        'Cámara robot sobre raíl, una guitarra enmarcada y un vaso que no se mueve. ' +
         'El montaje enseña el rodaje y el anuncio ya montado: el mismo día, la misma luz.',
       credito:
         "Best boy · Jack Daniel's «Rompe con lo de siempre» · Proximity · Acordfilm · 2024",
