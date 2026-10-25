@@ -413,12 +413,20 @@
 @media (min-width: 720px) {
   .vitrina .pieza {
     display: grid;
-    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
     gap: var(--space-md);
-    align-items: start;
+    align-items: stretch;
   }
   .vitrina .pieza > .pieza-cuerpo {
     padding-top: 0;
+    align-self: start;
+  }
+  /* La foto es el lomo de la tarjeta: acompaña la altura del texto en vez de dejar
+     un hueco muerto debajo. Se recorta, no se deforma. */
+  .vitrina .pieza-media {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 8.5rem;
   }
 }
 .pieza-media {
