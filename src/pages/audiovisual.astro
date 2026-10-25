@@ -3,6 +3,7 @@
 // Sin iframes de YouTube: el vídeo se abre en su sitio, así que esta página no carga
 // cookies de terceros ni JavaScript. Cero obra ajena: se dice el ROL, no la propiedad.
 import Layout from '../layouts/Layout.astro';
+import Lightbox from '../components/Lightbox.astro';
 import { audiovisual as a, contacto } from '../data/site';
 
 const total = a.spots.length + a.videoclips.length + a.ficcion.length;
@@ -55,6 +56,54 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
   </section>
 
   <hr class="rule" />
+
+  <!-- 00 · PIEZAS DE VÍDEO: la portada ocupa UNA casilla (193,563 px) y abre la
+       ficha con el vídeo en el lightbox de la casa (:target, cero JavaScript).
+       Así una pieza no se come el sitio de cuatro (Diego, 25 oct 2026). -->
+  <section class="wrap section-tight" aria-labelledby="piezas-video">
+    <div class="sec-head">
+      <h2 class="display" id="piezas-video" style="font-size:1.8rem">Piezas de vídeo</h2>
+      <span class="sec-num">00 — {a.videoPiezas.length} PIEZA{a.videoPiezas.length === 1 ? '' : 'S'} · VÍDEO DENTRO</span>
+    </div>
+    <div class="piezas-grid" id="pieza">
+      {a.videoPiezas.map((v) => (
+        <figure class="pieza-card">
+          <a class="pieza-disparo" href={`#${v.slug}`}>
+            <img
+              src={v.portada}
+              alt={v.alt}
+              width={460}
+              height={575}
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <figcaption class="pieza-mini-pie">
+            <strong>{v.cliente}</strong>
+            <span>{v.rol} · {v.duracion}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    {a.videoPiezas.map((v) => (
+      <Lightbox
+        id={v.slug}
+        mini={false}
+        src={v.portada}
+        width={460}
+        height={575}
+        alt={v.alt}
+        cliente={v.cliente}
+        tipo={v.tipo}
+        anio={v.anio}
+        cerrarA="#pieza"
+        video={{ src: v.video, webm: v.webm, poster: v.posterVideo ?? v.portada, width: 1080, height: 1350 }}
+      >
+        <p>{v.texto}</p>
+        <p class="nota">{v.credito}</p>
+      </Lightbox>
+    ))}
+  </section>
 
   <!-- 01 · SPOTS: tabla de créditos con el vídeo enlazado -->
   <section class="wrap section-tight">

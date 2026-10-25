@@ -573,6 +573,52 @@
   border-top: 1px solid var(--line);
 }
 
+/* ── Piezas de vídeo (audiovisual, 25 oct 2026) ─────────────────
+   La portada ocupa UNA casilla de 193,563 px —lo que mide una columna de
+   texto— y abre la ficha con el vídeo dentro. Una pieza no se come el sitio
+   de cuatro. */
+.piezas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(193.563px, 1fr));
+  gap: var(--space-lg) var(--space-md);
+}
+.pieza-card {
+  margin: 0;
+}
+.pieza-disparo {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+.pieza-disparo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.pieza-disparo:hover img,
+.pieza-disparo:focus-visible img {
+  transform: scale(1.03);
+}
+.pieza-mini-pie {
+  margin-top: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: var(--muted);
+  display: grid;
+}
+.pieza-mini-pie strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .fila {
   display: grid;
   grid-template-columns: 1.4fr 1fr auto;

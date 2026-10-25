@@ -192,6 +192,30 @@ export const audiovisual = {
     'Gaffer con tres años en spots publicitarios y cinco en audiovisual (spots, cine y videoclips). ' +
     'Iluminación para producto, moda y narrativa: LED, fresnel y DMX con control inalámbrico, ' +
     'en rodajes de alto ritmo, equipos cortos y plazos ajustados.',
+  // PIEZAS DE VÍDEO PROPIAS (25 oct 2026) — el formato de la casa, 4:5 y 20 s.
+  // Aquí va el vídeo que VISUARTE monta, no el del anunciante: portada pequeña,
+  // ficha con el vídeo dentro. El spot original sigue en la tabla de créditos.
+  videoPiezas: [
+    {
+      slug: 'jackdaniels-rompe',
+      cliente: "Jack Daniel's",
+      campania: 'Rompe con lo de siempre',
+      tipo: 'Spot · making of',
+      anio: '2024',
+      rol: 'Best boy',
+      duracion: '20 s',
+      portada: '/obras/jackdaniels/portada_460.jpg',
+      // póster limpio para la ficha (la portada lleva logo y título dentro)
+      posterVideo: '/obras/jackdaniels/poster_video.jpg',
+      video: '/obras/jackdaniels/jackdaniels_4x5_1080.mp4',
+      alt: "Rodaje del spot de Jack Daniel's: el artista en el estudio, la cámara robot y el anuncio en el monitor.",
+      texto:
+        'Tres horas de cámara robot, una guitarra enmarcada y un vaso que no se mueve. ' +
+        'El montaje enseña el rodaje y el anuncio ya montado: el mismo día, la misma luz.',
+      credito:
+        "Best boy · Jack Daniel's «Rompe con lo de siempre» · Proximity · Acordfilm · 2024",
+    },
+  ],
   spots: [
     { marca: 'OPEL', pieza: 'Te falta taller', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/shorts/l5VvmxEHTjE' },
     { marca: 'HELP FLASH', pieza: 'La baliza V16', anio: '2026', rol: 'Gaffer', url: 'https://www.youtube.com/watch?v=NEFUlfmMiM0' },

@@ -1030,6 +1030,16 @@
 .lightbox-media > img {
   max-height: 62vh;
 }
+/* Pieza de vídeo (25 oct 2026): mismo trato que la foto, pero con su proporción. */
+.lightbox-video {
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: #000;
+  border-radius: var(--radius-s);
+}
 .lightbox-cerrar-fijo {
   position: fixed;
   top: 1rem;

@@ -34,10 +34,12 @@ interface Props {
   soportes?: Soportes[];
   /** A dónde vuelve el botón de cerrar. Por defecto #obra. */
   cerrarA?: string;
+  /** Si la ficha es vídeo, se pasa aquí y sustituye a la imagen grande (25 oct 2026). */
+  video?: { src: string; webm?: string; poster: string; width: number; height: number };
 }
 const {
   id, src, srcset, width, height, alt, cliente, tipo, anio,
-  mini = true, soportes = [], cerrarA = '#obra',
+  mini = true, soportes = [], cerrarA = '#obra', video,
 } = Astro.props;
 // El mini pide la variante pequeña; si no hay srcset, se sirve la misma.
 const miniSrc = srcset ? srcset.split(',')[0].trim().split(/\s+/)[0] : src;
@@ -68,7 +70,26 @@ const miniSrc = srcset ? srcset.split(',')[0].trim().split(/\s+/)[0] : src;
   <a class="lightbox-fondo" href={cerrarA} aria-label="Cerrar la ficha"></a>
   <figure class="lightbox-ficha">
     <div class="lightbox-media">
-      <img src={src} srcset={srcset} sizes="(min-width: 900px) 520px, 92vw" alt={alt} width={width} height={height} decoding="async" />
+      {video ? (
+        <video
+          class="lightbox-video"
+          poster={video.poster}
+          width={video.width}
+          height={video.height}
+          controls
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          aria-label={alt}
+        >
+          {video.webm && <source src={video.webm} type="video/webm" />}
+          <source src={video.src} type="video/mp4" />
+          <a href={video.src}>Descargar el vídeo (MP4)</a>
+        </video>
+      ) : (
+        <img src={src} srcset={srcset} sizes="(min-width: 900px) 520px, 92vw" alt={alt} width={width} height={height} decoding="async" />
+      )}
       {soportes.length > 0 && (
         <div class="lightbox-soportes">
           {soportes.map((s) => (
