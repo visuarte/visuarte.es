@@ -1045,18 +1045,25 @@ a.fila:hover {
 .filtro-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.85rem;
+  gap: 0.3rem;
+  padding: 0.26rem 0.62rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  min-height: 44px; /* área táctil: no se encoge en el móvil */
+}
+/* Minitoque 25 oct 2026 (Diego: «los botones más pequeños»). Se encoge el chip,
+   NO el dedo: en pantalla táctil se queda el área de 44 px; con ratón, fino. */
+@media (pointer: coarse) {
+  .filtro-chip { min-height: 44px; }
+}
+@media (pointer: fine) {
+  .filtro-chip { min-height: 30px; }
 }
 .filtro-chip:hover { color: var(--ink); border-color: var(--accent-texto); }
 .filtro-num { color: var(--accent-texto); }
