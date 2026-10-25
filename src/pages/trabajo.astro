@@ -5,11 +5,24 @@
 // que no sean nuestras.
 import Layout from '../layouts/Layout.astro';
 import Lightbox from '../components/Lightbox.astro';
+import Icono from '../components/Icono.astro';
 import { trabajo, contacto, CATEGORIAS } from '../data/site';
 import { casosPublicados } from '../data/casos';
 
 // Un caso solo se enlaza cuando está publicado: la vitrina no manda a un 404.
 const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
+
+// Icono por categoría: el chip dice el servicio sin escribir el nombre entero
+// (Diego, 25 oct 2026: «mejor y más estético que muestre iconos y así no descuadra»).
+// El nombre completo sigue ahí para lectores de pantalla y en el title.
+const ICONO_CAT = {
+  todas: 'todas',
+  identidad: 'marca',
+  rotulos: 'espacio',
+  impresion: 'impresion',
+  audiovisual: 'audiovisual',
+  digital: 'digital',
+} as const;
 ---
 
 <Layout
@@ -65,16 +78,20 @@ const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
       <fieldset class="vitrina-filtro" autocomplete="off">
         <legend class="sr-only">Filtrar las piezas por tipo de trabajo</legend>
         <input type="radio" name="cat-vitrina" id="cat-todas" class="filtro-radio" checked autocomplete="off" />
-        <label for="cat-todas" class="filtro-chip">
-          Todas <span class="filtro-num">{trabajo.piezas.length}</span>
+        <label for="cat-todas" class="filtro-chip" title="Todas las piezas">
+          <Icono nombre="todas" size={14} />
+          <span class="filtro-num">{trabajo.piezas.length}</span>
+          <span class="sr-only">Todas las piezas</span>
         </label>
         {CATEGORIAS.map((c) => {
           const n = trabajo.piezas.filter((p) => p.categoria === c.slug).length;
           return n > 0 ? (
             <>
               <input type="radio" name="cat-vitrina" id={`cat-${c.slug}`} class="filtro-radio" autocomplete="off" />
-              <label for={`cat-${c.slug}`} class="filtro-chip">
-                {c.nombre} <span class="filtro-num">{n}</span>
+              <label for={`cat-${c.slug}`} class="filtro-chip" title={c.nombre}>
+                <Icono nombre={ICONO_CAT[c.slug]} size={14} />
+                <span class="filtro-num">{n}</span>
+                <span class="sr-only">{c.nombre}</span>
               </label>
             </>
           ) : null;

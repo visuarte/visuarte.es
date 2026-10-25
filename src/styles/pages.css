@@ -1046,7 +1046,8 @@ a.fila:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.26rem 0.62rem;
+  padding: 0.24rem 0.55rem;
+  gap: 0.25rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   font-family: var(--font-mono);
@@ -1066,7 +1067,9 @@ a.fila:hover {
   .filtro-chip { min-height: 30px; }
 }
 .filtro-chip:hover { color: var(--ink); border-color: var(--accent-texto); }
-.filtro-num { color: var(--accent-texto); }
+.filtro-num { color: var(--accent-texto); font-size: 0.58rem; opacity: 0.9; }
+.filtro-chip .servicio-icono { width: 14px; height: 14px; display: inline-flex; }
+.filtro-chip .servicio-icono svg { width: 100%; height: 100%; }
 .filtro-radio:checked + .filtro-chip {
   color: var(--on-accent);
   background: var(--accent);
@@ -1085,4 +1088,18 @@ a.fila:hover {
 .vitrina-bloque:has(#cat-audiovisual:checked) .vitrina .pieza:not([data-cat='audiovisual']),
 .vitrina-bloque:has(#cat-digital:checked) .vitrina .pieza:not([data-cat='digital']) {
   display: none;
+}
+
+/* El chip activo dice su nombre: el icono solo no basta en el móvil, donde no hay
+   tooltip. Así siempre se sabe por qué se está filtrando (25 oct 2026). */
+.filtro-radio:checked + .filtro-chip .sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip-path: none;
+  white-space: nowrap;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
 }
