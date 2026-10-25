@@ -244,7 +244,27 @@ export const audiovisual = {
 // trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
 // ESTADO DE AUTORIZACIONES (25 oct 2026): Sabores Rizzo ✅ CONCEDIDA (fotos el lunes 26);
 // Salón N23 ⏳ pendiente. El detalle interno vive en data/tareas/sabores-rizzo-fachada.json.
-export const trabajo = {
+// La ficha de cada pieza de la vitrina. Se tipa para que un campo que falta no pase
+// silencioso (antes el array se infería como unión y los campos opcionales se colaban
+// sin comprobar). `caso` es el slug del caso de estudio: /trabajo/<slug>.
+export interface PiezaTrabajo {
+  numero: string;
+  cliente: string;
+  tipo: string;
+  anio: string;
+  que: string;
+  img?: string;
+  alt?: string;
+  nota?: string;
+  enlace?: string;
+  enlaceTexto?: string;
+  proceso?: string;
+  soportes?: { src: string; alt: string; pie: string }[];
+  /** Caso de estudio asociado. Solo se enlaza cuando el caso está publicado. */
+  caso?: string;
+}
+
+export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
   intro:
     'Piezas que van de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto, la muestra; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
   piezas: [
@@ -273,6 +293,7 @@ export const trabajo = {
       anio: '2026',
       que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
       nota: 'Foto del montaje, en breve.',
+      caso: 'sabores-rizzo',
     },
     {
       numero: '03',

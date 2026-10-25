@@ -6,6 +6,10 @@
 import Layout from '../layouts/Layout.astro';
 import Lightbox from '../components/Lightbox.astro';
 import { trabajo, contacto } from '../data/site';
+import { casosPublicados } from '../data/casos';
+
+// Un caso solo se enlaza cuando está publicado: la vitrina no manda a un 404.
+const slugsPublicados = new Set(casosPublicados.map((c) => c.slug));
 ---
 
 <Layout
@@ -83,6 +87,9 @@ import { trabajo, contacto } from '../data/site';
             {p.nota && <p class="pieza-nota">{p.nota}</p>}
             {p.enlace && (
               <a class="pieza-enlace" href={p.enlace}>{p.enlaceTexto} →</a>
+            )}
+            {p.caso && slugsPublicados.has(p.caso) && (
+              <a class="pieza-enlace" href={`/trabajo/${p.caso}`}>Ver el caso completo →</a>
             )}
           </div>
         </article>

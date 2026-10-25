@@ -1,0 +1,160 @@
+---
+// CASO DE ESTUDIO (25 oct 2026) — el formato largo de la vitrina.
+// Una ruta por caso: /trabajo/<slug>. Se genera SOLO para los casos que tienen prueba
+// (casosPublicados). Mientras no haya foto de la obra terminada, la ruta no existe y
+// la web no la enlaza: mejor un 404 que un caso a medias.
+// Sin JavaScript: esto es HTML generado en el build, como el resto del sitio.
+import Layout from '../../layouts/Layout.astro';
+import { casosPublicados } from '../../data/casos';
+import { contacto } from '../../data/site';
+
+export function getStaticPaths() {
+  return casosPublicados.map((c) => ({ params: { caso: c.slug }, props: { caso: c } }));
+}
+
+const { caso } = Astro.props;
+// Las imágenes del caso: la primera abre el bloque, el resto siguen.
+const [imagenPrincipal, ...imagenesResto] = caso.imagenes;
+---
+
+<Layout
+  titulo={`${caso.cliente} — caso · VISUARTE Studio`}
+  descripcion={`${caso.titular} ${caso.golpe}`}
+>
+  <!-- HERO: sin foto de relleno. El caso empieza por lo que se pidió y lo que se hizo:
+       el titular y la ficha. La imagen entra justo debajo, a su tamaño. -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Caso · {caso.categoria}</p>
+      <h1 class="display hero-title">{caso.titular}</h1>
+      <p class="lede hero-lede">{caso.golpe}</p>
+      <div class="hero-meta">
+        <a href="/trabajo">← Volver a la vitrina</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- 01 · LA FICHA (qué es, para quién y cuándo) -->
+  <section class="wrap section">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">La ficha</h2>
+      <span class="sec-num">01 — QUÉ ES Y PARA QUIÉN</span>
+    </div>
+    <div class="caso-entrada">
+      <dl class="caso-ficha">
+        {caso.ficha.map((d) => (
+          <div class="caso-ficha-fila">
+            <dt>{d.campo}</dt>
+            <dd>{d.valor}</dd>
+          </div>
+        ))}
+      </dl>
+      {imagenPrincipal && (
+        <figure class="caso-figura">
+          <img
+            src={imagenPrincipal.src}
+            alt={imagenPrincipal.alt}
+            width={imagenPrincipal.ancho}
+            height={imagenPrincipal.alto}
+            loading="eager"
+            decoding="async"
+          />
+          <figcaption>{imagenPrincipal.pie}</figcaption>
+        </figure>
+      )}
+    </div>
+  </section>
+
+  <!-- 02 · EL RETO (lo que lo hacía difícil, en dos bloques) -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">El reto</h2>
+      <span class="sec-num">02 — QUÉ PEDÍA Y QUÉ LO COMPLICABA</span>
+    </div>
+    <div class="caso-bloques">
+      {caso.reto.map((b) => (
+        <div class="caso-bloque">
+          <h3>{b.titulo}</h3>
+          <p class="prose" style="max-width:none">{b.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 03 · EL PROCESO (en orden; los números son los pasos, no decoración) -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">El proceso</h2>
+      <span class="sec-num">03 — CON LAS TRIPAS</span>
+    </div>
+    <ol class="caso-pasos">
+      {caso.proceso.map((p, i) => (
+        <li>
+          <span class="paso-num">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- 04 · EL RESULTADO (piezas, medidas y materiales: lo que se entregó) -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">El resultado</h2>
+      <span class="sec-num">04 — LO QUE SE ENTREGÓ</span>
+    </div>
+    {caso.resultado.texto.map((t) => (
+      <p class="prose" style="max-width:var(--measure)">{t}</p>
+    ))}
+    <div class="caso-piezas">
+      {caso.resultado.piezas.map((p) => (
+        <article class="caso-pieza">
+          <div class="caso-pieza-cab">
+            <h3>{p.pieza}</h3>
+            <span class="caso-medida">{p.medida}</span>
+          </div>
+          <p class="caso-material">{p.material}</p>
+          <p class="mono-etiqueta" style="margin:0">{p.produccion}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 05 · QUÉ DEMUESTRA (la capacidad, no el adjetivo) -->
+  <section class="wrap section-tight">
+    <div class="sec-head">
+      <h2 class="display" style="font-size:1.5rem">Qué demuestra</h2>
+      <span class="sec-num">05 — LA CAPACIDAD QUE PRUEBA</span>
+    </div>
+    <ul class="lista-marcada">
+      {caso.demuestra.map((d) => <li>{d}</li>)}
+    </ul>
+  </section>
+
+  <!-- LAS OTRAS CARAS (si hay más de una imagen) -->
+  {imagenesResto.length > 0 && (
+    <section class="wrap section-tight">
+      <div class="caso-galeria">
+        {imagenesResto.map((im) => (
+          <figure class="caso-figura">
+            <img src={im.src} alt={im.alt} width={im.ancho} height={im.alto} loading="lazy" decoding="async" />
+            <figcaption>{im.pie}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="wrap section-tight">
+    <div class="hero-meta">
+      <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
+      <a class="btn btn-ghost" href="/trabajo">Ver más trabajo</a>
+    </div>
+    <p class="hero-nota">{contacto.sede} · {contacto.cobertura}</p>
+  </section>
+</Layout>

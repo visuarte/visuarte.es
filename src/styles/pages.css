@@ -771,3 +771,188 @@ a.fila:hover {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CASO DE ESTUDIO (/trabajo/<slug>) — 25 oct 2026
+   El formato largo de la vitrina: ficha, reto, proceso, resultado,
+   capacidad y caras. Solo tokens; cero JS.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Ficha + primera imagen: dos columnas cuando caben, apiladas en móvil.
+   La imagen abre a su tamaño (no se estira): es la pieza, no un fondo. */
+.caso-entrada {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .caso-entrada {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+/* La ficha: etiqueta en mono a la izquierda, dato en tinta. Una línea por campo,
+   con la misma regla continua que el resto de la casa. */
+.caso-ficha {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.caso-ficha-fila {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xs);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+}
+@media (min-width: 480px) {
+  .caso-ficha-fila {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: var(--space-md);
+    align-items: baseline;
+  }
+}
+.caso-ficha dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.caso-ficha dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Figura con pie: el pie siempre dice qué se está viendo (y si es una simulación). */
+.caso-figura {
+  margin: 0;
+}
+.caso-figura img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-m);
+  background: var(--surface-2);
+}
+.caso-figura figcaption {
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Reto: dos bloques en fila cuando caben. */
+.caso-bloques {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) {
+  .caso-bloques {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2xl);
+  }
+}
+.caso-bloque h3 {
+  margin: 0 0 var(--space-sm);
+  font-size: 1.05rem;
+}
+.caso-bloque p {
+  margin: 0;
+}
+
+/* Proceso: lista numerada de verdad (ol), números en mono a la izquierda.
+   El número es el orden de los pasos, no un adorno. */
+.caso-pasos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: paso;
+}
+.caso-pasos li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+}
+.caso-pasos li:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+}
+.caso-pasos .paso-num {
+  /* El número hereda el registro de la casa (mono, acento) pero con la regla propia:
+     `.paso .paso-num` solo aplica dentro de .paso, y aquí la lista es <ol>. */
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-texto);
+  padding-top: 0.15rem;
+}
+.caso-pasos h3 {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.05rem;
+}
+.caso-pasos p {
+  margin: 0;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+
+/* Resultado: una tarjeta por pieza. Nombre y medida en la misma línea; material
+   y producción debajo. Sin tabla: a 390 px una tabla de 4 columnas no se lee. */
+.caso-piezas {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-lg);
+}
+@media (min-width: 700px) {
+  .caso-piezas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+}
+.caso-pieza {
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--line);
+}
+.caso-pieza-cab {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.caso-pieza-cab h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.caso-medida {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-texto);
+  white-space: nowrap;
+}
+.caso-material {
+  margin: var(--space-2xs) 0 var(--space-2xs);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* Galería: las otras caras de la pieza, una debajo de otra. */
+.caso-galeria {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) {
+  .caso-galeria {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
