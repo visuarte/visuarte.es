@@ -16,6 +16,12 @@ Cara pública del estudio. **Astro** (estático, cero JavaScript servido).
   `vercel.json` fija `outputDirectory: dist` (se despliega **solo el build**, nunca la raíz del repo).
 - `dist/` es build local e ignorado.
 
+> ⚠️ **Redirecciones `vercel.json` (25 Oct 2026).** Se retiraron `/trabajo/:id` y
+> `/trabajo/sabores-rizzo`: eran del sitio React anterior y **se comían las rutas de caso
+> de estudio** (Vercel evalúa los redirects antes de servir el estático). Medido en
+> producción: `/trabajo/sabores-rizzo` daba **308 → /trabajo** en vez de 404. Las demás
+> redirecciones de URLs viejas (`/cine`, `/trabajo/camiart`, `/proyecto/:id`…) se quedan.
+
 > ⚠️ El GitHub Action `.github/workflows/deploy.yml` **se retiró el 14 Oct 2026**. Era una
 > **segunda** vía de deploy que **nunca funcionó** (faltaba el secret `VERCEL_TOKEN` → fallaba
 > en 0 s en *cada* push desde el 24 jun) y era **redundante** con la integración nativa.

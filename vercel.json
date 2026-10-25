@@ -10,8 +10,6 @@
     { "source": "/trabajo/academia-ia-mapicp", "destination": "/estudio", "permanent": true },
     { "source": "/trabajo/qrcard-online", "destination": "/trabajo", "permanent": true },
     { "source": "/trabajo/camiart", "destination": "/trabajo", "permanent": true },
-    { "source": "/trabajo/sabores-rizzo", "destination": "/trabajo", "permanent": true },
-    { "source": "/trabajo/:id", "destination": "/trabajo", "permanent": true },
     { "source": "/proyecto/:id", "destination": "/trabajo", "permanent": true }
   ],
   "headers": [
