@@ -266,7 +266,9 @@ export const audiovisual = {
   ],
 };
 
-// ── TRABAJO (R6) — la vitrina: nueve piezas, con imagen solo donde la hay ──
+// ── TRABAJO (R6) — la vitrina: la obra HECHA, con imagen solo donde la hay ──
+// 25 oct 2026: fuera la pieza de Puntada a Puntada (Anissa). Solo había presupuesto
+// enviado, sin respuesta. La vitrina enseña lo realizado, no lo que se espera.
 // Regla: la foto de la obra de un cliente entra cuando el cliente autoriza; lo que
 // no está autorizado se cuenta en ficha, no se disfraza. Las imágenes que sí van son
 // trabajo propio (producto, marca, esta web) o material ya publicado por el estudio.
@@ -372,16 +374,11 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       enlace: '/audiovisual',
       enlaceTexto: 'Ver los créditos y los vídeos',
     },
+    // NO VA: Puntada a Puntada (Anissa) — rótulo luminoso. Presupuesto enviado el
+    // 20 oct y sin respuesta; el trabajo no está hecho. Si algún día se monta, entra
+    // con su foto. Hasta entonces, la vitrina no lo menciona.
     {
       numero: '08',
-      cliente: 'Puntada a Puntada',
-      tipo: 'Rótulo luminoso · en curso',
-      anio: '2026',
-      que: 'Sustitución de la banderola existente por un rótulo retroiluminado. En curso: la instalación eléctrica la firma un electricista autorizado y la altura pide medios, así que el precio no se cierra hasta ver el soporte.',
-      nota: 'En curso',
-    },
-    {
-      numero: '09',
       cliente: 'Pedro Olmedo',
       tipo: 'Identidad · logotipo y manual de marca',
       anio: '2024',
@@ -390,7 +387,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       alt: 'Monograma PO de Pedro Olmedo en blanco sobre fondo granate, con el nombre debajo',
     },
     {
-      numero: '10',
+      numero: '09',
       cliente: "Jack Daniel's",
       tipo: 'Spot · best boy (pieza propia)',
       anio: '2024',
