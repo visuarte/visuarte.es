@@ -192,6 +192,8 @@ export const audiovisual = {
     'Gaffer con tres años en spots publicitarios y cinco en audiovisual (spots, cine y videoclips). ' +
     'Iluminación para producto, moda y narrativa: LED, fresnel y DMX con control inalámbrico, ' +
     'en rodajes de alto ritmo, equipos cortos y plazos ajustados.',
+  // AÑO DEL SPOT: 2024 — verificado el 25 oct 2026 contra la fecha de subida del vídeo
+  // original (2024-12-03, canal El Publicista, yt-dlp). No es de memoria.
   // PIEZAS DE VÍDEO PROPIAS (25 oct 2026) — el formato de la casa, 4:5 y 20 s.
   // Aquí va el vídeo que VISUARTE monta, no el del anunciante: portada pequeña,
   // ficha con el vídeo dentro. El spot original sigue en la tabla de créditos.
@@ -215,6 +217,7 @@ export const audiovisual = {
         'El montaje enseña el rodaje y el anuncio ya montado: el mismo día, la misma luz.',
       credito:
         "Best boy · Jack Daniel's «Rompe con lo de siempre» · Proximity · Acordfilm · 2024",
+      spotUrl: 'https://www.youtube.com/watch?v=xgkFQKmcPVc',
     },
   ],
   spots: [
@@ -289,6 +292,11 @@ export interface PiezaTrabajo {
   caso?: string;
 }
 
+// El número de rodajes se CUENTA, no se escribe: si mañana entra o sale un crédito,
+// la vitrina no puede quedarse mintiendo (25 oct 2026).
+const totalRodajes =
+  audiovisual.spots.length + audiovisual.videoclips.length + audiovisual.ficcion.length;
+
 export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
   intro:
     'Piezas que van de una fachada a una tarjeta que se lleva en el bolsillo. Lo que tiene foto, la muestra; lo que no, se cuenta con lo que se sabe: qué se hizo, con qué y en cuánto tiempo.',
@@ -317,7 +325,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       tipo: 'Rótulo de fachada y panel de menú',
       anio: '2026',
       que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
-      nota: 'Foto del montaje, en breve.',
+      nota: 'Foto del montaje: pendiente de autorización.',
       caso: 'sabores-rizzo',
     },
     {
@@ -360,7 +368,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       cliente: 'Audiovisual',
       tipo: 'Spots, videoclips y ficción',
       anio: '2019-2026',
-      que: 'Veintisiete producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en Audiovisual.',
+      que: `${totalRodajes} producciones con esta mano dentro, del spot de marca al videoclip. Los créditos y los vídeos están uno a uno en Audiovisual.`,
       enlace: '/audiovisual',
       enlaceTexto: 'Ver los créditos y los vídeos',
     },
@@ -380,6 +388,15 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       que: 'Monograma PO: la P y la O se tocan y se leen como un solo trazo. El nombre va debajo, en versalitas inclinadas, sobre un granate de peso. Con su manual de marca, donde el logo convive con la foto en blanco y negro.',
       img: '/obras/olmedo-marca.webp',
       alt: 'Monograma PO de Pedro Olmedo en blanco sobre fondo granate, con el nombre debajo',
+    },
+    {
+      numero: '10',
+      cliente: "Jack Daniel's",
+      tipo: 'Spot · best boy (pieza propia)',
+      anio: '2024',
+      que: 'Montaje de 20 s del rodaje de «Rompe con lo de siempre»: entradilla, planos de cámara robot, el anuncio en el monitor y tarjeta de crédito. Formato 4:5, el de la casa.',
+      enlace: '/audiovisual#piezas-video',
+      enlaceTexto: 'Ver la pieza y los créditos',
     },
   ],
 };

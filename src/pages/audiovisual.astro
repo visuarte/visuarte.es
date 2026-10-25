@@ -10,7 +10,7 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
 ---
 
 <Layout
-  titulo="Audiovisual — iluminación y rodaje · VISUARTE"
+  titulo="Audiovisual — iluminación y rodaje en spots · VISUARTE"
   descripcion={`Iluminación, cámara y coordinación en set: ${total} producciones con esta mano dentro — spots, videoclips y ficción. Del primer boceto al último acabado.`}
   precarga="/hero/audiovisual-1600.webp"
   precargaSrcset="/hero/audiovisual-900.webp 900w, /hero/audiovisual-1600.webp 1600w"
@@ -40,8 +40,8 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
       </h1>
       <p class="lede hero-lede">
         VISUARTE entra en el rodaje desde la parte técnica —iluminación, cámara y set— o produce tu
-        idea entera: spots, videoclips, corporativos y podcast. Producciones que cuentan historias
-        con sensaciones WOW. Primero la idea, después la luz.
+        idea entera: spots, videoclips, corporativos y podcast. {total} producciones con esta mano
+        dentro, del spot de marca al videoclip. Primero la idea, después la luz.
       </p>
       <div class="hero-meta">
         <a class="btn" href="/#presupuesto">Pedir presupuesto</a>
@@ -49,7 +49,7 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
       </div>
       <p class="hero-nota">
         {a.nombre} · {a.rol} · {total} producciones ·{' '}
-        <a href={a.imdb} target="_blank" rel="noopener noreferrer">ficha en IMDb ↗</a>
+        <a href={a.imdb} target="_blank" rel="noopener noreferrer">ficha en IMDb ↗<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
       </p>
     </div>
     </div>
@@ -65,7 +65,7 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
       <h2 class="display" id="piezas-video" style="font-size:1.8rem">Piezas de vídeo</h2>
       <span class="sec-num">00 — {a.videoPiezas.length} PIEZA{a.videoPiezas.length === 1 ? '' : 'S'} · VÍDEO DENTRO</span>
     </div>
-    <div class="piezas-grid" id="pieza">
+    <div class="piezas-grid" id="piezas-video">
       {a.videoPiezas.map((v) => (
         <figure class="pieza-card">
           <a class="pieza-disparo" href={`#${v.slug}`}>
@@ -96,11 +96,18 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
         cliente={v.cliente}
         tipo={v.tipo}
         anio={v.anio}
-        cerrarA="#pieza"
+        cerrarA="#piezas-video"
         video={{ src: v.video, webm: v.webm, poster: v.posterVideo ?? v.portada, width: 1080, height: 1350 }}
       >
         <p>{v.texto}</p>
         <p class="nota">{v.credito}</p>
+        {v.spotUrl && (
+          <p>
+            <a href={v.spotUrl} target="_blank" rel="noopener noreferrer">
+              Ver el anuncio completo ↗<span class="sr-only"> (se abre en YouTube, en una pestaña nueva)</span>
+            </a>
+          </p>
+        )}
       </Lightbox>
     ))}
   </section>
@@ -117,7 +124,13 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
     </p>
     <div class="tabla-cv">
       {a.spots.map((s) => (
-        <a class="fila" href={s.url} target="_blank" rel="noopener noreferrer">
+        <a
+          class="fila"
+          href={s.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${s.marca}: ${s.pieza} (${s.anio}), ${s.rol}. Se abre en YouTube, en una pestaña nueva`}
+        >
           <span class="f-marca">{s.marca} ↗</span>
           <span class="f-rol">{s.pieza} · {s.rol}</span>
           <span class="f-anio">{s.anio}</span>
@@ -135,7 +148,13 @@ const total = a.spots.length + a.videoclips.length + a.ficcion.length;
     <ul class="clip-lista">
       {a.videoclips.map((v) => (
         <li>
-          <a class="clip" href={v.url} target="_blank" rel="noopener noreferrer">
+          <a
+            class="clip"
+            href={v.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${v.titulo}, ${v.rol}. Se abre en YouTube, en una pestaña nueva`}
+          >
             <span class="clip-titulo">{v.titulo} ↗</span>
             <span class="clip-rol">{v.rol}</span>
           </a>
