@@ -109,14 +109,17 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
       <h2 class="display" style="font-size:1.8rem">¿Tienes un proyecto en mente?</h2>
       <span class="sec-num">02 — PRESUPUESTO SIN COMPROMISO</span>
     </div>
-    <!-- SIN SERVIDOR: el formulario compone un correo en la app del visitante (mailto).
-         Antes apuntaba a /api/presupuesto, una ruta que no existe: un envío daba 404.
-         No se guarda nada en ningún servidor nuestro. -->
+    <!-- SIN SERVIDOR Y SIN PERDER EL MENSAJE (27 oct 2026, auditoría de Manuel punto 1).
+         Antes: `action="mailto:"` — el formulario NO enviaba nada: abría (o intentaba abrir)
+         la aplicación de correo del visitante, y en un móvil sin cuenta configurada el
+         mensaje se perdía en silencio. El botón principal de la portada no entregaba.
+         Ahora: un guion mínimo compone el mensaje y abre WhatsApp con todo escrito. Sin
+         `action` útil no se queda tirado: el `action` de respaldo abre el chat igual. -->
     <form
       class="presupuesto"
-      method="post"
-      action={`mailto:${contacto.email}`}
-      enctype="text/plain"
+      id="form-presupuesto"
+      method="get"
+      action={`https://wa.me/${contacto.telefonoIntl}`}
     >
       <div class="campo">
         <label for="nombre">Tu nombre</label>
@@ -137,15 +140,39 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
         <textarea id="mensaje" name="mensaje" rows="3"></textarea>
       </div>
       <div class="campo campo-ancho">
-        <button class="btn" type="submit">Enviar y que me llamen</button>
+        <button class="btn" type="submit">Enviar por WhatsApp</button>
         <p class="nota">
-          Al enviar se abre tu aplicación de correo con estos datos: el mensaje sale de tu cuenta y
-          no se guarda en ningún servidor de la web. Respuesta en menos de 24 h laborables. Si el
-          trabajo necesita inspección, se dice antes de dar precio firme. ¿Prefieres hablar?{' '}
-          <a href={`https://wa.me/${contacto.telefonoIntl}`} rel="noopener">WhatsApp</a>.
+          Al enviar se abre WhatsApp con tus datos ya escritos: el mensaje sale de tu móvil y no se
+          guarda en ningún servidor de la web. Respuesta en menos de 24 h laborables. Si el trabajo
+          necesita inspección, se dice antes de dar precio firme. ¿Prefieres correo o llamada?{' '}
+          <a href={`mailto:${contacto.email}`}>{contacto.email}</a> ·{' '}
+          <a href={`tel:+${contacto.telefonoIntl}`}>{contacto.telefono}</a>.
         </p>
       </div>
     </form>
+
+  <script define:vars={{ tel: contacto.telefonoIntl }}>
+    // Compone el mensaje con lo que ha escrito y abre WhatsApp. Si el navegador no
+    // ejecuta el guion, el `action` del formulario abre el chat igual (sin el texto).
+    const form = document.getElementById('form-presupuesto');
+    if (form) {
+      form.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        const datos = new FormData(form);
+        const lineas = [
+          'Hola VISUARTE, quiero un presupuesto.',
+          '',
+          'Nombre: ' + (datos.get('nombre') || ''),
+          'Teléfono: ' + (datos.get('telefono') || ''),
+          'Qué necesito: ' + (datos.get('servicio') || ''),
+        ];
+        const cuento = (datos.get('mensaje') || '').toString().trim();
+        if (cuento) lineas.push('Cuento: ' + cuento);
+        window.location.href = 'https://wa.me/' + tel + '?text=' + encodeURIComponent(lineas.join('\n'));
+      });
+    }
+  </script>
+
   </section>
 
   <!-- RESEÑAS REALES: copiadas de Google, con nombre y fecha, y enlace al perfil

@@ -27,6 +27,10 @@ export const contacto = {
   telefonoIntl: '34616996306',
   email: 'visuarte.creativos@gmail.com',
   sede: 'Ciudad Quesada (Rojales)',
+  // Domicilio FISCAL (confirmado por Diego el 27 oct 2026, es el de las facturas).
+  // La LSSI pide el domicilio en el aviso legal; el taller puede estar en otro sitio,
+  // pero lo que se declara como domicilio es esto.
+  domicilioFiscal: 'Camino Abajo del Rincón, 11 · 03322 Molins-Orihuela (Alicante)',
   cobertura: 'Alicante · Vega Baja · Murcia',
   nif: '48550448R',
   titular: 'Diego Gómez García',
@@ -143,7 +147,7 @@ export const faq = [
   },
   {
     p: '¿Cómo se pide presupuesto?',
-    r: 'Con el formulario de la portada —te abre el correo con los datos puestos— o por WhatsApp. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
+    r: 'Con el formulario de la portada —te abre WhatsApp con los datos ya escritos— o por teléfono. Se pide lo mínimo (qué es, dónde va y para cuándo) y se responde con una estimación; si hace falta inspección, se dice antes de dar precio firme.',
   },
   {
     p: '¿Qué materiales usáis?',
@@ -377,7 +381,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       categoria: 'digital',
       tipo: 'Esta web · diseño y código',
       anio: '2026',
-      que: 'Sitio estático en Astro: cero JavaScript servido, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
+      que: 'Sitio estático en Astro: sin frameworks y sin rastreadores. Un guion mínimo de veinte líneas para el formulario —lo demás, cero JavaScript—, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
       img: '/obras/visuarte-web.webp',
       alt: 'Cabecera de visuarte.es con el titular y la imagen de filamentos',
     },
