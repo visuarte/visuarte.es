@@ -183,8 +183,11 @@ export const resenas = [
 
 // El enlace al perfil vive en la firma de cada reseña, no en una nota al pie:
 // una frase explicando que no se filtra llama la atención sobre lo que no hace falta.
-export const resenasUrl =
-  'https://www.google.com/maps/search/?api=1&query=Visuarte+Studio+Ciudad+Quesada';
+// EL ENLACE ES A LA FICHA, NO A UNA BÚSQUEDA (27 oct 2026, auditoría de Manuel).
+// Antes: `maps/search/?query=...` — una búsqueda: al visitante le podía salir otra ficha
+// o ninguna. Ahora: el CID de la ficha real («Visuarte studio», la de las reseñas),
+// sacado del mapa y comprobado. Quien pulse, lee TODAS las reseñas, la buena y la mala.
+export const resenasUrl = 'https://maps.google.com/?cid=10402603095036961255';
 
 // ── AUDIOVISUAL (R2) — trayectoria real, no catálogo inventado ──
 // Fuente: CV de Diego (gaffer) + los enlaces verificados uno a uno contra YouTube el 24 oct 2026
