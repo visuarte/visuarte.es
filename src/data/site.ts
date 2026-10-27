@@ -97,7 +97,10 @@ export interface ItemConfianza {
 
 export const confianzaGrupos: { etiqueta: string; items: ItemConfianza[] }[] = [
   {
-    etiqueta: 'Marcas y clientes',
+    // HONESTO (27 oct 2026, auditoría de Manuel): estos son rodajes en los que
+    // hemos trabajado —de gaffer y best boy—, no clientes del estudio. La propia
+    // /audiovisual ya lo cuenta así; la portada no podía decir otra cosa.
+    etiqueta: 'Rodajes en los que hemos trabajado',
     items: [
       { nombre: 'ElPozo', logo: '/marcas/elpozo-mono.png', escala: 1.0, tipo: 'marca' },
       { nombre: 'Opel', logo: '/marcas/opel.png', escala: 1.2, tipo: 'marca' },
@@ -322,7 +325,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       categoria: 'identidad',
       anio: '2026',
       que: 'Insignia redonda: la tricolor italiana en pinceladas, el gorro de chef con tres estrellas y el nombre en dos voces —«Sabores» en cursiva y «RIZZO» en seco sobre tabla—, con albahaca, espiga y cubiertos en dorado. Alrededor, «Pizzas · Burger · Tradición».',
-      img: '/obras/rizzo-marca.webp',
+      img: '/obras/rizzo-marca-negro.webp',
       alt: 'Logotipo de Sabores Rizzo: insignia redonda con la tricolor italiana, gorro de chef con tres estrellas y el nombre sobre una tabla, rodeado de albahaca y espigas',
       proceso:
         'El sistema sale de la deconstrucción: la tricolor en pinceladas, el gorro con tres estrellas, la albahaca, la espiga de trigo y los cubiertos. De ahí salieron cuatro propuestas —verdes y a color— hasta la insignia que se aprobó el 6 de julio de 2026. El nombre va en dos voces: «Sabores» en cursiva y «RIZZO» en seco sobre tabla, y la cierra «Pizzas · Burger · Tradición», que es lo que el cliente quería decir sin escribirlo.',
@@ -341,7 +344,22 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       categoria: 'rotulos',
       anio: '2026',
       que: 'Cuatro paños en metacrilato y PVC sobre chapa nueva, con adhesivo: la chapa no se taladra por gusto. Panel de menú montado aparte, en húmedo, para poder moverlo antes de que agarrara.',
-      nota: 'Foto del montaje: pendiente de autorización.',
+      img: '/obras/rizzo/fachada-obra.webp',
+      alt: 'Fachada de Sabores Rizzo terminada: banda negra con «Sabores RIZZO · Pizzas · Burger · Tradición», el logotipo redondo en el cristal de la ventana y el panel de menú en la pared',
+      proceso:
+        'El frente se forra en negro mate y el blanco hace todo el trabajo: la banda del nombre arriba, el logotipo en el cristal y el panel de menú a la pared, al lado de la puerta. Las cuatro piezas van pegadas con adhesivo estructural sobre chapa nueva, sin un taladro en la fachada del local. Todo el montaje se hizo con el dueño delante, y el film del fabricante se retiró al final: hasta ese momento no se juzga el color.',
+      soportes: [
+        {
+          src: '/obras/rizzo/fachada-frente.webp',
+          alt: 'La fachada de Sabores Rizzo de frente, con la banda del nombre, el logotipo en el cristal y el panel de menú junto a la puerta',
+          pie: 'La fachada, de frente',
+        },
+        {
+          src: '/obras/rizzo/logotipo-cristal.webp',
+          alt: 'Detalle del logotipo de Sabores Rizzo aplicado en el cristal de la ventana, bajo la banda con la tricolor italiana',
+          pie: 'El logotipo en el cristal',
+        },
+      ],
       caso: 'sabores-rizzo',
     },
     {
@@ -415,6 +433,36 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       que: 'Montaje de 20 s del rodaje de «Rompe con lo de siempre»: entradilla, planos de cámara robot, el anuncio en el monitor y tarjeta de crédito. Formato 4:5, el de la casa.',
       enlace: '/audiovisual#piezas-video',
       enlaceTexto: 'Ver la pieza y los créditos',
+    },
+    {
+      numero: '10',
+      cliente: 'La Solera · Vinoteca',
+      categoria: 'rotulos',
+      tipo: 'Rotulación de fachada · letras corpóreas e imagotipo',
+      anio: '2024',
+      que: 'Letras corpóreas separadas de la pared con tapones, el imagotipo de la casa en la entrada y el claim debajo: «Your taste of Spain in every bottle». Sin luz: el blanco de las letras sobre el negro del frente hace todo el trabajo. En el interior, un muro de vinilo impreso con una imagen de bodega antigua.',
+      img: '/obras/la-solera/la-solera-marca-negro.webp',
+      alt: 'Logotipo de La Solera: escudo granate con la cinta roja y el nombre LA SOLERA debajo en blanco',
+      proceso:
+        'Dos maneras de poner una letra en el mismo frente: las del rótulo van separadas de la pared con tapones, que dejan la sombra bajo cada pieza y dan volumen; el imagotipo y el claim de la entrada van resueltos en plano. Todo sin iluminación, así que la lectura depende del contraste: blanco puro sobre negro mate, con la tipografía seria, de serifa, que aguanta la distancia de la calle.',
+      soportes: [
+        {
+          src: '/obras/la-solera/la-solera-fachada.webp',
+          alt: 'Fachada de La Solera Vinoteca: letras corpóreas blancas separadas de la pared sobre el frente negro, el imagotipo en la entrada y el claim en inglés',
+          pie: 'La fachada',
+        },
+        {
+          src: '/obras/la-solera/la-solera-letras.webp',
+          alt: 'Letras corpóreas de La Solera en blanco sobre el frente negro, vistas de cerca con el canto y el tapón separador',
+          pie: 'Letras con tapones',
+        },
+        {
+          src: '/obras/la-solera/la-solera-rotulo.webp',
+          alt: 'Imagotipo de La Solera y el claim «Your taste of Spain in every bottle» en la entrada del local',
+          pie: 'Imagotipo y claim',
+        },
+      ],
+      nota: 'Interior: muro de vinilo impreso con una bodega antigua. Foto pendiente, en cuanto el cliente abra el local.',
     },
   ],
 };

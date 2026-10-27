@@ -701,15 +701,26 @@ a.fila:hover {
   .brand-txt-sub {
     display: none; /* STUDIO se oculta en pantallas estrechas */
   }
+  /* MENÚ MÓVIL LEGIBLE Y PULSABLE (27 oct 2026, auditoría de Manuel).
+     Antes: 0,6rem = 9,6 px en una sola línea, con área táctil mínima y «CONTACTO»
+     cortado a 320 px. Ahora: 14 px (0,875rem), 44 px de alto de toque y dos líneas
+     cuando no cabe. Sin JavaScript: el sitio sigue sirviendo cero scripts. */
   .main-nav {
-    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 0.9rem;
   }
   .main-nav a {
-    font-size: 0.6rem;
-    letter-spacing: 0.04em;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    padding-block: 0.7rem;
   }
+  /* EL AIRE ENTRE SECCIONES (27 oct 2026). Esto era `padding: 0 var(--space-md)`:
+     el atajo ponía a CERO el relleno vertical de `.section`/`.section-tight` en los
+     elementos que llevan las dos clases (`class="wrap section"`), y en móvil los
+     bloques salían pegados. `padding-inline` toca solo los lados. */
   .wrap {
-    padding: 0 var(--space-md);
+    padding-inline: var(--space-md);
   }
   .fila {
     grid-template-columns: 1fr auto;
@@ -795,10 +806,8 @@ a.fila:hover {
   .hero-title {
     font-size: clamp(2rem, 8.5vw, 3.2rem);
   }
-  .main-nav a {
-    font-size: 0.7rem;
-    letter-spacing: 0.03em;
-  }
+  /* (27 oct 2026) Aquí había un segundo `.main-nav a` con 0,7rem que pisaba al de
+     arriba: el menú móvil se quedaba en 11 px. El tamaño vive en un solo sitio. */
   .btn {
     min-height: 44px; /* objetivo táctil mínimo (protocolo de accesibilidad) */
     padding-block: 0.85rem;
