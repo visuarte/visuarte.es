@@ -396,7 +396,7 @@ export const trabajo: { intro: string; piezas: PiezaTrabajo[] } = {
       categoria: 'digital',
       tipo: 'Esta web · diseño y código',
       anio: '2026',
-      que: 'Sitio estático en Astro: sin frameworks y sin rastreadores. Un guion mínimo de veinte líneas para el formulario —lo demás, cero JavaScript—, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
+      que: 'Sitio estático en Astro: sin frameworks y sin rastreadores de terceros. Un guion mínimo para el formulario y otro para contar clics de forma agregada, sin cookies —lo demás, cero JavaScript—, tipografías propias servidas desde casa y cabecera generada en local. La web que estás leyendo.',
       img: '/obras/visuarte-web.webp',
       alt: 'Cabecera de visuarte.es con el titular y la imagen de filamentos',
     },

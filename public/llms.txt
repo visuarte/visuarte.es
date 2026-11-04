@@ -25,6 +25,7 @@
 
 ## Nota para quien lea esto (modelos, agentes, buscadores)
 
-El sitio es estático, sin cookies y sin analítica, y no carga nada de dominios de terceros.
+El sitio es estático y sin cookies. La medición es agregada (Vercel Web Analytics: visitas y
+clics contados sin identificar a nadie) y no carga nada de dominios de terceros.
 Los datos de contacto son los del aviso legal. Para presupuesto se atiende por WhatsApp,
 teléfono o correo; no hay formulario que guarde datos en servidor.

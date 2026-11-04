@@ -40,11 +40,19 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
           </h1>
           <p class="lede hero-lede">{contacto.lede}</p>
           <div class="hero-meta">
-            <a href="#presupuesto" class="btn">Pedir presupuesto</a>
+            <a
+              href="#presupuesto"
+              class="btn"
+              data-evento="presupuesto_click"
+              data-origen="portada"
+              >Pedir presupuesto</a
+            >
             <a
               href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
               class="btn btn-ghost"
               rel="noopener"
+              data-evento="whatsapp_click"
+              data-origen="portada"
               >Hablar por WhatsApp</a
             >
           </div>
@@ -120,6 +128,8 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
       id="form-presupuesto"
       method="get"
       action={`https://wa.me/${contacto.telefonoIntl}`}
+      data-evento="presupuesto_enviado"
+      data-origen="portada"
     >
       <div class="campo">
         <label for="nombre">Tu nombre</label>
@@ -213,11 +223,19 @@ import { contacto, territorios, confianzaGrupos, serviciosPresupuesto, faq, rese
     <p class="eyebrow">En una línea</p>
     <p class="display cierre-claim">{contacto.cierre}</p>
     <div class="hero-meta">
-      <a href="#presupuesto" class="btn">Pedir presupuesto</a>
+      <a
+              href="#presupuesto"
+              class="btn"
+              data-evento="presupuesto_click"
+              data-origen="portada"
+              >Pedir presupuesto</a
+            >
       <a
         href={`https://wa.me/${contacto.telefonoIntl}?text=Hola%20VISUARTE%2C%20quiero%20un%20presupuesto`}
         class="btn btn-ghost"
-        rel="noopener">Hablar por WhatsApp</a
+        rel="noopener"
+        data-evento="whatsapp_click"
+        data-origen="portada">Hablar por WhatsApp</a
       >
     </div>
   </section>

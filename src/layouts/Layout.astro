@@ -5,6 +5,7 @@ import '../styles/design-tokens.css';
 import '../styles/base.css';
 import '../styles/pages.css';
 import '../styles/web2.css';
+import Analytics from '@vercel/analytics/astro';
 import { nav, contacto, resenasUrl } from '../data/site';
 
 interface Props {
@@ -134,5 +135,31 @@ const negocio = {
         </span>
       </div>
     </footer>
+
+    <!-- MEDICIÓN (4 nov 2026, Diego): Vercel Web Analytics — agregada, sin cookies
+         y sin datos personales. Se mide lo único que importa aquí: cuánta gente
+         pulsa «pedir presupuesto» y cuánta escribe por WhatsApp, y desde dónde.
+         La privacidad lo dice tal cual; no se mide nada más. -->
+    <Analytics />
+    <script>
+      import { track } from '@vercel/analytics';
+
+      // Delegación: sirve para cualquier enlace o formulario que lleve data-evento,
+      // en cualquier página, sin repetir el guion.
+      document.addEventListener('click', (evento) => {
+        const el = (evento.target as HTMLElement)?.closest?.('[data-evento]');
+        if (!el) return;
+        track(el.getAttribute('data-evento')!, {
+          origen: el.getAttribute('data-origen') ?? 'sin-origen',
+        });
+      });
+
+      document.addEventListener('submit', (evento) => {
+        const form = evento.target as HTMLFormElement;
+        const nombre = form?.dataset?.evento;
+        if (!nombre) return;
+        track(nombre, { origen: form.dataset.origen ?? 'sin-origen' });
+      });
+    </script>
   </body>
 </html>

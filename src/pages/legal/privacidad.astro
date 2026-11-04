@@ -1,21 +1,22 @@
 ---
-// POLÍTICA DE PRIVACIDAD (RGPD arts. 13-14) — 24 oct 2026.
+// POLÍTICA DE PRIVACIDAD (RGPD arts. 13-14) — 24 oct 2026 · rev. 4 nov 2026.
 // Escrita sobre lo que esta web HACE DE VERDAD (verificado en el build): sin cookies,
-// sin analítica, sin formularios que guarden nada y sin peticiones a terceros.
-// Si algún día se añade analítica o un endpoint de formulario, ESTA página se corrige
-// AÑADIENDO, no borrando: el canon legal obliga a que la política no mienta.
+// sin formularios que guarden nada y sin peticiones a terceros. Desde el 4 nov hay
+// MEDICIÓN AGREGADA (Vercel Web Analytics): cuenta visitas y clics, sin cookies, sin
+// identificar a nadie y sin datos personales. Se dice en §2 y §8 porque el canon legal
+// obliga a que la política no mienta: se corrige AÑADIENDO, no borrando.
 import Layout from '../../layouts/Layout.astro';
 import { contacto } from '../../data/site';
 ---
 
 <Layout
   titulo="Política de privacidad — Visuarte Studio · Rojales"
-  descripcion="Qué datos trata visuarte.es, para qué y con qué base legal: sin cookies, sin analítica y sin terceros. Tus derechos y cómo ejercerlos."
+  descripcion="Qué datos trata visuarte.es, para qué y con qué base legal: sin cookies, sin datos personales y con medición agregada. Tus derechos y cómo ejercerlos."
 >
   <section class="wrap section-tight legal">
     <p class="eyebrow">Información legal</p>
     <h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Política de privacidad</h1>
-    <p class="nota">Última revisión: 24 de octubre de 2026</p>
+    <p class="nota">Última revisión: 4 de noviembre de 2026</p>
 
     <h2>1. Responsable del tratamiento</h2>
     <ul class="lista-marcada">
@@ -28,9 +29,11 @@ import { contacto } from '../../data/site';
 
     <h2>2. Qué datos se tratan</h2>
     <p>
-      <strong>Esta web no recoge datos por sí misma.</strong> No hay formularios que envíen información
-      a un servidor, no hay cuentas de usuario, no hay analítica y no hay cookies publicitarias ni de
-      seguimiento. Tampoco se cargan tipografías, scripts ni imágenes desde dominios de terceros.
+      <strong>Esta web no recoge datos personales por sí misma.</strong> No hay formularios que envíen
+      información a un servidor y no hay cuentas de usuario. Se mide de forma <strong>agregada</strong>:
+      cuántas visitas hay y cuántos clics recibe «pedir presupuesto», sin cookies, sin identificar a
+      nadie y sin datos personales. Tampoco se cargan tipografías, imágenes ni scripts desde dominios
+      de terceros.
     </p>
     <p>Los datos que sí se tratan son los que tú nos das al contactar:</p>
     <ul class="lista-marcada">
@@ -62,7 +65,7 @@ import { contacto } from '../../data/site';
     <h2>5. Destinatarios</h2>
     <p>No se cede tu información a nadie, salvo obligación legal. Sí intervienen proveedores necesarios:</p>
     <ul class="lista-marcada">
-      <li><strong>Alojamiento web</strong> — Vercel Inc. (logs técnicos del sitio)</li>
+      <li><strong>Alojamiento y medición</strong> — Vercel Inc. (logs técnicos y recuento agregado de visitas y clics, sin cookies ni datos personales)</li>
       <li><strong>Correo electrónico</strong> — Google (Gmail), si nos escribes por correo</li>
       <li><strong>Mensajería</strong> — WhatsApp (Meta Platforms Ireland), si nos escribes por WhatsApp</li>
     </ul>
@@ -92,8 +95,9 @@ import { contacto } from '../../data/site';
 
     <h2>8. Cookies</h2>
     <p>
-      <strong>Este sitio no usa cookies.</strong> Ni técnicas, ni de analítica, ni publicitarias. Por
-      eso no hay banner: no hay nada que aceptar.
+      <strong>Este sitio no usa cookies.</strong> Ni técnicas, ni de analítica, ni publicitarias. La
+      medición es agregada y sin cookies: cuenta visitas y clics, no personas. Por eso no hay banner:
+      no hay nada que aceptar.
     </p>
 
     <h2>9. Cambios</h2>
