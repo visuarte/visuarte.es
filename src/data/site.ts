@@ -17,10 +17,11 @@ export const contacto = {
   marca: 'VISUARTE',
   claim: 'Pensado a lo grande.',
   claimEm: 'Fabricado de verdad.',
-  // Lede afinado por Diego (24 oct 2026): la IA se dice EXPLÍCITA, y se nombra el
-  // arco completo (identidad → local → web → software → producción → gestión agéntica).
-  lede:
-    'VISUARTE asume tu comunicación de principio a fin: de la identidad al local, de la web al software, y de la producción a la gestión agéntica de procesos con IA. El criterio y el proceso son nuestros.',
+  // Lede nuevo (4 nov 2026, Diego): el que había no decía a quién servimos ni qué
+  // problema resuelve, y en móvil no pasaba el test de los 3 segundos. Este dice
+  // oficio, cliente y zona en una línea, y cierra con el plazo. Fuera «El criterio
+  // y el proceso son nuestros»: dicho por nosotros, era autobombo.
+  lede: 'Marca, rótulos, web y automatización para negocios de Alicante, Vega Baja y Murcia. Taller propio. Plazo por escrito. Y se cumple.',
   // Claim de cierre (24 oct 2026): la promesa en una línea, al final del recorrido.
   cierre: 'Visuarte se encarga. Tú, de tu negocio.',
   telefono: '616 996 306',
@@ -167,7 +168,7 @@ export const faq = [
   },
   {
     p: '¿Cuánto se tarda en rotular una fachada o un vehículo?',
-    r: 'Una fachada suele estar entre 3 y 5 días laborables desde la aprobación del diseño; un vehículo, entre 1 y 2 días de taller. Plazos orientativos: se confirman tras ver el soporte y las medidas.',
+    r: 'Una fachada suele estar entre 3 y 5 días laborables desde la aprobación del diseño; un vehículo, entre 1 y 2 días de taller. El plazo se confirma al medir y se da por escrito antes de empezar. Si depende de un tercero —proveedor, permiso o meteorología—, se dice que es orientativo y por qué. Cuando depende de nosotros, se cumple.',
   },
 ];
 
