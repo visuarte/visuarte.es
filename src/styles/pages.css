@@ -379,17 +379,27 @@
 /* ── Contacto ───────────────────────────────────────────────── */
 .contacto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-lg);
+  /* Tres columnas fijas: con auto-fit y tres canales, el tercero caía solo a una
+     segunda fila y dejaba un hueco a la derecha (4 nov 2026). */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
   margin-top: var(--space-lg);
 }
 
+/* Sin caja (4 nov 2026, Diego): el bloque marrón con borde no pegaba con el resto
+   de la página. Los canales van sobre el negro, separados por una línea vertical
+   fina, como columnas de periódico. */
 .contacto-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
-  padding: var(--space-lg);
-  box-shadow: var(--shadow-card);
+  padding: 0 var(--space-lg);
+}
+.contacto-card:first-child {
+  padding-left: 0;
+}
+.contacto-card:last-child {
+  padding-right: 0;
+}
+.contacto-card + .contacto-card {
+  border-left: 1px solid var(--line);
 }
 .contacto-card .clave {
   font-family: var(--font-mono);
@@ -684,6 +694,23 @@ a.fila:hover {
   }
   .hero-visual {
     display: none;
+  }
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+  /* En una columna, el separador pasa a horizontal. */
+  .contacto-card {
+    padding: var(--space-md) 0;
+  }
+  .contacto-card:first-child {
+    padding-top: 0;
+  }
+  .contacto-card:last-child {
+    padding-bottom: 0;
+  }
+  .contacto-card + .contacto-card {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 }
 

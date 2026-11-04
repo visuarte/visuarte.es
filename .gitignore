@@ -29,3 +29,6 @@ dist-ssr
 # macOS AppleDouble (resource forks from ExFAT)
 ._*
 .env*
+
+# Caché de desarrollo de Astro (pid, puerto, preview)
+.astro/

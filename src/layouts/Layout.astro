@@ -5,7 +5,7 @@ import '../styles/design-tokens.css';
 import '../styles/base.css';
 import '../styles/pages.css';
 import '../styles/web2.css';
-import { nav, contacto } from '../data/site';
+import { nav, contacto, resenasUrl } from '../data/site';
 
 interface Props {
   titulo: string;
@@ -19,6 +19,39 @@ const { titulo, descripcion, precarga, precargaSrcset } = Astro.props;
 const sitio = 'https://visuarte.es';
 const canonica = new URL(Astro.url.pathname.replace(/\/index\.html$/, '/'), sitio).href;
 const anio = new Date().getFullYear();
+
+// DATOS ESTRUCTURADOS DEL ESTUDIO (4 nov 2026). El README decía «JSON-LD» y no había
+// ninguno: esto lo pone de verdad. La dirección es la del TALLER, no la fiscal (esa
+// solo vive en el aviso legal). El enlace es la ficha real, por CID.
+const negocio = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${sitio}/#estudio`,
+  name: 'VISUARTE Studio',
+  // Descripción fija del negocio (no la de la página: el LocalBusiness es el mismo en toda la web).
+  description:
+    'Estudio de diseño, rotulación e imprenta en Ciudad Quesada (Rojales), Alicante. Marca, fachadas, vehículos, gran formato, web y audiovisual, con taller propio.',
+  url: sitio,
+  telephone: `+${contacto.telefonoIntl}`,
+  email: contacto.email,
+  image: `${sitio}/og-image.jpg`,
+  logo: `${sitio}/logo/imagotipo-visuarte.png`,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: contacto.calle,
+    postalCode: contacto.cp,
+    addressLocality: contacto.localidad,
+    addressRegion: contacto.provincia,
+    addressCountry: 'ES',
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Vega Baja' },
+    { '@type': 'AdministrativeArea', name: 'Alicante' },
+    { '@type': 'AdministrativeArea', name: 'Murcia' },
+  ],
+  sameAs: [resenasUrl],
+};
 ---
 
 <!doctype html>
@@ -57,6 +90,7 @@ const anio = new Date().getFullYear();
     <title>{titulo}</title>
     <!-- Poppins se sirve desde /fonts (propia): cero peticiones a terceros. -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(negocio)} />
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -88,9 +122,11 @@ const anio = new Date().getFullYear();
       <div class="site-footer-inner">
         <span class="footer-word">{contacto.marca}</span>
         <span class="footer-word">© {anio} — Estudio de diseño, imprenta y producción.</span>
-        <span class="footer-word">
-          {contacto.titular} · NIF {contacto.nif} · {contacto.sede} · {contacto.cobertura}
-        </span>
+        <!-- Nombre y NIF fuera del pie (4 nov 2026, consejo de Manuel): la LSSI ya
+             los tiene en el aviso legal, que se enlaza desde aquí en todas las
+             páginas. En el pie solo queda la zona, que sí ayuda al SEO local.
+             Ocultarlos con CSS no: o se publican o no se publican. -->
+        <span class="footer-word">{contacto.sede} · {contacto.cobertura}</span>
         <span class="footer-word">
           <a class="footer-legal" href="/legal/aviso">Aviso legal</a>
           {' · '}

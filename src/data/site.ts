@@ -27,6 +27,14 @@ export const contacto = {
   telefonoIntl: '34616996306',
   email: 'visuarte.creativos@gmail.com',
   sede: 'Ciudad Quesada (Rojales)',
+  // Dirección del TALLER (4 nov 2026, Diego): es donde se atiende y la que va en la
+  // ficha de Google y en el LocalBusiness. NO es el domicilio fiscal —ese sigue en el
+  // aviso legal porque lo pide la LSSI— y no se mezclan.
+  direccion: 'Calle Santiago de Compostela, 12 (Local 12) · 03170 Ciudad Quesada (Rojales), Alicante',
+  calle: 'Calle Santiago de Compostela, 12 (Local 12)',
+  cp: '03170',
+  localidad: 'Ciudad Quesada (Rojales)',
+  provincia: 'Alicante',
   // Domicilio FISCAL (confirmado por Diego el 27 oct 2026, es el de las facturas).
   // La LSSI pide el domicilio en el aviso legal; el taller puede estar en otro sitio,
   // pero lo que se declara como domicilio es esto.
@@ -141,6 +149,10 @@ export const serviciosPresupuesto = [
 // Orden de embudo (24 oct 2026), no por orden de llegada:
 // cobertura → presupuesto → materiales → tiempos.
 export const faq = [
+  {
+    p: '¿Dónde está el taller?',
+    r: `En ${contacto.direccion}. Se atiende con cita previa: el día de montaje o de rodaje no hay nadie en la puerta, y avisar evita el viaje en balde.`,
+  },
   {
     p: '¿Trabajáis fuera de la Vega Baja?',
     r: 'Sí. Sede en Ciudad Quesada (Rojales) y cobertura habitual en Alicante, Vega Baja y Murcia. Para más distancia se valora el desplazamiento en el presupuesto, nunca después.',
