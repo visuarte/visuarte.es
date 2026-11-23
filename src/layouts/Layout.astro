@@ -70,7 +70,12 @@ const negocio = {
         fetchpriority="high"
       />
     )}
-    <link rel="icon" type="image/svg+xml" href="/logo/llama-2t.svg" />
+    <!-- 23 nov 2026: el favicon era `/logo/llama-2t.svg`, que no es de Visuarte: es el
+         wordmark de MAPI (una «mapi» naranja en la pestaña). Ahora es el isotipo del panal,
+         el mismo del header, con fondo blanco para que se lea en pestañas oscuras. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#151513" />
     <meta name="description" content={descripcion} />
     <meta property="og:title" content={titulo} />
